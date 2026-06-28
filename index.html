@@ -442,15 +442,20 @@ tr:last-child td { border-bottom: none; }
 
 /* ===== NEXT CHAPTER CTA ===== */
 .nx {
-  background: var(--card-bg); border: 1px solid var(--border);
-  border-radius: 12px; padding: 20px 24px; margin: 28px 0; text-align: center;
-  transition: all 0.3s; display: block; text-decoration: none;
+  display: block; background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px; margin: 28px 0; text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 .nx:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(15,110,86,0.06); }
-.nx .nl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
-.nx .nn { font-size: 18px; font-weight: 600; color: var(--text); }
-.nx .nn svg { width: 18px; height: 18px; vertical-align: middle; margin-left: 6px; }
-.nx .nd { font-size: 14px; color: var(--text-secondary); margin-top: 4px; line-height: 1.5; }
+.nx:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nx-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.nx-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 600; }
+.nx-chapter { font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+.nx-title { display: block; font-size: 28px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+.nx-desc { display: block; font-size: 16px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px; max-width: 480px; }
+.nx-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: var(--accent); }
+.nx-cta svg { width: 18px; height: 18px; transition: transform 0.2s; }
+.nx:hover .nx-cta svg { transform: translateX(4px); }
 
 /* ===== SUPPLEMENT BADGE ===== */
 .sb { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; margin-right: 6px; vertical-align: middle; }
@@ -487,12 +492,12 @@ tr:last-child td { border-bottom: none; }
   .sci { padding: 20px; }
   .tw { padding: 20px; }
   .food-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
-  .idx a, .nav-links a, .nx { min-height: 48px; display: flex; align-items: center; }
+  .idx a, .nav-links a, .nx { min-height: 48px; }
   .idx a { padding: 12px 14px; }
+  .nx { padding: 24px 20px; }
+  .nx-title { font-size: 22px; }
+  .nx-desc { font-size: 15px; margin-bottom: 16px; }
   .cf { font-size: 11px; gap: 10px; }
-  .nx { text-align: left; padding: 16px 18px; }
-  .nx .nn { font-size: 16px; }
-  .nx .nd { font-size: 13px; }
   .fy { padding: 14px 16px; }
   .fy .ft { font-size: 14px; }
   .sci .fi { padding: 14px 16px; }
@@ -703,10 +708,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ti"><span class="ck">&check;</span><span class="tx">The three variables work together; fix all three, not just one or two</span></div>
   </div>
 
-  <a href="#ch-a2" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 2</div>
-    <div class="nn">Nutrition <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Learn how to fuel your body with the right proteins, nutrients, and meal timing.</div>
+  <a href="#ch-a2" class="nx" aria-label="Continue to Chapter 2: Nutrition">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 2</span></span>
+    <span class="nx-title">Nutrition</span>
+    <span class="nx-desc">Learn how to fuel your body with the right proteins, nutrients, and meal timing.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -801,10 +807,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you sit at a desk all day:</strong> Pack protein-rich snacks for work — Greek yogurt, nuts, or a boiled egg. Office cafeterias rarely prioritise protein.</div>
   </div>
 
-  <a href="#ch-a3" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 3</div>
-    <div class="nn">Training <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Build strength with a simple at-home routine that requires zero equipment.</div>
+  <a href="#ch-a3" class="nx" aria-label="Continue to Chapter 3: Training">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 3</span></span>
+    <span class="nx-title">Training</span>
+    <span class="nx-desc">Build strength with a simple at-home routine that requires zero equipment.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -885,10 +892,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are 50+:</strong> Start with wall push-ups and chair squats. Your joints need a longer warm-up. Add 5 minutes of mobility before each session.</div>
   </div>
 
-  <a href="#ch-a4" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 4</div>
-    <div class="nn">Recovery <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">You do not grow in the gym. You grow in bed. Learn why recovery is 50% of your results.</div>
+  <a href="#ch-a4" class="nx" aria-label="Continue to Chapter 4: Recovery">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 4</span></span>
+    <span class="nx-title">Recovery</span>
+    <span class="nx-desc">You do not grow in the gym. You grow in bed. Learn why recovery is 50% of your results.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -954,10 +962,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are over 50:</strong> Deep sleep drops 50-70% after 50. Morning sunlight within 30 minutes of waking is your single most effective intervention. Pair it with magnesium glycinate before bed.</div>
   </div>
 
-  <a href="#ch-a5" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 5</div>
-    <div class="nn">Supplements <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Which supplements actually work and which are a waste of money.</div>
+  <a href="#ch-a5" class="nx" aria-label="Continue to Chapter 5: Supplements">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 5</span></span>
+    <span class="nx-title">Supplements</span>
+    <span class="nx-desc">Which supplements actually work and which are a waste of money.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1018,10 +1027,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are over 50:</strong> Vitamin D and B12 absorption decline with age. Get your levels tested annually. Supplementation is not optional after 50 — it is healthcare.</div>
   </div>
 
-  <a href="#ch-a6" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 6</div>
-    <div class="nn">The Desk Job Effect <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">How to counteract the metabolic damage of sitting 9+ hours per day.</div>
+  <a href="#ch-a6" class="nx" aria-label="Continue to Chapter 6: The Desk Job Effect">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 6</span></span>
+    <span class="nx-title">The Desk Job Effect</span>
+    <span class="nx-desc">How to counteract the metabolic damage of sitting 9+ hours per day.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1126,10 +1136,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you work from home:</strong> Set a timer for every 30 minutes. When it rings, stand up, walk to the kitchen, stretch your hips. This one habit cuts sitting risk by 60%.</div>
   </div>
 
-  <a href="#ch-a7" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 7</div>
-    <div class="nn">Your Daily Protocol <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">A simple, memorable daily checklist that brings everything together.</div>
+  <a href="#ch-a7" class="nx" aria-label="Continue to Chapter 7: Your Daily Protocol">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 7</span></span>
+    <span class="nx-title">Your Daily Protocol</span>
+    <span class="nx-desc">A simple, memorable daily checklist that brings everything together.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1223,10 +1234,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you struggle with consistency:</strong> Do not track everything. Just track protein and steps for the first two weeks. Those two metrics alone will produce measurable results.</div>
   </div>
 
-  <a href="#ch-a8" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 8</div>
-    <div class="nn">Lifestyle &amp; Longevity <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">How to maintain these habits for life and what to do when motivation runs low.</div>
+  <a href="#ch-a8" class="nx" aria-label="Continue to Chapter 8: Lifestyle and Longevity">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 8</span></span>
+    <span class="nx-title">Lifestyle &amp; Longevity</span>
+    <span class="nx-desc">How to maintain these habits for life and what to do when motivation runs low.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1415,10 +1427,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are new to exercise:</strong> Start with walking 15-20 minutes daily for two weeks. The single best predictor of long-term success is how gently you begin.</div>
   </div>
 
-  <a href="#ch-e2" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 2</div>
-    <div class="nn">For Men <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Managing testosterone, bone density, sleep, and heart health after 50.</div>
+  <a href="#ch-e2" class="nx" aria-label="Continue to Chapter 2: For Men">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 2</span></span>
+    <span class="nx-title">For Men</span>
+    <span class="nx-desc">Managing testosterone, bone density, sleep, and heart health after 50.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1493,10 +1506,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are a man over 50:</strong> Get your testosterone and vitamin D levels checked at your next physical. Three nights of poor sleep can drop testosterone by 10-15%. Prioritize sleep before considering any supplement.</div>
   </div>
 
-  <a href="#ch-e3" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 3</div>
-    <div class="nn">For Women <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Navigating menopause with strength — bone, muscle, and metabolic health.</div>
+  <a href="#ch-e3" class="nx" aria-label="Continue to Chapter 3: For Women">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 3</span></span>
+    <span class="nx-title">For Women</span>
+    <span class="nx-desc">Navigating menopause with strength — bone, muscle, and metabolic health.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1580,10 +1594,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you are a woman over 50:</strong> Resistance training is the single best intervention. It builds bone density, preserves muscle, improves sleep, and reduces hot flash severity. Start with two sessions per week.</div>
   </div>
 
-  <a href="#ch-e4" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 4</div>
-    <div class="nn">Nutrition After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">More protein, more calcium, more vitamin D — your nutritional needs increase with age.</div>
+  <a href="#ch-e4" class="nx" aria-label="Continue to Chapter 4: Nutrition After 50">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 4</span></span>
+    <span class="nx-title">Nutrition After 50</span>
+    <span class="nx-desc">More protein, more calcium, more vitamin D — your nutritional needs increase with age.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1648,10 +1663,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you have trouble meeting protein targets:</strong> Add a scoop of whey protein to your morning porridge or dalia. 25 g of protein in one scoop. It is the easiest way to hit 35-40 g per meal.</div>
   </div>
 
-  <a href="#ch-e5" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 5</div>
-    <div class="nn">Training After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Walking, strength, mobility, and balance — the four pillars of training after 50.</div>
+  <a href="#ch-e5" class="nx" aria-label="Continue to Chapter 5: Training After 50">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 5</span></span>
+    <span class="nx-title">Training After 50</span>
+    <span class="nx-desc">Walking, strength, mobility, and balance — the four pillars of training after 50.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1713,10 +1729,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you have been inactive for years:</strong> Start with 15-minute walks for two weeks. Then add two strength sessions. Then increase to 45-minute walks. Slow progress is still progress.</div>
   </div>
 
-  <a href="#ch-e6" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 6</div>
-    <div class="nn">Recovery &amp; Sleep After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">How your sleep changes after 50 and what to do about it.</div>
+  <a href="#ch-e6" class="nx" aria-label="Continue to Chapter 6: Recovery and Sleep After 50">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 6</span></span>
+    <span class="nx-title">Recovery &amp; Sleep After 50</span>
+    <span class="nx-desc">How your sleep changes after 50 and what to do about it.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1770,10 +1787,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If hot flashes disrupt your sleep:</strong> Keep your bedroom at 18-20°C, wear cotton nightwear, and take 300 mg magnesium glycinate before bed. Avoid caffeine after 2 PM.</div>
   </div>
 
-  <a href="#ch-e7" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 7</div>
-    <div class="nn">Lifestyle &amp; Healthy Aging <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">Hydration, social connection, mental stimulation, and regular check-ups.</div>
+  <a href="#ch-e7" class="nx" aria-label="Continue to Chapter 7: Lifestyle and Healthy Aging">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 7</span></span>
+    <span class="nx-title">Lifestyle &amp; Healthy Aging</span>
+    <span class="nx-desc">Hydration, social connection, mental stimulation, and regular check-ups.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
@@ -1849,10 +1867,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ft"><strong>If you feel overwhelmed:</strong> Pick just three things to start: walk daily, eat protein at every meal, and go to bed at the same time. Master those three before adding anything else.</div>
   </div>
 
-  <a href="#ch-e8" class="nx">
-    <div class="nl">Up Next &mdash; Chapter 8</div>
-    <div class="nn">Putting It All Together <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="nd">A simple one-page daily protocol for healthy aging.</div>
+  <a href="#ch-e8" class="nx" aria-label="Continue to Chapter 8: Putting It All Together">
+    <span class="nx-meta"><span class="nx-label">Up Next</span><span class="nx-chapter">Chapter 8</span></span>
+    <span class="nx-title">Putting It All Together</span>
+    <span class="nx-desc">A simple one-page daily protocol for healthy aging.</span>
+    <span class="nx-cta">Continue <svg viewBox="0 0 24 24" width="16" height="16"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </a>
   <div class="cf">
     <span>Reviewed June 2026</span>
