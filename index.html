@@ -1977,12 +1977,13 @@ function switchPage(p){
 }
 
 (function(){
-  var ticking=false
+  var ticking=false, pin=false
   function getIdx(){return document.querySelector('.page.active .idx')}
   function getFab(){return document.getElementById('idxFab')}
   function update(){
     var idx=getIdx(), fab=getFab()
     if(!idx)return
+    if(pin) pin=false
     if(window.pageYOffset>120){
       idx.classList.add('hidden');fab.classList.add('show')
     }else{
@@ -1992,10 +1993,10 @@ function switchPage(p){
   }
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}})
   window.showIndex=function(){
+    pin=true
     var idx=getIdx(), fab=getFab()
     if(!idx)return
     idx.classList.remove('hidden');fab.classList.remove('show')
-    window.scrollTo({top:0,behavior:'smooth'})
   }
 })()
 </script>
