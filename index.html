@@ -1977,53 +1977,25 @@ function switchPage(p){
 }
 
 (function(){
-  var last=0, ticking=false, hideTimer=null
-
+  var ticking=false
   function getIdx(){return document.querySelector('.page.active .idx')}
   function getFab(){return document.getElementById('idxFab')}
-
   function update(){
     var idx=getIdx(), fab=getFab()
     if(!idx)return
-
-    var cur=window.pageYOffset, dir=cur>last?'down':'up', bt=document.documentElement.scrollHeight-window.innerHeight-400
-    var wasHidden=idx.classList.contains('hidden')
-
-    // Near bottom — hide, cancel timer
-    if(cur>bt){
+    if(window.pageYOffset>120){
       idx.classList.add('hidden');fab.classList.add('show')
-      if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
-      last=cur;ticking=false;return
-    }
-
-    // Show on any scroll if was hidden by timer
-    if(wasHidden){
+    }else{
       idx.classList.remove('hidden');fab.classList.remove('show')
     }
-
-    // Upward scroll — start 4s timer
-    if(dir==='up'&&last-cur>=15){
-      if(!hideTimer){
-        hideTimer=setTimeout(function(){
-          idx.classList.add('hidden');fab.classList.add('show');hideTimer=null
-        },4000)
-      }
-    }
-
-    // Downward scroll through content — cancel timer
-    if(dir==='down'&&cur>=last+15&&cur>=120){
-      if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
-    }
-
-    last=cur;ticking=false
+    ticking=false
   }
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}})
   window.showIndex=function(){
     var idx=getIdx(), fab=getFab()
     if(!idx)return
     idx.classList.remove('hidden');fab.classList.remove('show')
-    if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
-    window.scrollTo({top:idx.offsetTop-80,behavior:'smooth'})
+    window.scrollTo({top:0,behavior:'smooth'})
   }
 })()
 </script>
