@@ -361,6 +361,12 @@ tr:last-child td { border-bottom: none; }
   border-radius: 12px; padding: 20px 24px; margin: -20px 0 32px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   display: flex; flex-wrap: wrap; gap: 6px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.idx.hidden {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
 }
 .idx a {
   font-size: 13px; font-weight: 500; color: var(--text-secondary);
@@ -369,6 +375,19 @@ tr:last-child td { border-bottom: none; }
 }
 .idx a:hover { border-color: var(--accent); color: var(--accent); }
 .idx .il { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); width: 100%; margin-bottom: 4px; }
+
+.idx-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 99;
+  background: var(--accent); color: white; border: none;
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(15,110,86,0.25);
+  cursor: pointer; transition: all 0.3s ease;
+  opacity: 0; transform: translateY(20px); pointer-events: none;
+}
+.idx-fab.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.idx-fab:active { transform: scale(0.92); }
+.idx-fab svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ===== VISIBLE PROGRESS ===== */
 .cp {
@@ -482,6 +501,7 @@ html.dark .nav-links a.active { background: var(--accent); }
 html.dark .idx { background: var(--card-bg); border-color: var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 html.dark .idx a { border-color: var(--border); color: var(--text-secondary); }
 html.dark .idx a:hover { border-color: var(--accent); color: var(--accent); }
+html.dark .idx-fab { box-shadow: 0 4px 16px rgba(15,110,86,0.4); }
 html.dark .cb { background: var(--card-bg); border-color: var(--border); }
 html.dark .fy { background: rgba(15,110,86,0.03); border-color: var(--border); }
 html.dark .nx { background: var(--card-bg); border-color: var(--border); }
@@ -1745,6 +1765,10 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
 </div><!-- /content -->
 </div><!-- /page elder -->
 
+<button class="idx-fab" id="idxFab" onclick="showIndex()" aria-label="Show page index">
+  <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+
 <script>
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
 function toggleTheme(){
@@ -1762,6 +1786,20 @@ function switchPage(p){
   document.getElementById('navLinks').classList.remove('open')
   window.scrollTo(0,0)
 }
+
+(function(){
+  var idx=document.querySelector('.idx'), fab=document.getElementById('idxFab'), last=0, ticking=false
+  function update(){
+    var cur=window.pageYOffset, dir=cur>last?'down':'up'
+    if(cur>120){
+      if(dir==='down'&&cur>last+15){idx.classList.add('hidden');fab.classList.add('show')}
+      else if(dir==='up'&&last-cur>15){idx.classList.remove('hidden');fab.classList.remove('show')}
+    }else{idx.classList.remove('hidden');fab.classList.remove('show')}
+    last=cur;ticking=false
+  }
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}})
+  window.showIndex=function(){idx.classList.remove('hidden');fab.classList.remove('show');window.scrollTo({top:idx.offsetTop-80,behavior:'smooth'})}
+})()
 </script>
 
 </body>
