@@ -23,6 +23,12 @@
   --purple: #7c3aed;
   --rose: #e11d48;
   --warning: #f39c12;
+
+  --ch1: #0F6E56; --ch2: #3A7BD5; --ch3: #7c3aed; --ch4: #d4a853;
+  --ch5: #e11d48; --ch6: #f39c12; --ch7: #0891b2; --ch8: #64748b;
+  --ch1b: rgba(15,110,86,0.08); --ch2b: rgba(58,123,213,0.08); --ch3b: rgba(124,58,237,0.08);
+  --ch4b: rgba(212,168,83,0.08); --ch5b: rgba(225,29,72,0.08); --ch6b: rgba(243,156,18,0.08);
+  --ch7b: rgba(8,145,178,0.08); --ch8b: rgba(100,116,139,0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -346,6 +352,84 @@ tr:last-child td { border-bottom: none; }
 .icon-rose { color: var(--rose); }
 .icon-blue { color: var(--blue); }
 
+/* ===== STICKY INDEX ===== */
+.idx {
+  position: sticky; top: 64px; z-index: 100;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: -20px 0 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.idx a {
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; padding: 6px 14px; border-radius: 6px;
+  border: 1px solid var(--border); transition: all 0.2s;
+}
+.idx a:hover { border-color: var(--accent); color: var(--accent); }
+.idx .il { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); width: 100%; margin-bottom: 4px; }
+
+/* ===== VISIBLE PROGRESS ===== */
+.cp {
+  font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.cp .lb { font-size: 11px; font-weight: 600; }
+.cp .tk {
+  flex: 1; height: 6px; background: var(--border); border-radius: 4px; overflow: hidden; max-width: 120px;
+}
+.cp .tk .fl { height: 100%; border-radius: 4px; background: var(--accent); }
+.cp .ch { 
+  background: var(--accent); color: white; padding: 2px 10px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0;
+}
+
+/* ===== CHAPTER HERO BADGE ===== */
+.cb {
+  display: flex; align-items: center; gap: 18px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px 22px; margin-bottom: 24px;
+}
+.cb svg { width: 40px; height: 40px; flex-shrink: 0; }
+.cb .ct { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* ===== FOR YOU ===== */
+.fy {
+  background: linear-gradient(135deg, rgba(15,110,86,0.03), rgba(15,110,86,0.01));
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0;
+}
+.fy .fl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+.fy .ft { font-size: 15px; line-height: 1.6; color: var(--text-secondary); }
+.fy .ft strong { color: var(--accent); }
+
+/* ===== NEXT CHAPTER CTA ===== */
+.nx {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 28px 0; text-align: center;
+  transition: all 0.3s; display: block; text-decoration: none;
+}
+.nx:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(15,110,86,0.06); }
+.nx .nl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+.nx .nn { font-size: 18px; font-weight: 600; color: var(--text); }
+.nx .nn svg { width: 18px; height: 18px; vertical-align: middle; margin-left: 6px; }
+.nx .nd { font-size: 14px; color: var(--text-secondary); margin-top: 4px; line-height: 1.5; }
+
+/* ===== SUPPLEMENT BADGE ===== */
+.sb { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; margin-right: 6px; vertical-align: middle; }
+.sb.es { background: #dcfce7; color: #166534; }
+.sb.re { background: #fef3c7; color: #92400e; }
+.sb.op { background: #f3f4f6; color: #6b7280; }
+
+/* ===== STAT DOMAIN ===== */
+.sc.mt .n { color: var(--ch1); }
+.sc.lg .n { color: var(--ch2); }
+.sc.ri .n { color: var(--ch5); }
+
+/* ===== MEAL BADGE ===== */
+.mb { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+.mb.am { background: #fef9c3; color: #854d0e; }
+.mb.pm { background: #e0f2fe; color: #075985; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   body { font-size: 17px; padding-top: 60px; }
@@ -393,6 +477,18 @@ html.dark .myth { border-color: rgba(15,110,86,0.15); }
 html.dark .dyk { border-color: rgba(15,110,86,0.12); }
 html.dark .disc { background: rgba(255,255,255,0.02); }
 html.dark .nav-links a.active { background: var(--accent); }
+html.dark .idx { background: var(--card-bg); border-color: var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+html.dark .idx a { border-color: var(--border); color: var(--text-secondary); }
+html.dark .idx a:hover { border-color: var(--accent); color: var(--accent); }
+html.dark .cb { background: var(--card-bg); border-color: var(--border); }
+html.dark .fy { background: rgba(15,110,86,0.03); border-color: var(--border); }
+html.dark .nx { background: var(--card-bg); border-color: var(--border); }
+html.dark .nx:hover { border-color: var(--accent); }
+html.dark .sb.es { background: rgba(22,101,52,0.2); color: #86efac; }
+html.dark .sb.re { background: rgba(146,64,14,0.2); color: #fcd34d; }
+html.dark .sb.op { background: rgba(107,114,128,0.2); color: #d1d5db; }
+html.dark .mb.am { background: rgba(133,77,14,0.2); color: #fde68a; }
+html.dark .mb.pm { background: rgba(7,89,133,0.2); color: #7dd3fc; }
   </style>
   <script>!function(){var e=localStorage.getItem('theme');if(e==='dark'||(!e&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}()</script>
 </head>
@@ -437,16 +533,33 @@ html.dark .nav-links a.active { background: var(--accent); }
 
 <div class="content">
 
+<div class="idx">
+  <span class="il">On this page</span>
+  <a href="#ch-a1">Foundation</a>
+  <a href="#ch-a2">Nutrition</a>
+  <a href="#ch-a3">Training</a>
+  <a href="#ch-a4">Recovery</a>
+  <a href="#ch-a5">Supplements</a>
+  <a href="#ch-a6">Desk Job</a>
+  <a href="#ch-a7">Daily Protocol</a>
+  <a href="#ch-a8">Lifestyle</a>
+</div>
+
 <!-- CH 1: FOUNDATION -->
-<div class="section" id="ch-a1">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:12%"></div></div><span>1 of 8</span></div>
+<div class="section" id="ch-a1" style="--ch-clr:var(--ch1);--ch-bg:var(--ch1b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:12%;background:var(--ch1)"></div></div><span class="ch" style="background:var(--ch1)">1 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 8 min</span>
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><path class="icon-clr" d="M12 20V10M18 20V4M6 20v-4"/></svg> Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>The 3-Variable System</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch1)"/><path d="M20 12v8l6 4" class="icon-clr" style="color:var(--ch1)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch1);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch1)">Foundation</strong> — Master the three variables that control every body transformation.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch1);color:var(--ch1)">The 3-Variable System</h2>
   <div class="chapter-intro">
     <p>Every body transformation &mdash; fat loss, muscle gain, or simply feeling better &mdash; comes down to three variables. Master these and the details take care of themselves.</p>
   </div>
@@ -472,6 +585,13 @@ html.dark .nav-links a.active { background: var(--accent); }
       <h4>3. Recovery &amp; Sleep</h4>
       <p>This is where muscle repair, hormone balance, and appetite regulation occur. Poor sleep increases cortisol, spikes hunger, and weakens willpower. After 50, recovery takes longer.</p>
     </div>
+  </div>
+
+  <div class="sr">
+    <div class="sc mt"><div class="n" style="color:var(--ch1)">400-500</div><div class="l">Calorie Deficit/Day</div></div>
+    <div class="sc mt"><div class="n" style="color:var(--ch1)">20-30%</div><div class="l">Muscle Loss Without Training</div></div>
+    <div class="sc ri"><div class="n" style="color:var(--ch5)">55%</div><div class="l">Less Fat Loss w/ Poor Sleep</div></div>
+    <div class="sc ri"><div class="n" style="color:var(--ch5)">60%</div><div class="l">More Muscle Loss w/ Poor Sleep</div></div>
   </div>
 
   <div class="sci">
@@ -501,6 +621,11 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="fi"><strong>How You Can Use It:</strong> Prioritize 7-8 hours of sleep before changing anything else about your routine. Start with a consistent bedtime.</div>
   </div>
 
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are over 50:</strong> Your maintenance calories drop 100-150 per decade. The 400-500 deficit still works, but your starting point is lower. Adjust portions accordingly.</div>
+  </div>
+
   <div class="qt"><bq>The three variables work as a system. Neglect any one and the others cannot compensate.</bq></div>
 
   <div class="myth">
@@ -526,20 +651,29 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">The three variables work together; fix all three, not just one or two</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Now that you understand the three variables that control body transformation, the next step is learning how to fuel your body for the results you want.</p>
+  <a href="#ch-a2" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 2</div>
+    <div class="nn">Nutrition <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Learn how to fuel your body with the right proteins, nutrients, and meal timing.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 2: NUTRITION -->
-<div class="section" id="ch-a2">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:25%"></div></div><span>2 of 8</span></div>
+<div class="section" id="ch-a2" style="--ch-clr:var(--ch2);--ch-bg:var(--ch2b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:25%;background:var(--ch2)"></div></div><span class="ch" style="background:var(--ch2)">2 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 10 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🥗 Nutrition</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch2)"/><path d="M12 28l4-10 6 6 4-6 2 10" class="icon-clr" style="color:var(--ch2)"/></svg>
+    <div class="ct"><strong style="color:var(--ch2)">Nutrition</strong> — Fuel your body with the right proteins, fats, and nutrients.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch2);color:var(--ch2)">Nutrition</h2>
   <div class="chapter-intro">
     <p>Now that you understand energy balance, the next step is learning what to eat. Protein is the most important nutrient &mdash; especially as you age.</p>
   </div>
@@ -567,10 +701,10 @@ html.dark .nav-links a.active { background: var(--accent); }
 
   <h3>Daily Meal Plan</h3>
   <div class="grid c2">
-    <div class="card"><h4>&#127749; Breakfast &mdash; 7-9 AM</h4><p>2 eggs + bowl dalia/porridge + milk<br>or 200 g hung curd + fruit + nuts</p><small>~400 kcal &middot; 30 g protein</small></div>
-    <div class="card"><h4>&#127774; Lunch &mdash; 1-2 PM</h4><p>150 g chicken/fish + rice + sabzi<br>or 100 g paneer + 2 rotis + dal</p><small>~600 kcal &middot; 35-40 g protein</small></div>
-    <div class="card"><h4>&#127750; Evening &mdash; 4-5 PM</h4><p>1 fruit + handful nuts + green tea<br>or sprouts chaat</p><small>~200 kcal &middot; 10 g protein</small></div>
-    <div class="card"><h4>&#127769; Dinner &mdash; 7:30-8:30 PM</h4><p>Dal + sabzi + 1 roti + salad<br>or soup + paneer bhurji</p><small>~450 kcal &middot; 25-30 g protein</small></div>
+    <div class="card"><h4>&#127749; Breakfast <span class="mb am">AM</span></h4><p>2 eggs + bowl dalia/porridge + milk<br>or 200 g hung curd + fruit + nuts</p><small>~400 kcal &middot; 30 g protein</small></div>
+    <div class="card"><h4>&#127774; Lunch <span class="mb pm">PM</span></h4><p>150 g chicken/fish + rice + sabzi<br>or 100 g paneer + 2 rotis + dal</p><small>~600 kcal &middot; 35-40 g protein</small></div>
+    <div class="card"><h4>&#127750; Evening <span class="mb pm">PM</span></h4><p>1 fruit + handful nuts + green tea<br>or sprouts chaat</p><small>~200 kcal &middot; 10 g protein</small></div>
+    <div class="card"><h4>&#127769; Dinner <span class="mb pm">PM</span></h4><p>Dal + sabzi + 1 roti + salad<br>or soup + paneer bhurji</p><small>~450 kcal &middot; 25-30 g protein</small></div>
   </div>
 
   <h3>Key Nutrients After 40</h3>
@@ -605,20 +739,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">After 50, increase per-meal protein due to anabolic resistance</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Now that you know what to eat, the next step is understanding how movement helps your body use that nutrition effectively.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you sit at a desk all day:</strong> Pack protein-rich snacks for work — Greek yogurt, nuts, or a boiled egg. Office cafeterias rarely prioritise protein.</div>
+  </div>
+
+  <a href="#ch-a3" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 3</div>
+    <div class="nn">Training <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Build strength with a simple at-home routine that requires zero equipment.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 3: TRAINING -->
-<div class="section" id="ch-a3">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:38%"></div></div><span>3 of 8</span></div>
+<div class="section" id="ch-a3" style="--ch-clr:var(--ch3);--ch-bg:var(--ch3b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:38%;background:var(--ch3)"></div></div><span class="ch" style="background:var(--ch3)">3 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 8 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>💪 Training</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch3)"/><path d="M14 26l4-12 4 12M10 20h20" class="icon-clr" style="color:var(--ch3)"/></svg>
+    <div class="ct"><strong style="color:var(--ch3)">Training</strong> — Resistance training is the only intervention that reverses muscle loss.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch3);color:var(--ch3)">Training</h2>
   <div class="chapter-intro">
     <p>After age 30, adults lose 3-8% of muscle mass per decade. After 50, this accelerates to 5-10% per decade. This is called sarcopenia, and resistance training is the only intervention that reverses it.</p>
   </div>
@@ -670,20 +818,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Make each workout harder than the last &mdash; more reps, more weight, less rest.</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Training creates the stimulus, but recovery is where your body actually changes. The next chapter explains why rest is as important as effort.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are 50+:</strong> Start with wall push-ups and chair squats. Your joints need a longer warm-up. Add 5 minutes of mobility before each session.</div>
+  </div>
+
+  <a href="#ch-a4" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 4</div>
+    <div class="nn">Recovery <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">You do not grow in the gym. You grow in bed. Learn why recovery is 50% of your results.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 4: RECOVERY -->
-<div class="section" id="ch-a4">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:50%"></div></div><span>4 of 8</span></div>
+<div class="section" id="ch-a4" style="--ch-clr:var(--ch4);--ch-bg:var(--ch4b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:50%;background:var(--ch4)"></div></div><span class="ch" style="background:var(--ch4)">4 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 6 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>😴 Recovery</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch4)"/><path d="M20 12v8l6 3" class="icon-clr" style="color:var(--ch4)"/><path d="M14 28c0-4 6-4 6 0" class="icon-clr" style="color:var(--ch4)"/></svg>
+    <div class="ct"><strong style="color:var(--ch4)">Recovery</strong> — Training creates the stimulus. Sleep creates the result.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch4);color:var(--ch4)">Recovery</h2>
   <div class="chapter-intro">
     <p>You do not grow in the gym. You grow in bed. Training creates the stimulus, but recovery creates the result. After 50, deep sleep declines by 50-70%, making intentional recovery essential.</p>
   </div>
@@ -720,20 +882,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Joint pain means stop. Muscle soreness means keep going. Know the difference.</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">With the foundations of nutrition, training, and recovery in place, the next chapter covers which supplements actually deserve a place in your routine.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are over 50:</strong> Deep sleep drops 50-70% after 50. Morning sunlight within 30 minutes of waking is your single most effective intervention. Pair it with magnesium glycinate before bed.</div>
+  </div>
+
+  <a href="#ch-a5" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 5</div>
+    <div class="nn">Supplements <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Which supplements actually work and which are a waste of money.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 5: SUPPLEMENTS -->
-<div class="section" id="ch-a5">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:63%"></div></div><span>5 of 8</span></div>
+<div class="section" id="ch-a5" style="--ch-clr:var(--ch5);--ch-bg:var(--ch5b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:63%;background:var(--ch5)"></div></div><span class="ch" style="background:var(--ch5)">5 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 5 min</span>
     <span>Intermediate</span>
     <span>Evidence &middot; Moderate</span>
   </div>
 
-  <h2>🧪 Supplements</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch5)"/><path d="M16 28V14l4-2 4 2v14M14 20h12M14 24h12" class="icon-clr" style="color:var(--ch5)"/></svg>
+    <div class="ct"><strong style="color:var(--ch5)">Supplements</strong> — Roughly 2% of the equation. Fix the other 98% first.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch5);color:var(--ch5)">Supplements</h2>
   <div class="chapter-intro">
     <p>Supplements are the least important part of your transformation &mdash; roughly 2% of the equation. But after 50, certain ones become genuinely important because nutrient absorption declines with age.</p>
   </div>
@@ -741,12 +917,12 @@ html.dark .nav-links a.active { background: var(--accent); }
   <div class="qt"><bq>No supplement has ever fixed a poor diet, inadequate sleep, or inconsistent training. Fix the foundations first.</bq></div>
 
   <div class="grid c2">
-    <div class="card"><h4>Vitamin D3 + K2</h4><p><strong>Essential.</strong> 90% of Indians are deficient. Critical for bone health, immune function, and calcium absorption. 2,000-5,000 IU daily.</p></div>
-    <div class="card"><h4>Magnesium Glycinate</h4><p><strong>Worth taking.</strong> Significantly improves sleep quality. 300-400 mg before bed. Glycinate form causes the least digestive issues.</p></div>
-    <div class="card"><h4>Vitamin B12</h4><p><strong>Recommended.</strong> Absorption declines with age. Deficiency causes fatigue, brain fog, and nerve issues. 500-1,000 mcg sublingual daily.</p></div>
-    <div class="card"><h4>Omega-3 (Fish Oil)</h4><p><strong>Worth taking.</strong> Reduces inflammation throughout the body. Supports brain, heart, and joint health. 1,000-2,000 mg EPA+DHA daily.</p></div>
-    <div class="card"><h4>Creatine Monohydrate</h4><p><strong>Useful.</strong> 5 g daily. Helps preserve muscle mass and supports brain function. One of the most studied supplements in the world.</p></div>
-    <div class="card"><h4>Whey Protein</h4><p><strong>Only if needed.</strong> Useful only if you cannot meet your protein target through whole foods. It is food, not magic.</p></div>
+    <div class="card"><h4><span class="sb es">Essential</span>Vitamin D3 + K2</h4><p>90% of Indians are deficient. Critical for bone health, immune function, and calcium absorption. 2,000-5,000 IU daily.</p></div>
+    <div class="card"><h4><span class="sb re">Recommended</span>Magnesium Glycinate</h4><p>Significantly improves sleep quality. 300-400 mg before bed. Glycinate form causes the least digestive issues.</p></div>
+    <div class="card"><h4><span class="sb re">Recommended</span>Vitamin B12</h4><p>Absorption declines with age. Deficiency causes fatigue, brain fog, and nerve issues. 500-1,000 mcg sublingual daily.</p></div>
+    <div class="card"><h4><span class="sb re">Recommended</span>Omega-3 (Fish Oil)</h4><p>Reduces inflammation throughout the body. Supports brain, heart, and joint health. 1,000-2,000 mg EPA+DHA daily.</p></div>
+    <div class="card"><h4><span class="sb op">Optional</span>Creatine Monohydrate</h4><p>5 g daily. Helps preserve muscle mass and supports brain function. One of the most studied supplements in the world.</p></div>
+    <div class="card"><h4><span class="sb op">Optional</span>Whey Protein</h4><p>Useful only if you cannot meet your protein target through whole foods. It is food, not magic.</p></div>
   </div>
 
   <div class="mx">
@@ -765,20 +941,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Avoid testosterone boosters, fat burners, and BCAAs</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Supplements are a small piece of the puzzle. Far more impactful is how you manage the hours you spend sitting at a desk. The next chapter addresses the modern workplace and its effect on your body.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are over 50:</strong> Vitamin D and B12 absorption decline with age. Get your levels tested annually. Supplementation is not optional after 50 — it is healthcare.</div>
+  </div>
+
+  <a href="#ch-a6" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 6</div>
+    <div class="nn">The Desk Job Effect <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">How to counteract the metabolic damage of sitting 9+ hours per day.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 6: DESK JOB -->
-<div class="section" id="ch-a6">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:75%"></div></div><span>6 of 8</span></div>
+<div class="section" id="ch-a6" style="--ch-clr:var(--ch6);--ch-bg:var(--ch6b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:75%;background:var(--ch6)"></div></div><span class="ch" style="background:var(--ch6)">6 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 7 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🪑 The Desk Job Effect</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch6)"/><path d="M12 28V14l4-2h8l4 2v14M12 20h16" class="icon-clr" style="color:var(--ch6)"/><path d="M16 8h8v4h-8z" class="icon-clr" style="color:var(--ch6)"/></svg>
+    <div class="ct"><strong style="color:var(--ch6)">The Desk Job Effect</strong> — Sitting 9+ hours daily is an independent risk factor for metabolic disease.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch6);color:var(--ch6)">The Desk Job Effect</h2>
   <div class="chapter-intro">
     <p>Most adults spend 9-12 hours per day sitting &mdash; at a desk, in a car, on a couch. Prolonged sitting is an independent risk factor for metabolic disease, separate from whether you exercise.</p>
   </div>
@@ -817,20 +1007,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Short movement breaks throughout the day have significant metabolic benefits</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Now that you understand the challenge of sedentary work, the next chapter brings everything together into a simple daily protocol you can follow.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you work from home:</strong> Set a timer for every 30 minutes. When it rings, stand up, walk to the kitchen, stretch your hips. This one habit cuts sitting risk by 60%.</div>
+  </div>
+
+  <a href="#ch-a7" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 7</div>
+    <div class="nn">Your Daily Protocol <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">A simple, memorable daily checklist that brings everything together.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 7: DAILY PROTOCOL -->
-<div class="section" id="ch-a7">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:88%"></div></div><span>7 of 8</span></div>
+<div class="section" id="ch-a7" style="--ch-clr:var(--ch7);--ch-bg:var(--ch7b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:88%;background:var(--ch7)"></div></div><span class="ch" style="background:var(--ch7)">7 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 4 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>📋 Your Daily Protocol</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch7)"/><path d="M14 20l4 4 8-8" class="icon-clr" style="color:var(--ch7)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch7);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch7)">Daily Protocol</strong> — Small actions repeated daily produce extraordinary long-term results.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch7);color:var(--ch7)">Your Daily Protocol</h2>
   <div class="chapter-intro">
     <p>This section brings everything together into a simple, memorable daily checklist. Follow this and you will be getting the fundamentals right most of the time.</p>
   </div>
@@ -876,20 +1080,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Consistency will always outperform intensity over the long term</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">The final chapter explains how to maintain these habits for life and what to do when your motivation runs low.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you struggle with consistency:</strong> Do not track everything. Just track protein and steps for the first two weeks. Those two metrics alone will produce measurable results.</div>
+  </div>
+
+  <a href="#ch-a8" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 8</div>
+    <div class="nn">Lifestyle &amp; Longevity <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">How to maintain these habits for life and what to do when motivation runs low.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 8: LIFESTYLE -->
-<div class="section" id="ch-a8">
-  <div class="cp"><span>Adult Guide</span><div class="bar"><div class="fl" style="width:100%"></div></div><span>8 of 8</span></div>
+<div class="section" id="ch-a8" style="--ch-clr:var(--ch8);--ch-bg:var(--ch8b)">
+  <div class="cp"><span class="lb">Adult Guide</span><div class="tk"><div class="fl" style="width:100%;background:var(--ch8)"></div></div><span class="ch" style="background:var(--ch8)">8 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 5 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🧠 Lifestyle &amp; Longevity</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch8)"/><path d="M20 10v12l-6 4" class="icon-clr" style="color:var(--ch8)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch8);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch8)">Lifestyle &amp; Longevity</strong> — Health is built by habits repeated over years, not by perfect weeks.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch8);color:var(--ch8)">Lifestyle &amp; Longevity</h2>
   <div class="chapter-intro">
     <p>Health is built by habits repeated over years, not by perfect weeks. The lifestyle factors that determine how well you age extend beyond nutrition and exercise.</p>
   </div>
@@ -937,9 +1155,18 @@ html.dark .nav-links a.active { background: var(--accent); }
   <div class="rsrc" style="max-width:480px;margin:28px auto 0;">
     <h4>Recommended Reading</h4>
     <ul>
-      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> WHO Guidelines on Physical Activity (2020)</li>
-      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> ICMR Dietary Guidelines for Indians</li>
-      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> American Heart Association &mdash; Nutrition Basics</li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Weight Loss &amp; Metabolism</strong></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Hall KD et al. (2016) &mdash; <em>Int J Obesity</em></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Nedeltcheva AV et al. (2010) &mdash; <em>Ann Int Med</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Muscle &amp; Strength</strong></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Schoenfeld BJ et al. (2016) &mdash; <em>Sports Medicine</em></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Moore DR et al. (2015) &mdash; <em>Am J Clin Nutrition</em></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Villareal DT et al. (2019) &mdash; <em>JAMA Internal Med</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Sleep &amp; Recovery</strong></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Ohayon MM et al. (2004) &mdash; <em>Sleep Med Reviews</em></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Ekelund U et al. (2020) &mdash; <em>JAMA Network Open</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Longevity</strong></li>
+      <li><svg viewBox="0 0 24 24"><path class="icon-clr" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path class="icon-clr" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Epel ES et al. (2004) &mdash; <em>PNAS</em></li>
     </ul>
   </div>
   <div class="disc" style="max-width:480px;margin:20px auto 0;">
@@ -965,16 +1192,33 @@ html.dark .nav-links a.active { background: var(--accent); }
 
 <div class="content">
 
+<div class="idx">
+  <span class="il">On this page</span>
+  <a href="#ch-e1">Body Changes</a>
+  <a href="#ch-e2">For Men</a>
+  <a href="#ch-e3">For Women</a>
+  <a href="#ch-e4">Nutrition</a>
+  <a href="#ch-e5">Training</a>
+  <a href="#ch-e6">Recovery</a>
+  <a href="#ch-e7">Lifestyle</a>
+  <a href="#ch-e8">Putting It Together</a>
+</div>
+
 <!-- CH 1: BODY CHANGES -->
-<div class="section" id="ch-e1">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:12%"></div></div><span>1 of 8</span></div>
+<div class="section" id="ch-e1" style="--ch-clr:var(--ch1);--ch-bg:var(--ch1b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:12%;background:var(--ch1)"></div></div><span class="ch" style="background:var(--ch1)">1 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 7 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🔬 Understanding Your Body After 50</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch1)"/><path d="M20 10v8l6 4" class="icon-clr" style="color:var(--ch1)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch1);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch1)">Understanding Your Body After 50</strong> — Age 50+ is a transition, not a decline.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch1);color:var(--ch1)">Understanding Your Body After 50</h2>
   <div class="chapter-intro">
     <p>Turning 50 is not a decline &mdash; it is a transition. Your body needs different inputs than it did at 25, but when you understand what is changing, you can work with your body instead of against it.</p>
   </div>
@@ -1009,20 +1253,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Age 50+ is a transition, not a decline &mdash; your potential remains</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Now that you understand how your body changes after 50, the next two chapters address the specific needs of men and women separately.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are new to exercise:</strong> Start with walking 15-20 minutes daily for two weeks. The single best predictor of long-term success is how gently you begin.</div>
+  </div>
+
+  <a href="#ch-e2" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 2</div>
+    <div class="nn">For Men <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Managing testosterone, bone density, sleep, and heart health after 50.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 2: MEN 50+ -->
-<div class="section" id="ch-e2">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:25%"></div></div><span>2 of 8</span></div>
+<div class="section" id="ch-e2" style="--ch-clr:var(--ch2);--ch-bg:var(--ch2b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:25%;background:var(--ch2)"></div></div><span class="ch" style="background:var(--ch2)">2 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 8 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🧑 For Men</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch2)"/><path d="M14 28V16l6-4 6 4v12M14 20h12" class="icon-clr" style="color:var(--ch2)"/></svg>
+    <div class="ct"><strong style="color:var(--ch2)">For Men</strong> — Testosterone is supported by your habits, not by pills.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch2);color:var(--ch2)">For Men</h2>
   <div class="chapter-intro">
     <p>After 50, men face declining testosterone, increasing belly fat, rising cardiovascular risk, and slower recovery. Every one of these can be managed, slowed, or reversed with the right lifestyle.</p>
   </div>
@@ -1068,20 +1326,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Eat enough protein and include healthy fats in your daily diet</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">The next chapter covers the unique changes women experience during menopause and how to navigate this transition with strength.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are a man over 50:</strong> Get your testosterone and vitamin D levels checked at your next physical. Three nights of poor sleep can drop testosterone by 10-15%. Prioritize sleep before considering any supplement.</div>
+  </div>
+
+  <a href="#ch-e3" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 3</div>
+    <div class="nn">For Women <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Navigating menopause with strength — bone, muscle, and metabolic health.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 3: WOMEN 50+ -->
-<div class="section" id="ch-e3">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:38%"></div></div><span>3 of 8</span></div>
+<div class="section" id="ch-e3" style="--ch-clr:var(--ch3);--ch-bg:var(--ch3b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:38%;background:var(--ch3)"></div></div><span class="ch" style="background:var(--ch3)">3 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 10 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>👩 For Women</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch3)"/><path d="M12 28V16l3-4 5 4 5-4 3 4v12" class="icon-clr" style="color:var(--ch3)"/></svg>
+    <div class="ct"><strong style="color:var(--ch3)">For Women</strong> — Bone density can be rebuilt at any age with strength training.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch3);color:var(--ch3)">For Women</h2>
   <div class="chapter-intro">
     <p>Menopause is a natural transition, not a medical condition. The decline in estrogen affects bone, muscle, heart, brain, and metabolism. Understanding these changes allows you to work with your body.</p>
   </div>
@@ -1136,20 +1408,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Protect your sleep with magnesium, a cool bedroom, and a consistent routine</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Now that you understand the specific needs of your body, the next chapter covers how nutrition should change after 50.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you are a woman over 50:</strong> Resistance training is the single best intervention. It builds bone density, preserves muscle, improves sleep, and reduces hot flash severity. Start with two sessions per week.</div>
+  </div>
+
+  <a href="#ch-e4" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 4</div>
+    <div class="nn">Nutrition After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">More protein, more calcium, more vitamin D — your nutritional needs increase with age.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 4: NUTRITION 50+ -->
-<div class="section" id="ch-e4">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:50%"></div></div><span>4 of 8</span></div>
+<div class="section" id="ch-e4" style="--ch-clr:var(--ch4);--ch-bg:var(--ch4b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:50%;background:var(--ch4)"></div></div><span class="ch" style="background:var(--ch4)">4 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 6 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🥗 Nutrition After 50</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch4)"/><path d="M14 28l4-10 6 6 4-6 2 10" class="icon-clr" style="color:var(--ch4)"/></svg>
+    <div class="ct"><strong style="color:var(--ch4)">Nutrition After 50</strong> — You need more protein after 50, not less.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch4);color:var(--ch4)">Nutrition After 50</h2>
   <div class="chapter-intro">
     <p>After 50, your body processes nutrients differently. Protein requirements increase. Calcium and vitamin D become critical priorities. Your metabolism has slowed. Here is how to adjust.</p>
   </div>
@@ -1185,20 +1471,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Drink 2-3 liters of water every day &mdash; thirst sensitivity decreases with age</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">With nutrition addressed, the next chapter covers how your training routine should change after 50.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you have trouble meeting protein targets:</strong> Add a scoop of whey protein to your morning porridge or dalia. 25 g of protein in one scoop. It is the easiest way to hit 35-40 g per meal.</div>
+  </div>
+
+  <a href="#ch-e5" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 5</div>
+    <div class="nn">Training After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Walking, strength, mobility, and balance — the four pillars of training after 50.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 5: TRAINING 50+ -->
-<div class="section" id="ch-e5">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:63%"></div></div><span>5 of 8</span></div>
+<div class="section" id="ch-e5" style="--ch-clr:var(--ch5);--ch-bg:var(--ch5b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:63%;background:var(--ch5)"></div></div><span class="ch" style="background:var(--ch5)">5 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 6 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🏋️ Training After 50</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch5)"/><path d="M14 26l4-12 4 12M10 20h20" class="icon-clr" style="color:var(--ch5)"/></svg>
+    <div class="ct"><strong style="color:var(--ch5)">Training After 50</strong> — Exercise is not optional. It is healthcare.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch5);color:var(--ch5)">Training After 50</h2>
   <div class="chapter-intro">
     <p>After 50, exercise is not optional &mdash; it is healthcare. Resistance training preserves muscle and bone. Walking improves longevity. Mobility work prevents falls. Balance practice protects your independence.</p>
   </div>
@@ -1231,20 +1531,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Increase intensity gradually &mdash; patience is a strategy, not a weakness</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">Training provides the stimulus, but recovery is where your body adapts. The next chapter is specifically about sleep and recovery after 50.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you have been inactive for years:</strong> Start with 15-minute walks for two weeks. Then add two strength sessions. Then increase to 45-minute walks. Slow progress is still progress.</div>
+  </div>
+
+  <a href="#ch-e6" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 6</div>
+    <div class="nn">Recovery &amp; Sleep After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">How your sleep changes after 50 and what to do about it.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 6: RECOVERY 50+ -->
-<div class="section" id="ch-e6">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:75%"></div></div><span>6 of 8</span></div>
+<div class="section" id="ch-e6" style="--ch-clr:var(--ch6);--ch-bg:var(--ch6b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:75%;background:var(--ch6)"></div></div><span class="ch" style="background:var(--ch6)">6 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 5 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>😴 Recovery &amp; Sleep After 50</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch6)"/><path d="M20 12v8l6 3" class="icon-clr" style="color:var(--ch6)"/><path d="M14 28c0-4 6-4 6 0" class="icon-clr" style="color:var(--ch6)"/></svg>
+    <div class="ct"><strong style="color:var(--ch6)">Recovery &amp; Sleep After 50</strong> — Sleep quality is the most important recovery variable.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch6);color:var(--ch6)">Recovery &amp; Sleep After 50</h2>
   <div class="chapter-intro">
     <p>After 50, recovery requires more intention than it did when you were younger. Your sleep architecture changes, your joints recover more slowly, and stress has a greater physical impact.</p>
   </div>
@@ -1269,20 +1583,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Joints take longer to recover than muscles after 50 &mdash; plan rest days accordingly</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">With the core pillars covered, the next chapter brings together the lifestyle habits that support healthy aging.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If hot flashes disrupt your sleep:</strong> Keep your bedroom at 18-20°C, wear cotton nightwear, and take 300 mg magnesium glycinate before bed. Avoid caffeine after 2 PM.</div>
+  </div>
+
+  <a href="#ch-e7" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 7</div>
+    <div class="nn">Lifestyle &amp; Healthy Aging <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">Hydration, social connection, mental stimulation, and regular check-ups.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 7: LIFESTYLE 50+ -->
-<div class="section" id="ch-e7">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:88%"></div></div><span>7 of 8</span></div>
+<div class="section" id="ch-e7" style="--ch-clr:var(--ch7);--ch-bg:var(--ch7b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:88%;background:var(--ch7)"></div></div><span class="ch" style="background:var(--ch7)">7 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 4 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>🧠 Lifestyle &amp; Healthy Aging</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch7)"/><path d="M20 10v12l-6 4" class="icon-clr" style="color:var(--ch7)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch7);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch7)">Lifestyle &amp; Healthy Aging</strong> — Social isolation has health effects comparable to smoking.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch7);color:var(--ch7)">Lifestyle &amp; Healthy Aging</h2>
   <div class="chapter-intro">
     <p>Health after 50 extends beyond nutrition and exercise. The way you manage stress, maintain relationships, and engage your mind all contribute to how well you age.</p>
   </div>
@@ -1312,20 +1640,34 @@ html.dark .nav-links a.active { background: var(--accent); }
     <div class="ti"><span class="ck">&check;</span><span class="tx">Small changes, made consistently, produce the most meaningful results</span></div>
   </div>
 
-  <p style="font-size:16px;color:var(--text-muted);font-style:italic;margin-top:0;">The final chapter puts everything together into a simple, actionable daily protocol.</p>
+  <div class="fy">
+    <div class="fl">For You</div>
+    <div class="ft"><strong>If you feel overwhelmed:</strong> Pick just three things to start: walk daily, eat protein at every meal, and go to bed at the same time. Master those three before adding anything else.</div>
+  </div>
+
+  <a href="#ch-e8" class="nx">
+    <div class="nl">Up Next &mdash; Chapter 8</div>
+    <div class="nn">Putting It All Together <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="nd">A simple one-page daily protocol for healthy aging.</div>
+  </a>
   <hr class="hr">
 </div>
 
 <!-- CH 8: PUTTING IT TOGETHER -->
-<div class="section" id="ch-e8">
-  <div class="cp"><span>50+ Guide</span><div class="bar"><div class="fl" style="width:100%"></div></div><span>8 of 8</span></div>
+<div class="section" id="ch-e8" style="--ch-clr:var(--ch8);--ch-bg:var(--ch8b)">
+  <div class="cp"><span class="lb">50+ Guide</span><div class="tk"><div class="fl" style="width:100%;background:var(--ch8)"></div></div><span class="ch" style="background:var(--ch8)">8 of 8</span></div>
   <div class="chapter-meta">
     <span><svg viewBox="0 0 24 24" class="icon" style="width:14px;height:14px"><circle class="icon-clr" cx="12" cy="12" r="10"/><path class="icon-clr" d="M12 6v6l4 2"/></svg> 4 min</span>
     <span>Beginner</span>
     <span>Evidence &middot; Strong</span>
   </div>
 
-  <h2>Putting It All Together</h2>
+  <div class="cb">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" class="icon-clr" style="color:var(--ch8)"/><path d="M14 20l4 4 8-8" class="icon-clr" style="color:var(--ch8)"/><circle cx="20" cy="20" r="14" class="icon-clr" style="color:var(--ch8);opacity:.3"/></svg>
+    <div class="ct"><strong style="color:var(--ch8)">Putting It All Together</strong> — Virtually every age-related decline can be slowed or reversed.</div>
+  </div>
+
+  <h2 style="border-bottom-color:var(--ch8);color:var(--ch8)">Putting It All Together</h2>
   <div class="chapter-intro">
     <p>This chapter summarizes everything into a simple one-page protocol. Follow this and you will be doing more for your health than the majority of people your age.</p>
   </div>
@@ -1356,16 +1698,20 @@ html.dark .nav-links a.active { background: var(--accent); }
   <div class="rsrc" style="max-width:480px;margin:28px auto 0;">
     <h4>Scientific References</h4>
     <ul>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Weight Loss &amp; Metabolism</strong></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Hall KD et al. (2016) &mdash; <em>Int J Obesity</em></li>
-      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Schoenfeld BJ et al. (2016) &mdash; <em>Sports Medicine</em></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Nedeltcheva AV et al. (2010) &mdash; <em>Ann Int Med</em></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Hunter GR et al. (2010) &mdash; <em>J Applied Physiology</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Muscle &amp; Strength</strong></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Schoenfeld BJ et al. (2016) &mdash; <em>Sports Medicine</em></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Moore DR et al. (2015) &mdash; <em>Am J Clin Nutrition</em></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Villareal DT et al. (2019) &mdash; <em>JAMA Internal Med</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Sleep &amp; Recovery</strong></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Ohayon MM et al. (2004) &mdash; <em>Sleep Med Reviews</em></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Ekelund U et al. (2020) &mdash; <em>JAMA Network Open</em></li>
+      <li><strong style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Hormones &amp; Longevity</strong></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Harman SM et al. (2001) &mdash; <em>JCEM</em></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Stojanovska L et al. (2021) &mdash; <em>Menopause Journal</em></li>
-      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Ekelund U et al. (2020) &mdash; <em>JAMA Network Open</em></li>
-      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Hunter GR et al. (2010) &mdash; <em>J Applied Physiology</em></li>
       <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="icon-clr"/><path d="M12 6v6l4 2" class="icon-clr"/></svg> Epel ES et al. (2004) &mdash; <em>PNAS</em></li>
     </ul>
   </div>
