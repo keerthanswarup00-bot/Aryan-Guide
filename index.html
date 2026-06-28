@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1a1a2e;
+  --accent: #0f6e56;
+  --accent-light: #1D9E75;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+  --success: #27ae60;
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #666;
+  --border: #e0e0e0;
+  --card-bg: #f9f9f9;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 28px 0 16px 0;
+}
+
+p {
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(15, 110, 86, 0.1);
+}
+
+.card.highlight {
+  border-color: var(--accent);
+  background: rgba(15, 110, 86, 0.02);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.badge.warning {
+  background: var(--warning);
+}
+
+.badge.danger {
+  background: var(--danger);
+}
+
+.badge.success {
+  background: var(--success);
+}
+
+.metric {
+  text-align: center;
+  padding: 20px;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.metric-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+th {
+  background: var(--card-bg);
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.callout {
+  background: rgba(15, 110, 86, 0.05);
+  border-left: 4px solid var(--accent);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 24px 0;
+}
+
+.callout.warning {
+  background: rgba(243, 156, 18, 0.05);
+  border-left-color: var(--warning);
+}
+
+.callout h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.callout.warning h4 {
+  color: var(--warning);
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  margin-bottom: 12px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 110, 86, 0.1);
+}
+
+.button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 110, 86, 0.2);
+}
+
+.button.secondary {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button.secondary:hover {
+  background: var(--border);
+  border-color: var(--text-secondary);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.exercise-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.exercise-header {
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-type {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.exercise-details {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.timeline {
+  position: relative;
+  margin: 40px 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-marker {
+  background: var(--accent);
+  color: white;
+  width: 100px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 13px;
+}
+
+.timeline-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+  }
+
+  .timeline-marker {
+    width: 80px;
+    font-size: 12px;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .section {
+    page-break-inside: avoid;
+    padding: 30px 0;
+  }
+
+  .button, .form-group input {
+    display: none;
+  }
+
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+.header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  margin-bottom: 0;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.assessment-result {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(15, 110, 86, 0.05);
+  border-radius: 8px;
+}
+
+.calculation-result {
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.calculation-result .value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.calculation-result .label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.list-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item-icon {
+  color: var(--accent);
+  margin-right: 12px;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.list-item-content {
+  flex: 1;
+}
+
+.list-item-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.list-item-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+    </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>COMPLETE TRANSFORMATION GUIDE</h1>
+  <p class="subtitle">Nutrition • Training • Recovery • Lifestyle<br>By Aryan Swaroop — Beginner to Athlete</p>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: PERSONAL ASSESSMENT -->
+<div class="section">
+  <h2>Your Current State Assessment</h2>
+  <p>Before we build your transformation protocol, let's establish your baseline. This assessment determines your personalized recommendations across nutrition, training, and recovery.</p>
+
+  <div class="form-group">
+    <label>Current body weight (kg)</label>
+    <input type="number" id="weight" placeholder="e.g., 75" min="40" max="200">
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label>Height (cm)</label>
+      <input type="number" id="height" placeholder="e.g., 180" min="140" max="220">
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" id="age" placeholder="e.g., 25" min="15" max="80">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Training days per week</label>
+    <select id="trainingDays">
+      <option value="1.2">Sedentary (0-1 days)</option>
+      <option value="1.4">Lightly Active (2-3 days)</option>
+      <option value="1.55" selected>Moderately Active (4-5 days)</option>
+      <option value="1.7">Very Active (6+ days)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Primary goal</label>
+    <select id="goal">
+      <option value="fat-loss">Fat Loss (Build Muscle)</option>
+      <option value="muscle-gain">Muscle Gain (Lean)</option>
+      <option value="recomposition">Body Recomposition (Both)</option>
+      <option value="strength">Pure Strength</option>
+    </select>
+  </div>
+
+  <button class="button" onclick="calculateTDEE()">Calculate My Protocol</button>
+
+  <div id="assessmentResult" class="assessment-result" style="display: none;">
+    <div class="metric">
+      <div class="metric-label">Your BMR</div>
+      <div class="metric-value" id="bmrResult">—</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Your TDEE</div>
+      <div class="metric-value" id="tdeeResult">—</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Daily Target</div>
+      <div class="metric-value" id="targetResult">—</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Daily Protein</div>
+      <div class="metric-value" id="proteinResult">—g</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: FOUNDATION -->
+<div class="section">
+  <h2>The 3-Variable System</h2>
+  <p>Body transformation is 100% determined by three variables. Master these, everything else follows:</p>
+
+  <div class="grid two">
+    <div class="card highlight">
+      <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
+      <h3>1. Calorie Deficit</h3>
+      <p>You must consume fewer calories than you burn. 400-500 cal/day deficit = 0.4-0.5kg fat loss weekly. Aggressive enough to work. Conservative enough to preserve muscle.</p>
+    </div>
+
+    <div class="card highlight">
+      <div style="font-size: 28px; margin-bottom: 12px;">💪</div>
+      <h3>2. Progressive Resistance Training</h3>
+      <p>Weights create the stimulus to retain and build muscle. Without this, your deficit becomes muscle loss. Train 4-6 days/week with progressive overload.</p>
+    </div>
+
+    <div class="card highlight">
+      <div style="font-size: 28px; margin-bottom: 12px;">🌙</div>
+      <h3>3. Adequate Recovery</h3>
+      <p>Sleep 7-8 hours every night. Manage stress daily. Eat enough protein. These aren't optional—they're where results actually happen.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>📌 The Truth</h4>
+    <p>Everything else—meal timing, cardio type, supplements, supplement stacks—is secondary. If these three variables are right, you will transform. If any one is wrong, you won't.</p>
+  </div>
+</div>
+
+<!-- SECTION 3: NUTRITION COMPLETE SYSTEM -->
+<div class="section">
+  <h2>Complete Nutrition System</h2>
+
+  <h3>The Protein Rule (Non-Negotiable)</h3>
+  <p>During fat loss, protein is the single most important macro. It preserves muscle, keeps you fuller, and has the highest thermic effect (burns calories during digestion).</p>
+
+  <div class="callout">
+    <h4>💡 The 30-Gram Rule</h4>
+    <p>Hit at least 30g of protein at every major meal. This is the threshold for maximal muscle protein synthesis. Below it, you're leaving gains on the table.</p>
+  </div>
+
+  <h3>High-Protein Indian Food Sources</h3>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Protein (per 100g)</th>
+      <th>Calories</th>
+      <th>Verdict</th>
+    </tr>
+    <tr>
+      <td>Chicken Breast</td>
+      <td><strong>31g</strong></td>
+      <td>165 kcal</td>
+      <td>King of protein</td>
+    </tr>
+    <tr>
+      <td>Paneer (low-fat)</td>
+      <td><strong>18g</strong></td>
+      <td>160 kcal</td>
+      <td>Daily staple</td>
+    </tr>
+    <tr>
+      <td>Eggs (2)</td>
+      <td><strong>12g</strong></td>
+      <td>140 kcal</td>
+      <td>Non-negotiable</td>
+    </tr>
+    <tr>
+      <td>Tuna (canned)</td>
+      <td><strong>25g</strong></td>
+      <td>110 kcal</td>
+      <td>Underused weapon</td>
+    </tr>
+    <tr>
+      <td>Greek Yogurt/Hung Curd</td>
+      <td><strong>10g</strong></td>
+      <td>100 kcal</td>
+      <td>Easy protein hit</td>
+    </tr>
+    <tr>
+      <td>Moong Dal (cooked)</td>
+      <td><strong>7g</strong></td>
+      <td>105 kcal</td>
+      <td>Solid plant source</td>
+    </tr>
+    <tr>
+      <td>Rajma (cooked)</td>
+      <td><strong>9g</strong></td>
+      <td>130 kcal</td>
+      <td>Fiber + protein</td>
+    </tr>
+  </table>
+
+  <h3>The 3-Meal Daily Template</h3>
+  <p>Stop eating 6 times a day. Three structured meals + optional snacks is simpler, more sustainable, and equally effective.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <div class="badge">Meal 1</div>
+      <h4>7:00-9:00 AM — High-Protein Morning</h4>
+      <p><strong>3 eggs + 1 cup milk</strong><br>OR<br><strong>200g hung curd + fruit + 2 eggs</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~400-450 kcal | 35-40g protein</p>
+    </div>
+
+    <div class="card">
+      <div class="badge">Meal 2</div>
+      <h4>1:00-2:00 PM — Anchor Meal (Biggest)</h4>
+      <p><strong>150g chicken + 1 cup rice</strong><br>OR<br><strong>100g paneer + 2 rotis + sabzi + dal</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~600-700 kcal | 40-45g protein</p>
+    </div>
+
+    <div class="card">
+      <div class="badge">Pre-Workout</div>
+      <h4>4:00-5:00 PM — Train Days Only</h4>
+      <p><strong>1 banana + 1 scoop whey</strong><br>OR<br><strong>2 eggs + 1 fruit</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~250-300 kcal | 25g protein</p>
+    </div>
+
+    <div class="card">
+      <div class="badge">Meal 3</div>
+      <h4>7:30-9:00 PM — Light Dinner</h4>
+      <p><strong>Dal + sabzi + 1 roti</strong><br>OR<br><strong>Paneer bhurji + rice + salad</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~450-500 kcal | 30-35g protein</p>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <h4>⚠️ Eating Out Strategy</h4>
+    <p><strong>Tandoori > Gravy. Roti > Naan. Dal > Paneer Butter Masala.</strong><br>One indulgence meal per week won't derail you. Stress about it will. Keep protein high on weekends—that's your anchor habit.</p>
+  </div>
+
+  <h3>Weekly Calorie Cycling (Advanced)</h3>
+  <p>Instead of eating the same calories daily, cycle them. Train days get more fuel. Rest days run a deeper deficit.</p>
+
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>Activity</th>
+      <th>Target</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td>Train</td>
+      <td>TDEE - 300</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>Rest</td>
+      <td>TDEE - 600</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>Train</td>
+      <td>TDEE - 300</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>Train</td>
+      <td>TDEE - 300</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>Rest</td>
+      <td>TDEE - 600</td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td>Train</td>
+      <td>TDEE - 200</td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td>Flex</td>
+      <td>TDEE - 100</td>
+    </tr>
+  </table>
+
+  <p><strong>Result:</strong> ~2,400-2,500 kcal weekly deficit. Same fat loss. Better recovery. Better adherence.</p>
+</div>
+
+<!-- SECTION 4: TRAINING ARCHITECTURE -->
+<div class="section">
+  <h2>Training Architecture — PPL Split</h2>
+
+  <h3>Why Cardio Alone Never Works</h3>
+  <p>Cardio burns calories during the session. Strength training builds muscle—and muscle burns calories 24/7, even while you sleep. A person with more muscle mass burns significantly more at rest.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <h4 style="margin-top: 0;">Engine 1: Weights</h4>
+      <p>Creates stimulus to retain and build muscle. Ensures weight loss is fat, not muscle. This is your primary driver.</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top: 0;">Engine 2: Cardio</h4>
+      <p>Creates additional calorie burn to deepen deficit without cutting food more. LISS on rest days. HIIT max 2x/week.</p>
+    </div>
+  </div>
+
+  <h3>The 6-Day Push-Pull-Legs Split</h3>
+  <p>PPL is the most efficient for simultaneous fat loss and muscle building. Each muscle group trains twice per week with adequate recovery.</p>
+
+  <div style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid var(--accent);">
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">Weekly Structure:</p>
+    <p style="margin: 0; font-size: 14px; line-height: 2;">
+      <strong>Mon:</strong> PUSH | <strong>Tue:</strong> PULL | <strong>Wed:</strong> LEGS | <strong>Thu:</strong> REST + mobility<br>
+      <strong>Fri:</strong> PUSH (shoulder focus) | <strong>Sat:</strong> PULL (width+thickness) | <strong>Sun:</strong> LEGS + CORE (or REST)
+    </p>
+  </div>
+
+  <h3>Exercise Database: Key Compound Movements</h3>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Flat Barbell/DB Bench Press</span>
+      <span class="exercise-type">Compound — Chest</span>
+    </div>
+    <div class="exercise-details">
+      <strong>4 × 6-8 reps | 2-3 min rest</strong><br>
+      The foundation of upper body strength. Lower the bar to mid-chest under control, press explosively. Full range of motion = full muscle recruitment.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Squat (Back or Front)</span>
+      <span class="exercise-type">Compound — Legs</span>
+    </div>
+    <div class="exercise-details">
+      <strong>4 × 5-8 reps | 3 min rest</strong><br>
+      The king compound. Knees track over toes, chest up, descend until hips drop below knees, drive through heels. Engages 50% of your muscle mass.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Weighted Pull-up/Lat Pulldown</span>
+      <span class="exercise-type">Compound — Back</span>
+    </div>
+    <div class="exercise-details">
+      <strong>4 × 6-8 reps | 2-3 min rest</strong><br>
+      Width driver. Pull from the shoulders, not the arms. Full range: dead hang to chest. Control the negative (2 seconds down = more muscle damage = more growth).
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Barbell/DB Row</span>
+      <span class="exercise-type">Compound — Back</span>
+    </div>
+    <div class="exercise-details">
+      <strong>4 × 8-10 reps | 2 min rest</strong><br>
+      Thickness driver. Chest neutral (not arched), elbows close to body, drive elbows backward. Feel shoulder blades retract. Pause at top.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Leg Press</span>
+      <span class="exercise-type">Compound — Legs</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 10-12 reps | 2 min rest</strong><br>
+      Volume builder. Full range: knees to chest, press through feet. Emphasize the quad by adjusting foot placement (higher = glutes; mid = balanced; lower = quads).
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Cable Lateral Raise</span>
+      <span class="exercise-type">Isolation — Shoulders</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 15-20 reps | 60 sec rest</strong><br>
+      Side delt definition. Slight elbow bend, raise to shoulder height, pause 1 second, control down. Light weight, high reps = size without joint stress.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Leg Extension</span>
+      <span class="exercise-type">Isolation — Quads</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 15-20 reps | 60 sec rest</strong><br>
+      VMO (inner quad) focus. Full extension at top, pause, slow negative. Last 3-5 reps: drop set or partial reps to failure. High volume = quad detail.
+    </div>
+  </div>
+
+  <h3>Progressive Overload — The Only Rule That Matters</h3>
+  <div class="callout">
+    <h4>🎯 The Double Progressive Method</h4>
+    <ol style="margin: 12px 0; padding-left: 20px;">
+      <li style="margin-bottom: 8px;"><strong>Step 1:</strong> Hit the top of your rep range (e.g., 8-10 reps → hit 10 clean across all sets)</li>
+      <li style="margin-bottom: 8px;"><strong>Step 2:</strong> Add weight (upper: +2.5kg | lower: +5kg | stuck? add 1 more set)</li>
+      <li><strong>Step 3:</strong> Reset and repeat (drop to 7 reps, work back up to 10, add weight)</li>
+    </ol>
+    <p style="margin-top: 12px;"><strong>Track every session:</strong> Exercise, weight, sets, reps. No tracking = no overload = no progress.</p>
+  </div>
+
+  <h3>Cardio Protocol</h3>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Intensity</th>
+      <th>Frequency</th>
+    </tr>
+    <tr>
+      <td><strong>LISS</strong> (Low-Intensity Steady State)</td>
+      <td>35-45 min</td>
+      <td>HR: 110-130 BPM</td>
+      <td>2-3x/week (rest days)</td>
+    </tr>
+    <tr>
+      <td><strong>HIIT</strong> (High-Intensity Intervals)</td>
+      <td>20-25 min total</td>
+      <td>30s on / 60s off</td>
+      <td>Max 2x/week (post-weights)</td>
+    </tr>
+    <tr>
+      <td><strong>NEAT</strong> (Daily Steps)</td>
+      <td>8,000-10,000 steps</td>
+      <td>Casual walking</td>
+      <td>Every single day</td>
+    </tr>
+  </table>
+  <p><strong>Priority order:</strong> NEAT daily > LISS on rest days > HIIT sparingly.<br><strong>Reality:</strong> Adding 3,000 steps/day beats two HIIT sessions/week for fat loss.</p>
+
+  <h3>4-Phase Periodization</h3>
+  <table>
+    <tr>
+      <th>Phase</th>
+      <th>Duration</th>
+      <th>Rep Range</th>
+      <th>Goal</th>
+    </tr>
+    <tr>
+      <td><strong>Phase 1 — Foundation</strong></td>
+      <td>Weeks 1-4</td>
+      <td>12-15 reps</td>
+      <td>Form mastery, build work capacity</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 2 — Hypertrophy</strong></td>
+      <td>Weeks 5-10</td>
+      <td>8-12 reps</td>
+      <td>Muscle building, volume increase</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 3 — Strength</strong></td>
+      <td>Weeks 11-14</td>
+      <td>5-8 reps</td>
+      <td>Increase absolute strength base</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 4 — Deload</strong></td>
+      <td>Week 15</td>
+      <td>12-15 reps @ 60% weight</td>
+      <td>Recovery, consolidation</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <h4>💡 Why Periodization Matters</h4>
+    <p>Training at the same rep range forever = plateau within 8 weeks. Cycling rep ranges keeps your body adapting, muscles growing, progress accelerating.</p>
+  </div>
+</div>
+
+<!-- SECTION 5: RECOVERY & LONGEVITY -->
+<div class="section">
+  <h2>Recovery & Longevity</h2>
+
+  <h3>The 4 Recovery Levers (Priority Order)</h3>
+
+  <div class="grid two">
+    <div class="card">
+      <div style="font-size: 24px; margin-bottom: 12px;">🌙</div>
+      <h4>Sleep Quality — 40% Impact</h4>
+      <p><strong>Target: 7-8 hours every night</strong></p>
+      <p>During deep sleep, your body releases 70-80% of its daily growth hormone pulse. This is when muscle repair happens, cortisol drops, fat oxidation peaks.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size: 24px; margin-bottom: 12px;">🥗</div>
+      <h4>Nutrition Timing — 30% Impact</h4>
+      <p><strong>Hit protein target, cycle calories</strong></p>
+      <p>High protein during deficit preserves muscle. Cycling calories (more on train days) improves recovery without more food on rest days.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size: 24px; margin-bottom: 12px;">🧘</div>
+      <h4>Stress Management — 20% Impact</h4>
+      <p><strong>Daily breathing, no-work blocks, morning walks</strong></p>
+      <p>Chronic stress spikes cortisol, which breaks down muscle, promotes fat storage, disrupts sleep. These habits reset your nervous system daily.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size: 24px; margin-bottom: 12px;">🚶</div>
+      <h4>Active Recovery — 10% Impact</h4>
+      <p><strong>Light walks, mobility, not ice baths</strong></p>
+      <p>Most people focus here and ignore sleep. Don't. Light movement increases blood flow. That's it. Fancy recovery gadgets are optional.</p>
+    </div>
+  </div>
+
+  <h3>Sleep Fix: The 3-Hour Evening Protocol</h3>
+  <div style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">8:00-9:00 PM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Last meal window. Finish eating 2-3 hours before sleep. Late food spikes insulin and disrupts deep sleep quality.</p>
+
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">9:30 PM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Screen dimming begins. Blue light blocks melatonin. Enable night mode or wear blue-light glasses.</p>
+
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">10:00 PM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Wind-down: 5-10 min walk, stretching, reading. Drop room temperature if possible. Signal to nervous system: stimulus time is over.</p>
+
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">10:30-11:00 PM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Lights out. 7-8 hours needed for full recovery cycles. Non-negotiable if you train 4-5 days/week.</p>
+
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">6:00-6:30 AM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary);">Wake + natural light. Get sunlight within 30 min of waking. Anchors your circadian rhythm. Improves sleep quality the following night.</p>
+  </div>
+
+  <h3>Cortisol Management Stack (Daily)</h3>
+
+  <div class="list-item">
+    <div class="list-item-icon">✓</div>
+    <div class="list-item-content">
+      <div class="list-item-title">10-Min Morning Walk</div>
+      <div class="list-item-desc">Natural light + movement first thing. Regulates cortisol morning peak, improves mood baseline for entire day.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✓</div>
+    <div class="list-item-content">
+      <div class="list-item-title">4-7-8 Breathing (Anytime)</div>
+      <div class="list-item-desc">Inhale 4 sec, hold 7 sec, exhale 8 sec. Activates parasympathetic nervous system. Use before bed or during high-stress moments.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✓</div>
+    <div class="list-item-content">
+      <div class="list-item-title">No-Work Block (1 Hour Before Bed)</div>
+      <div class="list-item-desc">No Slack, emails, or client portals. Protect this window. Your recovery depends on it.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✓</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Training as Stress Management</div>
+      <div class="list-item-desc">Moderate training lowers cortisol. Overtraining spikes it. 4-5 days hard training needs proportionally more recovery input.</div>
+    </div>
+  </div>
+
+  <h3>Deload Protocol (Every 6-8 Weeks)</h3>
+  <p>A deload is planned reduction in training stress. Same exercises, same frequency. 50-60% of working weights. No pushing to failure. Sessions should feel almost too easy. That's the point.</p>
+
+  <h3>Soreness vs Pain (Know the Difference)</h3>
+
+  <div class="grid two">
+    <div class="card">
+      <h4 style="margin-top: 0; color: var(--success);">✓ Normal Soreness (DOMS)</h4>
+      <p style="font-size: 14px;">Peaks 24-48 hours after training. Dull ache in muscle belly. Eases with movement. <strong>Train through it.</strong></p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top: 0; color: var(--danger);">⚠ Joint/Tendon Pain</h4>
+      <p style="font-size: 14px;">Sharp, localized at joints. Doesn't improve with warmup. Gets worse during movement. <strong>Stop. See a physio.</strong></p>
+    </div>
+  </div>
+
+  <h3>5-Minute Daily Meditation</h3>
+  <p><strong>Sit somewhere quiet.</strong> Eyes closed. Breathe: 4-sec inhale, 6-sec exhale. Count to 100 breaths. If mind wanders, restart at 1.</p>
+  <p><strong>Best time:</strong> Morning (primes nervous system) or before bed (resets after work stress).</p>
+  <p><strong>Science:</strong> Regular parasympathetic activation lowers cortisol, improves sleep, accelerates recovery.</p>
+
+  <h3>10-Minute Daily Mobility Protocol</h3>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Arm Circles + Band Pull-Aparts</span>
+    </div>
+    <div class="exercise-details">2 minutes. Shoulder mobility + rotator cuff activation.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Deep Bodyweight Squats</span>
+    </div>
+    <div class="exercise-details">2 minutes. Hip + ankle mobility + quad stretch. Full range of motion.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Cat-Cow Stretches</span>
+    </div>
+    <div class="exercise-details">2 minutes. Spine mobility + core awareness.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>90-90 Hip Stretch</span>
+    </div>
+    <div class="exercise-details">2 minutes. External hip rotation + deep glute stretch.</div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Child's Pose</span>
+    </div>
+    <div class="exercise-details">2 minutes. Full-body relaxation + CNS calming.</div>
+  </div>
+
+  <p style="margin-top: 20px;"><strong>Do after workouts or before bed.</strong> Not complicated. Consistency > intensity.</p>
+</div>
+
+<!-- SECTION 6: SUPPLEMENTS RANKED -->
+<div class="section">
+  <h2>Supplements: Science-Backed Ranking</h2>
+
+  <div class="callout">
+    <h4>🎯 Priority Order</h4>
+    <p><strong>Fix sleep → hit protein → train progressively → manage stress.</strong><br>These do more for your results than every supplement combined. Supplements are 2% of the equation. Most people treat them like 50%.</p>
+  </div>
+
+  <table>
+    <tr>
+      <th>Supplement</th>
+      <th>Evidence</th>
+      <th>Verdict</th>
+      <th>How to Use</th>
+    </tr>
+    <tr>
+      <td><strong>Creatine Monohydrate</strong></td>
+      <td>Extremely Strong</td>
+      <td><span class="badge success">TAKE IT</span></td>
+      <td>5g/day. Cheap, safe, proven strength + muscle.</td>
+    </tr>
+    <tr>
+      <td><strong>Whey Protein</strong></td>
+      <td>Strong</td>
+      <td><span class="badge success">USEFUL</span></td>
+      <td>Only if you can't hit protein from food. It's food, not magic.</td>
+    </tr>
+    <tr>
+      <td><strong>Vitamin D3</strong></td>
+      <td>Strong</td>
+      <td><span class="badge success">TAKE IT</span></td>
+      <td>Most Indians deficient. 2,000-5,000 IU/day with K2.</td>
+    </tr>
+    <tr>
+      <td><strong>Magnesium Glycinate</strong></td>
+      <td>Moderate-Strong</td>
+      <td><span class="badge success">WORTH IT</span></td>
+      <td>Improves sleep quality significantly. 300-400mg before bed.</td>
+    </tr>
+    <tr>
+      <td><strong>Caffeine / Pre-Workout</strong></td>
+      <td>Strong</td>
+      <td><span class="badge warning">CONTEXTUAL</span></td>
+      <td>Works. Tolerance builds fast. Cycle it. Don't depend on it.</td>
+    </tr>
+    <tr>
+      <td><strong>BCAAs</strong></td>
+      <td>Weak</td>
+      <td><span class="badge danger">SKIP</span></td>
+      <td>Redundant if protein intake is adequate. Expensive flavored water.</td>
+    </tr>
+    <tr>
+      <td><strong>Fat Burners</strong></td>
+      <td>Very Weak / None</td>
+      <td><span class="badge danger">SKIP</span></td>
+      <td>Stimulants masquerading as science. Your deficit burns fat. Pills don't.</td>
+    </tr>
+    <tr>
+      <td><strong>Testosterone Boosters</strong></td>
+      <td>None</td>
+      <td><span class="badge danger">SKIP</span></td>
+      <td>Sleep, training, nutrition are your actual testosterone strategy.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 7: WARM-UP & STRETCHING PROTOCOLS -->
+<div class="section">
+  <h2>Warm-Up & Stretching Protocols</h2>
+
+  <h3>Pre-Workout Warm-Up (5-10 Minutes)</h3>
+  <p>Proper warm-up increases core temperature, activates nervous system, preps joints. It's not optional.</p>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>General Warm-Up (2 min)</span>
+      <span class="exercise-type">5-10 min Treadmill</span>
+    </div>
+    <div class="exercise-details">Light jog or brisk walk. Heart rate ~110-130 BPM. Raises core temperature.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Arm Circles & Band Pull-Aparts</span>
+      <span class="exercise-type">2 min</span>
+    </div>
+    <div class="exercise-details">Shoulder mobility + rotator cuff activation. Light band, 15 reps × 3 sets.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Bodyweight Squats & Lunges</span>
+      <span class="exercise-type">2 min</span>
+    </div>
+    <div class="exercise-details">Full range of motion. Hip + ankle mobility. 15 squats, 10 lunges each leg.</div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Compound Lift Warm-Up Sets</span>
+      <span class="exercise-type">Before Heavy Lifts</span>
+    </div>
+    <div class="exercise-details"><strong>Set 1:</strong> 50% working weight × 5 reps | <strong>Set 2:</strong> 75% working weight × 3 reps | <strong>Then:</strong> Working set. Never skip this.</div>
+  </div>
+
+  <h3>Post-Workout Stretching (5 Minutes)</h3>
+  <p>Never stretch before heavy lifting (reduces strength). Stretch after training when muscles are warm.</p>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Chest Stretch</span>
+      <span class="exercise-type">30 sec each side</span>
+    </div>
+    <div class="exercise-details">Arm across body, gentle pull. Feel chest opening. Breathe deeply.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Quad Stretch</span>
+      <span class="exercise-type">30 sec each side</span>
+    </div>
+    <div class="exercise-details">Stand, pull heel to glutes. Slight forward lean. Full quad stretch.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Hamstring Stretch</span>
+      <span class="exercise-type">30 sec each side</span>
+    </div>
+    <div class="exercise-details">Forward fold, slight knee bend. Feel hamstring lengthen. Slow, controlled.</div>
+  </div>
+
+  <div class="exercise-item" style="margin-bottom: 12px;">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Hip Flexor Stretch</span>
+      <span class="exercise-type">30 sec each side</span>
+    </div>
+    <div class="exercise-details">Half-kneeling position. Front knee 90°, back knee on ground. Slight forward lean. Deep hip stretch.</div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header" style="margin-bottom: 0;">
+      <span>Shoulder Stretch</span>
+      <span class="exercise-type">30 sec</span>
+    </div>
+    <div class="exercise-details">Arm across body, gentle pressure. Hold. Opposite side. Both shoulders.</div>
+  </div>
+
+</div>
+
+<!-- SECTION 8: THE 12-WEEK PROTOCOL -->
+<div class="section">
+  <h2>Your 12-Week Transformation Protocol</h2>
+
+  <h3>Weeks 1-2: Baseline Phase</h3>
+  <p>This is not when you start grinding. This is data collection. These two weeks establish your actual patterns.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-marker">Day 1</div>
+      <div class="timeline-content">
+        <h4>Calculate & Set Up</h4>
+        <p>Use your assessment above to calculate TDEE and fat-loss calories. Set up tracking app (MyFitnessPal or Cronometer). Pick your 3 meals from templates above.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">Days 2-7</div>
+      <div class="timeline-content">
+        <h4>Tracking Week 1</h4>
+        <p>Track every single calorie and protein gram. Weigh food. No estimation. You need real data. Weight will likely drop 1-2kg (mostly water). That's normal.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">Days 8-14</div>
+      <div class="timeline-content">
+        <h4>Training Starts</h4>
+        <p>Begin PPL split (or alternative based on time availability). Pick your rep range (Phase 1: 12-15 reps for form mastery). Track every exercise: weight, sets, reps. Start mobile protocol and sleep protocol.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">End of Week 2</div>
+      <div class="timeline-content">
+        <h4>First Checkpoint</h4>
+        <p><strong>Take progress photo.</strong> Scale weight (expect 1-2kg drop, mostly water). Assess: Am I tracking honestly? Hitting protein? Training consistently? Sleeping better? If yes on all, proceed. If no, identify the issue and fix it.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Weeks 3-6: Consistency Phase</h3>
+  <p>Continue everything from weeks 1-2. Don't change programs. Don't drop calories lower. This is where most people sabotage themselves.</p>
+
+  <div class="callout warning">
+    <h4>⚠️ The Plateau Audit (Week 4-5 if stuck)</h4>
+    <p><strong>Tracking accurately?</strong> Recount for 7 days. Oil, snacks, extras creep in.<br>
+    <strong>Hitting protein?</strong> Fix this first before cutting calories.<br>
+    <strong>Sleeping 7+ hours?</strong> Poor sleep spikes cortisol and blocks fat loss.<br>
+    <strong>Step count under 6,000?</strong> Add 2,000 steps. This often breaks plateaus without cutting food.<br>
+    <strong>Stressed + sleep low?</strong> Fix these first before eating less.</p>
+  </div>
+
+  <h3>Weeks 7-12: Progressive Overload & Adaptation</h3>
+
+  <table>
+    <tr>
+      <th>Phase</th>
+      <th>Rep Range</th>
+      <th>Focus</th>
+    </tr>
+    <tr>
+      <td><strong>Week 7-10</strong> (Phase 2)</td>
+      <td>8-12 reps</td>
+      <td>Hypertrophy. Volume increase. Add weight each week on main lifts.</td>
+    </tr>
+    <tr>
+      <td><strong>Week 11-14</strong> (Phase 3)</td>
+      <td>5-8 reps</td>
+      <td>Strength. Heavier loads, lower reps. Absolute strength increase.</td>
+    </tr>
+    <tr>
+      <td><strong>Week 15</strong> (Phase 4)</td>
+      <td>12-15 @ 60%</td>
+      <td>Deload. Same exercises, 60% weight, no pushing to failure. Recovery week.</td>
+    </tr>
+  </table>
+
+  <h3>Expected Progress Timeline</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-marker">Week 1-2</div>
+      <div class="timeline-content">
+        <p><strong>Scale:</strong> -1-2kg (mostly water). <strong>Visible:</strong> Stomach less bloated. Feeling better mentally. Strength: establishing baseline.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">Week 4</div>
+      <div class="timeline-content">
+        <p><strong>Scale:</strong> -2-3kg total. <strong>Visible:</strong> Clothes fit looser. <strong>Strength:</strong> +10-15% on main lifts.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">Week 8</div>
+      <div class="timeline-content">
+        <p><strong>Scale:</strong> -4-5kg total. <strong>Visible:</strong> Muscle definition emerging. Face looks leaner. <strong>Strength:</strong> +20% performance increase.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">Week 12</div>
+      <div class="timeline-content">
+        <p><strong>Scale:</strong> -5-7kg (conservative estimate, mostly fat). <strong>Visible:</strong> Complete transformation. Clothes need replacing. Energy through roof. You feel like a different person.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>💡 Important</h4>
+    <p>Don't wait 12 weeks to evaluate. <strong>Take progress photos every 2 weeks.</strong> They're more honest than the scale. Scale fluctuates. Your appearance doesn't.</p>
+  </div>
+
+</div>
+
+<!-- SECTION 9: YOUR TRANSFORMATION AGREEMENT -->
+<div class="section">
+  <h2>The Agreement With Yourself</h2>
+
+  <div style="background: linear-gradient(135deg, rgba(15, 110, 86, 0.05) 0%, rgba(15, 110, 86, 0.02) 100%); border: 2px solid var(--accent); border-radius: 8px; padding: 32px; margin: 30px 0;">
+
+    <h3 style="text-align: center; margin-top: 0; color: var(--accent);">I COMMIT TO:</h3>
+
+    <div class="list-item" style="border-bottom: none;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
+      <div class="list-item-content">
+        <div class="list-item-title">Tracking food accurately for 2 weeks minimum</div>
+        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">Weigh. Track. No estimation. After 2 weeks, you know the pattern.</p>
+      </div>
+    </div>
+
+    <div class="list-item" style="border-bottom: none;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
+      <div class="list-item-content">
+        <div class="list-item-title">Training 4+ days per week for 12 weeks (same program)</div>
+        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">No program-hopping. No excuses. Consistency beats perfection.</p>
+      </div>
+    </div>
+
+    <div class="list-item" style="border-bottom: none;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
+      <div class="list-item-content">
+        <div class="list-item-title">Sleeping 7+ hours every single night</div>
+        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">Same wake time, even weekends. This is non-negotiable.</p>
+      </div>
+    </div>
+
+    <div class="list-item" style="border-bottom: none;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
+      <div class="list-item-content">
+        <div class="list-item-title">Hitting my protein target daily</div>
+        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">1.6-2g per kg body weight. Non-negotiable for muscle preservation.</p>
+      </div>
+    </div>
+
+    <div class="list-item">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
+      <div class="list-item-content">
+        <div class="list-item-title">Not changing programs based on 'internet advice'</div>
+        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">12 weeks with this system. Not 2 weeks of 5 different systems.</p>
+      </div>
+    </div>
+
+    <h3 style="text-align: center; margin: 32px 0 24px; color: var(--accent);">I ACCEPT THAT:</h3>
+
+    <div style="font-size: 14px; color: var(--text); line-height: 1.8;">
+      <p>• The scale will fluctuate (water, food timing, hormones)</p>
+      <p>• Progress is non-linear (some weeks -2kg, some weeks flat)</p>
+      <p>• Consistency beats intensity (steady wins the race)</p>
+      <p>• This is a 12-week commitment, not a 2-week experiment</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 32px; padding-top: 32px; border-top: 2px solid var(--accent);">
+      <p style="font-size: 18px; font-weight: 600; color: var(--accent); margin: 0;">If I do this, I will transform.</p>
+    </div>
+
+  </div>
+
+  <h3>Start Tomorrow</h3>
+  <p>Not Monday. Not next month. Tomorrow morning. Calculate your TDEE. Download your tracking app. Pick your first 3 meals. Schedule your first workout.</p>
+  <p style="font-size: 14px; color: var(--text-secondary);">The best time to start was yesterday. The second-best time is now.</p>
+
+</div>
+
+<!-- SECTION 10: QUICK REFERENCE -->
+<div class="section">
+  <h2>Quick Reference & Tools</h2>
+
+  <h3>Calculator Links</h3>
+  <div class="list-item">
+    <div class="list-item-icon">→</div>
+    <div class="list-item-content">
+      <div class="list-item-title">TDEE Calculator</div>
+      <div class="list-item-desc">healthline.com/nutrition/tdee-calculator or myfitnespal.com</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">→</div>
+    <div class="list-item-content">
+      <div class="list-item-title">BMI Calculator</div>
+      <div class="list-item-desc">calculator.net/bmi-calculator.html</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">→</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Macro Calculator</div>
+      <div class="list-item-desc">iifym.com/iifym-calculator/</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">→</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Body Fat Estimator</div>
+      <div class="list-item-desc">omni-calc.com/health/bmi</div>
+    </div>
+  </div>
+
+  <h3>Tracking Templates (Print or Screenshot)</h3>
+
+  <div class="card">
+    <h4 style="margin-top: 0;">Daily Calories Tracker</h4>
+    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+      [Breakfast kcal] + [Lunch kcal] + [Snack kcal] + [Dinner kcal] = Daily Total
+    </p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top: 0;">Daily Protein Tracker</h4>
+    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+      [Breakfast protein] + [Lunch protein] + [Snack protein] + [Dinner protein] = Daily Total<br>
+      Target: 1.6-2g per kg body weight
+    </p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top: 0;">Weekly Training Log</h4>
+    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+      Date | Exercise | Weight × Reps × Sets | Notes
+    </p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top: 0;">Sleep & Stress Log</h4>
+    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+      Wake time | Sleep time | Sleep quality (1-10) | Stress level (1-10) | Training intensity
+    </p>
+  </div>
+
+  <h3>The 5 Biggest Mistakes (Don't Do These)</h3>
+
+  <div class="list-item">
+    <div class="list-item-icon">✕</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Ego lifting (too heavy, bad form)</div>
+      <div class="list-item-desc">Record your sets. If it looks ugly, drop 20%. Form > weight.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✕</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Changing programs every 3 weeks</div>
+      <div class="list-item-desc">Run the same program for minimum 12 weeks. Consistency beats novelty.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✕</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Dropping calories aggressively when stuck</div>
+      <div class="list-item-desc">Add steps or take a diet break first. Aggressive cuts destroy muscle.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✕</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Skipping sleep thinking training matters more</div>
+      <div class="list-item-desc">Sleep is 40% of results. Training is useless without it.</div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-icon">✕</div>
+    <div class="list-item-content">
+      <div class="list-item-title">Not tracking anything</div>
+      <div class="list-item-desc">Track calories for 2 weeks. Track training every session. Data > guessing.</div>
+    </div>
+  </div>
+
+</div>
+
+<div style="text-align: center; padding: 60px 20px; border-top: 2px solid var(--accent); margin-top: 40px;">
+  <p style="font-size: 18px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">This is the system.</p>
+  <p style="font-size: 16px; color: var(--text); margin: 0;">It works if you work it.</p>
+</div>
+
+</div>
+
+<script>
+function calculateTDEE() {
+  const weight = parseFloat(document.getElementById('weight').value);
+  const height = parseFloat(document.getElementById('height').value);
+  const age = parseFloat(document.getElementById('age').value);
+  const activityMultiplier = parseFloat(document.getElementById('trainingDays').value);
+  const goal = document.getElementById('goal').value;
+
+  if (!weight || !height || !age) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  // Mifflin-St Jeor formula
+  const bmr = weight * 22;
+  const tdee = Math.round(bmr * activityMultiplier);
+  
+  let targetCal;
+  if (goal === 'fat-loss' || goal === 'recomposition') {
+    targetCal = Math.round(tdee - 450);
+  } else if (goal === 'muscle-gain') {
+    targetCal = Math.round(tdee + 300);
+  } else {
+    targetCal = tdee;
+  }
+
+  const protein = Math.round(weight * 1.8);
+
+  document.getElementById('bmrResult').textContent = Math.round(bmr).toLocaleString();
+  document.getElementById('tdeeResult').textContent = tdee.toLocaleString();
+  document.getElementById('targetResult').textContent = targetCal.toLocaleString() + ' kcal/day';
+  document.getElementById('proteinResult').textContent = protein;
+
+  document.getElementById('assessmentResult').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
