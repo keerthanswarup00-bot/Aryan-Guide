@@ -389,6 +389,60 @@ textarea:focus {
   }
 }
 
+.section-break {
+  padding: 16px 0;
+  margin: 0;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+
+.divider-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, rgba(15, 110, 86, 0.03) 0%, rgba(15, 110, 86, 0.07) 100%);
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tip-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.tip-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.tip-text strong {
+  color: var(--accent);
+}
+
 @media print {
   body {
     background: white;
@@ -397,6 +451,10 @@ textarea:focus {
   .section {
     page-break-inside: avoid;
     padding: 30px 0;
+  }
+
+  .section-break {
+    page-break-inside: avoid;
   }
 
   .button, .form-group input {
@@ -567,6 +625,14 @@ textarea:focus {
   </div>
 </div>
 
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> Your TDEE changes as you lose weight. Recalculate every 5kg dropped to keep your deficit accurate.</div>
+  </div>
+</div>
+
 <!-- SECTION 2: FOUNDATION -->
 <div class="section">
   <h2>The 3-Variable System</h2>
@@ -595,6 +661,14 @@ textarea:focus {
   <div class="callout">
     <h4>📌 The Truth</h4>
     <p>Everything else—meal timing, cardio type, supplements, supplement stacks—is secondary. If these three variables are right, you will transform. If any one is wrong, you won't.</p>
+  </div>
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> Fat loss happens in the kitchen. Muscle shape is built in the gym. Never let a hard workout justify a bad meal.</div>
   </div>
 </div>
 
@@ -747,6 +821,14 @@ textarea:focus {
   </table>
 
   <p><strong>Result:</strong> ~2,400-2,500 kcal weekly deficit. Same fat loss. Better recovery. Better adherence.</p>
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> The best meal plan fails without training. The best training program fails without nutrition. They work as one system — never prioritize one over the other.</div>
+  </div>
 </div>
 
 <!-- SECTION 4: TRAINING ARCHITECTURE -->
@@ -937,6 +1019,14 @@ textarea:focus {
   </div>
 </div>
 
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> You don't grow in the gym. You grow in bed. Recovery is when muscle repair happens. Skip sleep, skip results — it's that direct.</div>
+  </div>
+</div>
+
 <!-- SECTION 5: RECOVERY & LONGEVITY -->
 <div class="section">
   <h2>Recovery & Longevity</h2>
@@ -1087,6 +1177,14 @@ textarea:focus {
   <p style="margin-top: 20px;"><strong>Do after workouts or before bed.</strong> Not complicated. Consistency > intensity.</p>
 </div>
 
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> No supplement has ever fixed a bad diet, poor sleep, or skipped training. Fix the foundations first — supplements are 2% of the equation.</div>
+  </div>
+</div>
+
 <!-- SECTION 6: SUPPLEMENTS RANKED -->
 <div class="section">
   <h2>Supplements: Science-Backed Ranking</h2>
@@ -1152,6 +1250,14 @@ textarea:focus {
       <td>Sleep, training, nutrition are your actual testosterone strategy.</td>
     </tr>
   </table>
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> A 5-minute warm-up prevents 50-minute injuries. Never skip it — especially when you're short on time. Cold muscles tear. Warm muscles perform.</div>
+  </div>
 </div>
 
 <!-- SECTION 7: WARM-UP & STRETCHING PROTOCOLS -->
@@ -1236,6 +1342,14 @@ textarea:focus {
     <div class="exercise-details">Arm across body, gentle pressure. Hold. Opposite side. Both shoulders.</div>
   </div>
 
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> The first 2 weeks are the hardest. Your brain will manufacture excuses. Don't negotiate with them — just do the next right thing. Momentum builds fast.</div>
+  </div>
 </div>
 
 <!-- SECTION 8: THE 12-WEEK PROTOCOL -->
@@ -1355,6 +1469,14 @@ textarea:focus {
 
 </div>
 
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> Your biology matters, but the basics work for everyone. Don't use gender as an excuse to skip the fundamentals — deficit, training, protein, sleep apply to all.</div>
+  </div>
+</div>
+
 <!-- SECTION 9: MEN & WOMEN INDIVIDUALIZED PROTOCOLS -->
 <div class="section">
   <h2>Men vs Women — Individualized Protocols</h2>
@@ -1403,6 +1525,14 @@ textarea:focus {
   <div class="callout">
     <h4>📌 The Bottom Line</h4>
     <p><strong>Both sexes benefit from the same foundation:</strong> calorie deficit, progressive resistance training, adequate protein, 7+ hours sleep. The differences are real but marginal compared to nailing the basics. <strong>Women:</strong> cycle-sync your training load. <strong>Men:</strong> prioritize sleep for hormone health. Both: stop comparing yourself to the opposite sex's results.</p>
+  </div>
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> Reading this won't change your body. Applying one thing today will. Pick the smallest possible action and do it now — not Monday, not tomorrow.</div>
   </div>
 </div>
 
@@ -1473,6 +1603,14 @@ textarea:focus {
   <p>Not Monday. Not next month. Tomorrow morning. Calculate your TDEE. Download your tracking app. Pick your first 3 meals. Schedule your first workout.</p>
   <p style="font-size: 14px; color: var(--text-secondary);">The best time to start was yesterday. The second-best time is now.</p>
 
+</div>
+
+<div class="section-break">
+  <div class="divider"><span class="divider-dot"></span></div>
+  <div class="tip-card">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text"><strong>Quick Tip:</strong> Track everything for 2 weeks — every calorie, every set, every gram of protein. After that, you won't need to. You'll know your patterns by instinct.</div>
+  </div>
 </div>
 
 <!-- SECTION 11: QUICK REFERENCE -->
