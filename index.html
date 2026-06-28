@@ -6,7 +6,7 @@
   <title>Foundations — Complete Lifestyle & Transformation</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L4 10l12 8 12-8L16 2z' fill='%230F6E56'/%3E%3Cpath d='M4 18l12 8 12-8' fill='%231D9E75'/%3E%3Cpath d='M4 14l12 8 12-8' fill='%2316a34a'/%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L4 10l12 8 12-8L16 2z' fill='%230F6E56'/%3E%3Cpath d='M4 18l12 8 12-8' fill='%231D9E75'/%3E%3Cpath d='M4 14l12 8 12-8' fill='%2316a34a'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -39,17 +39,25 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text);
   background: var(--bg);
-  line-height: 1.8;
+  line-height: 1.85;
   font-size: 18px;
   padding-top: 64px;
   -webkit-font-smoothing: antialiased;
 }
 
+.skip-link {
+  position: fixed; top: -100%; left: 12px; z-index: 9999;
+  background: var(--accent); color: white; padding: 12px 24px;
+  border-radius: 0 0 8px 8px; font-size: 15px; font-weight: 600;
+  text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
 strong { color: var(--text); font-weight: 600; }
 a { color: var(--accent); }
 small { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
 
-.content { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.content { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
 .page { display: none; }
 .page.active { display: block; }
@@ -117,8 +125,9 @@ html.dark .theme-toggle .sun { display: block; }
 }
 
 /* ===== SECTION ===== */
-.section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+.section { padding: 56px 0; border-bottom: 1px solid var(--border); }
 .section:last-child { border-bottom: none; }
+.section + .section { margin-top: 8px; }
 
 h1 {
   font-size: 42px; font-weight: 700; margin-bottom: 16px;
@@ -404,6 +413,14 @@ tr:last-child td { border-bottom: none; }
   font-size: 11px; font-weight: 700; letter-spacing: 0;
 }
 
+/* ===== CHAPTER FOOTER ===== */
+.cf {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  margin: 32px auto 0; padding: 12px 0 0;
+  font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border);
+}
+.cf span { display: flex; align-items: center; gap: 4px; }
+
 /* ===== CHAPTER HERO BADGE ===== */
 .cb {
   display: flex; align-items: center; gap: 18px;
@@ -459,7 +476,7 @@ tr:last-child td { border-bottom: none; }
   h1 { font-size: 30px; }
   h2 { font-size: 24px; }
   h3 { font-size: 18px; }
-  p { font-size: 17px; line-height: 1.8; }
+  p { font-size: 17px; line-height: 1.85; }
   .section { padding: 36px 0; }
   .page-header { padding: 40px 20px 32px; }
   .page-header h1 { font-size: 28px; }
@@ -470,6 +487,9 @@ tr:last-child td { border-bottom: none; }
   .sci { padding: 20px; }
   .tw { padding: 20px; }
   .food-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  .idx a, .nav-links a, .nx { min-height: 48px; display: flex; align-items: center; }
+  .idx a { padding: 12px 14px; }
+  .cf { font-size: 11px; gap: 10px; }
 }
 
 @media (max-width: 480px) {
@@ -517,6 +537,8 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
 </head>
 <body>
 
+<a class="skip-link" href="#ch-a1">Skip to content</a>
+
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
@@ -528,14 +550,14 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     </div>
     <div class="nav-right">
       <div class="nav-links" id="navLinks">
-        <a class="active" onclick="switchPage('adult')">Adult Guide</a>
+        <a class="active" onclick="switchPage('adult')" aria-current="page">Adult Guide</a>
         <a onclick="switchPage('elder')">50+ Guide</a>
       </div>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
         <svg class="moon" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
         <svg class="sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
-      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
       </button>
     </div>
@@ -620,7 +642,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Energy Balance Is Non-Negotiable</h4>
-    <p><strong>Journal:</strong> <em>International Journal of Obesity</em> &mdash; Hall KD et al., 2016</p>
+    <p><strong>What Was Studied:</strong> <em>International Journal of Obesity</em> &mdash; Hall KD et al., 2016</p>
     <p><strong>Main Finding:</strong> A 400-500 calorie daily deficit reliably produces fat loss. Larger deficits accelerate weight loss but increase muscle loss.</p>
     <div class="fi"><strong>Why It Matters:</strong> You do not need to track every calorie forever. But understanding portion sizes and the energy density of foods helps you make better decisions automatically.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Create a modest deficit of 400-500 calories below maintenance. Track your food for two weeks to learn portion sizes, then you can relax the tracking.</div>
@@ -629,7 +651,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Resistance Training Prevents Muscle Loss During Dieting</h4>
-    <p><strong>Journal:</strong> <em>Sports Medicine</em> &mdash; Schoenfeld BJ et al., 2016</p>
+    <p><strong>What Was Studied:</strong> <em>Sports Medicine</em> &mdash; Schoenfeld BJ et al., 2016</p>
     <p><strong>Main Finding:</strong> During a calorie deficit, your body is in a catabolic state. Without resistance training, a significant portion of weight lost comes from muscle rather than fat.</p>
     <div class="fi"><strong>Why It Matters:</strong> Losing muscle slows your metabolism and makes it harder to keep weight off long-term. Protecting muscle during fat loss is essential for lasting results.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Train 2-3 times per week at 6-12 reps per set. Spread workouts across the week. Frequency matters more than volume for preserving muscle.</div>
@@ -638,7 +660,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Lack of Sleep Sabotages Fat Loss</h4>
-    <p><strong>Journal:</strong> <em>Annals of Internal Medicine</em> &mdash; Nedeltcheva AV et al., 2010</p>
+    <p><strong>What Was Studied:</strong> <em>Annals of Internal Medicine</em> &mdash; Nedeltcheva AV et al., 2010</p>
     <p><strong>Main Finding:</strong> Sleeping 5.5 hours instead of 8.5 hours reduces the proportion of weight lost as fat by 55% and increases muscle loss by 60% &mdash; even when calories are perfectly matched.</p>
     <div class="fi"><strong>Why It Matters:</strong> You cannot out-diet or out-train poor sleep. Seven to eight hours is not optional &mdash; it is a requirement for successful body transformation.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Prioritize 7-8 hours of sleep before changing anything else about your routine. Start with a consistent bedtime.</div>
@@ -679,6 +701,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Nutrition <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Learn how to fuel your body with the right proteins, nutrients, and meal timing.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -704,7 +731,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Protein Does Far More Than Build Muscle</h4>
-    <p><strong>Journal:</strong> <em>American Journal of Clinical Nutrition</em> &mdash; Moore DR et al., 2015</p>
+    <p><strong>What Was Studied:</strong> <em>American Journal of Clinical Nutrition</em> &mdash; Moore DR et al., 2015</p>
     <p><strong>Main Finding:</strong> Protein reduces hunger more effectively than carbohydrates or fat. It has the highest thermic effect (your body burns calories digesting it). It protects muscle during weight loss. And after age 50, your body develops anabolic resistance &mdash; you need more protein per meal to get the same muscle-building response.</p>
     <div class="fi"><strong>Why It Matters:</strong> Most people eat most of their protein at dinner, missing muscle-building windows at breakfast and lunch. Even protein distribution is more effective than front-loading or back-loading.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Younger adults need about 20-25 g of protein per meal. Adults over 50 need 35-40 g per meal. Spread your protein evenly across 3-4 meals throughout the day.</div>
@@ -772,6 +799,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Training <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Build strength with a simple at-home routine that requires zero equipment.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -797,7 +829,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Resistance Training Builds Muscle and Extends Lifespan</h4>
-    <p><strong>Journal:</strong> <em>JAMA Internal Medicine</em> &mdash; Villareal DT et al., 2019</p>
+    <p><strong>What Was Studied:</strong> <em>JAMA Internal Medicine</em> &mdash; Villareal DT et al., 2019</p>
     <p><strong>Main Finding:</strong> A study of adults over 50 found that those who did resistance training 2x/week preserved muscle mass, bone density, and mobility significantly better than those who did only cardio. The combination of resistance training plus cardio produced the best health outcomes.</p>
     <div class="fi"><strong>Why It Matters:</strong> Cardio burns calories during exercise. Strength training builds muscle that burns calories around the clock. If you must choose one, choose strength training.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Do both strength training 2-4 times per week and walk daily. This combination produces the best health outcomes.</div>
@@ -851,6 +883,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Recovery <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">You do not grow in the gym. You grow in bed. Learn why recovery is 50% of your results.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -876,7 +913,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Deep Sleep Decreases Significantly With Age</h4>
-    <p><strong>Journal:</strong> <em>Sleep Medicine Reviews</em> &mdash; Ohayon MM et al., 2004</p>
+    <p><strong>What Was Studied:</strong> <em>Sleep Medicine Reviews</em> &mdash; Ohayon MM et al., 2004</p>
     <p><strong>Main Finding:</strong> Slow-wave sleep &mdash; the stage where growth hormone is released and muscle repair occurs &mdash; decreases by 50-70% after age 50. This is why older adults recover more slowly and why sleep is the most important recovery variable to protect.</p>
     <div class="fi"><strong>Why It Matters:</strong> You cannot out-train poor sleep. Sleeping less than 6 hours prevents your body from repairing muscle, regulating appetite, and balancing cortisol &mdash; no matter how well you train and eat.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Protect your sleep window. Get morning sunlight within 30 minutes of waking. Keep your bedroom cool (18-22&deg;C) and dark. No screens for one hour before bed.</div>
@@ -915,6 +952,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Supplements <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Which supplements actually work and which are a waste of money.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -974,6 +1016,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">The Desk Job Effect <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">How to counteract the metabolic damage of sitting 9+ hours per day.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -999,7 +1046,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Sitting 8+ Hours Daily Increases Cardiovascular Risk</h4>
-    <p><strong>Journal:</strong> <em>JAMA Network Open</em> &mdash; Ekelund U et al., 2020</p>
+    <p><strong>What Was Studied:</strong> <em>JAMA Network Open</em> &mdash; Ekelund U et al., 2020</p>
     <p><strong>Main Finding:</strong> An analysis of 44 studies found that sitting 8+ hours per day increases the risk of cardiovascular disease by 17-50%, even in people who exercise for 30-60 minutes daily.</p>
     <div class="fi"><strong>Why It Matters:</strong> A 30-minute workout does not cancel out 9 hours of sitting. Reducing total sitting time throughout the day is more important than adding more exercise.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Stand up every 30 minutes for 2 minutes. Walk during phone calls. Use a standing desk for part of your day. These micro-breaks add up significantly.</div>
@@ -1028,7 +1075,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Shallow Breathing Increases Stress and Reduces Focus</h4>
-    <p><strong>Journal:</strong> <em>Frontiers in Psychology</em> &mdash; Zaccaro A et al., 2018</p>
+    <p><strong>What Was Studied:</strong> <em>Frontiers in Psychology</em> &mdash; Zaccaro A et al., 2018</p>
     <p><strong>Main Finding:</strong> Slow, diaphragmatic breathing (4-6 breaths per minute) activates the parasympathetic nervous system, reducing cortisol, lowering blood pressure, and improving cognitive performance. Most adults breathe 12-18 shallow breaths per minute without realising it.</p>
     <div class="fi"><strong>Why It Matters:</strong> Shallow chest breathing keeps your body in a low-grade stress state, raises heart rate, and triggers tension in your shoulders and neck. You cannot fix posture without fixing breath &mdash; the two are mechanically linked.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Set a reminder for three times per day. Pause for 30 seconds. Take 5 slow breaths &mdash; 4 seconds in, 6 seconds out. This single habit lowers stress and resets your posture.</div>
@@ -1077,6 +1124,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Your Daily Protocol <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">A simple, memorable daily checklist that brings everything together.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1169,6 +1221,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Lifestyle &amp; Longevity <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">How to maintain these habits for life and what to do when motivation runs low.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1194,7 +1251,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Chronic Stress Accelerates Cellular Aging</h4>
-    <p><strong>Journal:</strong> <em>Proceedings of the National Academy of Sciences</em> &mdash; Epel ES et al., 2004</p>
+    <p><strong>What Was Studied:</strong> <em>Proceedings of the National Academy of Sciences</em> &mdash; Epel ES et al., 2004</p>
     <p><strong>Main Finding:</strong> Research has shown that women with the highest chronic stress levels had telomeres equivalent to being 10 years older. Telomeres are the protective caps on chromosomes that determine how quickly your cells age.</p>
     <div class="fi"><strong>Why It Matters:</strong> Daily stress management is not optional &mdash; it affects your biology at a cellular level. Mindfulness, exercise, and social connection all help protect telomere length.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Incorporate 10 minutes of daily stress management &mdash; walking, deep breathing, or a gratitude practice. Consistency matters more than intensity.</div>
@@ -1221,6 +1278,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ti"><span class="ck">&check;</span><span class="tx">Health is not built in weeks. It is built through years of consistent decisions.</span></div>
   </div>
 
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1320,7 +1382,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Three Major Changes Occur After 50</h4>
-    <p><strong>Journal:</strong> <em>Journal of Applied Physiology</em> &mdash; Hunter GR et al., 2010</p>
+    <p><strong>What Was Studied:</strong> <em>Journal of Applied Physiology</em> &mdash; Hunter GR et al., 2010</p>
     <p><strong>Main Finding:</strong> After 50: (1) Muscle mass declines 1-2% per year. (2) Bone density drops 1-2% per year, accelerating to 3-5% after menopause in women. (3) Metabolic rate decreases approximately 100-150 calories per decade. All three can be slowed, stopped, or reversed with the right interventions.</p>
     <div class="fi"><strong>Why It Matters:</strong> Muscle loss is not inevitable. Studies show that adults in their 70s and 80s can build significant muscle with proper resistance training. Your potential does not diminish with age.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Start resistance training if you have not. Add weight-bearing exercise for bone density. Adjust your calorie intake as your metabolism slows.</div>
@@ -1351,6 +1413,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">For Men <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Managing testosterone, bone density, sleep, and heart health after 50.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1376,7 +1443,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Testosterone Declines With Age, But Lifestyle Matters More Than Years</h4>
-    <p><strong>Journal:</strong> <em>Journal of Clinical Endocrinology &amp; Metabolism</em> &mdash; Harman SM et al., 2001</p>
+    <p><strong>What Was Studied:</strong> <em>Journal of Clinical Endocrinology &amp; Metabolism</em> &mdash; Harman SM et al., 2001</p>
     <p><strong>Main Finding:</strong> A long-term study of 890 men found that testosterone declines approximately 1% per year after age 30. However, men who maintained a healthy weight, exercised regularly, and slept 7+ hours had significantly slower declines. Lifestyle predicted testosterone levels better than chronological age.</p>
     <div class="fi"><strong>Why It Matters:</strong> Every testosterone-boosting supplement on the market is less effective than the combination of resistance training, quality sleep, and adequate dietary fat.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Lift weights 3-4 times per week. Sleep 7+ hours. Eat enough healthy fats from nuts, seeds, fish, and cooking oils.</div>
@@ -1424,6 +1491,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">For Women <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Navigating menopause with strength — bone, muscle, and metabolic health.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1449,7 +1521,7 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
   <div class="sci">
     <div class="lb">📖 Research Summary</div>
     <h4>Resistance Training Increases Bone Density After Menopause</h4>
-    <p><strong>Journal:</strong> <em>Menopause Journal</em> &mdash; Stojanovska L et al., 2021</p>
+    <p><strong>What Was Studied:</strong> <em>Menopause Journal</em> &mdash; Stojanovska L et al., 2021</p>
     <p><strong>Main Finding:</strong> Women over 50 who completed 12 weeks of resistance training twice per week increased their spinal bone density by 2-3% and reported fewer hot flashes and better sleep. The control group, who did not exercise, lost 1-2% of bone density over the same period.</p>
     <div class="fi"><strong>Why It Matters:</strong> One in three women over 50 will experience an osteoporosis-related fracture. Weight-bearing exercise combined with resistance training, calcium, and vitamin D is the only proven prevention strategy.</div>
     <div class="fi"><strong>How You Can Use It:</strong> Resistance training 2-3 times per week. Include weight-bearing exercise. Ensure adequate calcium (1,200 mg) and vitamin D (2,000-5,000 IU) daily.</div>
@@ -1506,6 +1578,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Nutrition After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">More protein, more calcium, more vitamin D — your nutritional needs increase with age.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1569,6 +1646,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Training After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Walking, strength, mobility, and balance — the four pillars of training after 50.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1629,6 +1711,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Recovery &amp; Sleep After 50 <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">How your sleep changes after 50 and what to do about it.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1681,6 +1768,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Lifestyle &amp; Healthy Aging <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">Hydration, social connection, mental stimulation, and regular check-ups.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1755,6 +1847,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="nn">Putting It All Together <svg viewBox="0 0 24 24"><path class="icon-clr" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     <div class="nd">A simple one-page daily protocol for healthy aging.</div>
   </a>
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1798,6 +1895,11 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
     <div class="ti"><span class="ck">&check;</span><span class="tx">Start where you are. Progress at your own pace. Your 60-year-old self will thank you.</span></div>
   </div>
 
+  <div class="cf">
+    <span>Reviewed June 2026</span>
+    <span>Evidence: Peer-reviewed</span>
+    <span>Educational only</span>
+  </div>
   <hr class="hr">
 </div>
 
@@ -1851,7 +1953,10 @@ html.dark a[href^="mailto:"] { color: var(--accent-light); border-color: var(--a
 </button>
 
 <script>
-function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+function toggleNav(){
+  const nl=document.getElementById('navLinks'); nl.classList.toggle('open')
+  document.querySelector('.nav-toggle').setAttribute('aria-expanded',nl.classList.contains('open'))
+}
 function toggleTheme(){
   var h=document.documentElement
   if(h.classList.toggle('dark')){
@@ -1863,23 +1968,63 @@ function toggleTheme(){
 function switchPage(p){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'))
   document.getElementById('page-'+p).classList.add('active')
-  document.querySelectorAll('.nav-links a').forEach((x,i)=>x.classList.toggle('active',(p==='adult'?i===0:i===1)))
+  document.querySelectorAll('.nav-links a').forEach((x,i)=>{
+    x.classList.toggle('active',(p==='adult'?i===0:i===1))
+    if(x.classList.contains('active')){x.setAttribute('aria-current','page')}else{x.removeAttribute('aria-current')}
+  })
   document.getElementById('navLinks').classList.remove('open')
   window.scrollTo(0,0)
 }
 
 (function(){
-  var idx=document.querySelector('.idx'), fab=document.getElementById('idxFab'), last=0, ticking=false
+  var last=0, ticking=false, hideTimer=null
+
+  function getIdx(){return document.querySelector('.page.active .idx')}
+  function getFab(){return document.getElementById('idxFab')}
+
   function update(){
-    var cur=window.pageYOffset, dir=cur>last?'down':'up'
-    if(cur>120){
-      if(dir==='down'&&cur>last+15){idx.classList.add('hidden');fab.classList.add('show')}
-      else if(dir==='up'&&last-cur>15){idx.classList.remove('hidden');fab.classList.remove('show')}
-    }else{idx.classList.remove('hidden');fab.classList.remove('show')}
+    var idx=getIdx(), fab=getFab()
+    if(!idx)return
+
+    var cur=window.pageYOffset, dir=cur>last?'down':'up', bt=document.documentElement.scrollHeight-window.innerHeight-400
+    var wasHidden=idx.classList.contains('hidden')
+
+    // Near bottom — hide, cancel timer
+    if(cur>bt){
+      idx.classList.add('hidden');fab.classList.add('show')
+      if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
+      last=cur;ticking=false;return
+    }
+
+    // Show on any scroll if was hidden by timer
+    if(wasHidden){
+      idx.classList.remove('hidden');fab.classList.remove('show')
+    }
+
+    // Upward scroll — start 4s timer
+    if(dir==='up'&&last-cur>=15){
+      if(!hideTimer){
+        hideTimer=setTimeout(function(){
+          idx.classList.add('hidden');fab.classList.add('show');hideTimer=null
+        },4000)
+      }
+    }
+
+    // Downward scroll through content — cancel timer
+    if(dir==='down'&&cur>=last+15&&cur>=120){
+      if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
+    }
+
     last=cur;ticking=false
   }
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}})
-  window.showIndex=function(){idx.classList.remove('hidden');fab.classList.remove('show');window.scrollTo({top:idx.offsetTop-80,behavior:'smooth'})}
+  window.showIndex=function(){
+    var idx=getIdx(), fab=getFab()
+    if(!idx)return
+    idx.classList.remove('hidden');fab.classList.remove('show')
+    if(hideTimer){clearTimeout(hideTimer);hideTimer=null}
+    window.scrollTo({top:idx.offsetTop-80,behavior:'smooth'})
+  }
 })()
 </script>
 
