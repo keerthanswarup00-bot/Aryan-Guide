@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Lifestyle & Transformation Guide</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
 * {
@@ -15,6 +16,7 @@
   --primary: #1a1a2e;
   --accent: #0f6e56;
   --accent-light: #1D9E75;
+  --accent-dark: #0a4d3a;
   --danger: #e74c3c;
   --warning: #f39c12;
   --success: #27ae60;
@@ -23,6 +25,15 @@
   --text-secondary: #666;
   --border: #e0e0e0;
   --card-bg: #f9f9f9;
+  --nav-bg: #1a1a2e;
+  --nav-text: #ffffff;
+  --gold: #d4a853;
+  --purple: #7c3aed;
+  --rose: #e11d48;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -31,16 +42,17 @@ body {
   background: var(--bg);
   line-height: 1.6;
   font-size: 16px;
+  padding-top: 64px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .section {
-  padding: 40px 0;
+  padding: 48px 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -53,6 +65,7 @@ h1 {
   font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: -1px;
+  line-height: 1.2;
 }
 
 .subtitle {
@@ -77,6 +90,12 @@ h3 {
   margin: 28px 0 16px 0;
 }
 
+h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 12px 0;
+}
+
 p {
   margin-bottom: 16px;
   color: var(--text);
@@ -91,6 +110,10 @@ p {
 
 .grid.two {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .card {
@@ -109,6 +132,21 @@ p {
 .card.highlight {
   border-color: var(--accent);
   background: rgba(15, 110, 86, 0.02);
+}
+
+.card.gold {
+  border-color: var(--gold);
+  background: rgba(212, 168, 83, 0.03);
+}
+
+.card.rose {
+  border-color: var(--rose);
+  background: rgba(225, 29, 72, 0.03);
+}
+
+.card.purple {
+  border-color: var(--purple);
+  background: rgba(124, 58, 237, 0.03);
 }
 
 .badge {
@@ -134,23 +172,16 @@ p {
   background: var(--success);
 }
 
-.metric {
-  text-align: center;
-  padding: 20px;
+.badge.gold {
+  background: var(--gold);
 }
 
-.metric-value {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--accent);
+.badge.rose {
+  background: var(--rose);
 }
 
-.metric-label {
-  font-size: 13px;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 8px;
+.badge.purple {
+  background: var(--purple);
 }
 
 table {
@@ -190,6 +221,26 @@ tr:last-child td {
   border-left-color: var(--warning);
 }
 
+.callout.danger {
+  background: rgba(231, 76, 60, 0.05);
+  border-left-color: var(--danger);
+}
+
+.callout.gold {
+  background: rgba(212, 168, 83, 0.05);
+  border-left-color: var(--gold);
+}
+
+.callout.rose {
+  background: rgba(225, 29, 72, 0.05);
+  border-left-color: var(--rose);
+}
+
+.callout.science {
+  background: rgba(124, 58, 237, 0.04);
+  border-left-color: var(--purple);
+}
+
 .callout h4 {
   font-size: 14px;
   font-weight: 700;
@@ -203,26 +254,20 @@ tr:last-child td {
   color: var(--warning);
 }
 
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: inherit;
-  margin-bottom: 12px;
+.callout.danger h4 {
+  color: var(--danger);
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(15, 110, 86, 0.1);
+.callout.gold h4 {
+  color: var(--gold);
+}
+
+.callout.rose h4 {
+  color: var(--rose);
+}
+
+.callout.science h4 {
+  color: var(--purple);
 }
 
 .button {
@@ -235,6 +280,8 @@ textarea:focus {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .button:hover {
@@ -254,15 +301,29 @@ textarea:focus {
   border-color: var(--text-secondary);
 }
 
-.form-group {
-  margin-bottom: 20px;
+.button.gold {
+  background: var(--gold);
+  color: #1a1a2e;
 }
 
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 14px;
+.button.gold:hover {
+  background: #c99a40;
+}
+
+.button.rose {
+  background: var(--rose);
+}
+
+.button.rose:hover {
+  background: #b7153b;
+}
+
+.button.purple {
+  background: var(--purple);
+}
+
+.button.purple:hover {
+  background: #6d28d9;
 }
 
 .row {
@@ -303,220 +364,9 @@ textarea:focus {
   line-height: 1.5;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background: var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 12px 0;
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.timeline {
-  position: relative;
-  margin: 40px 0;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-}
-
-.timeline-marker {
-  background: var(--accent);
-  color: white;
-  width: 100px;
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-align: center;
-  font-size: 13px;
-}
-
-.timeline-content h4 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.timeline-content p {
-  margin-bottom: 8px;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  .section {
-    padding: 28px 0;
-  }
-
-  table {
-    font-size: 13px;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-
-  .timeline-item {
-    grid-template-columns: 80px 1fr;
-    gap: 16px;
-  }
-
-  .timeline-marker {
-    width: 80px;
-    font-size: 12px;
-  }
-}
-
-.section-break {
-  padding: 16px 0;
-  margin: 0;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
-}
-
-.divider-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  opacity: 0.4;
-}
-
-.tip-card {
-  background: linear-gradient(135deg, rgba(15, 110, 86, 0.03) 0%, rgba(15, 110, 86, 0.07) 100%);
-  border: 1px dashed var(--accent);
-  border-radius: 8px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.tip-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.tip-text {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.tip-text strong {
-  color: var(--accent);
-}
-
-@media print {
-  body {
-    background: white;
-  }
-
-  .section {
-    page-break-inside: avoid;
-    padding: 30px 0;
-  }
-
-  .section-break {
-    page-break-inside: avoid;
-  }
-
-  .button, .form-group input {
-    display: none;
-  }
-
-  .card {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-}
-
-.header {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-  border-bottom: 2px solid var(--accent);
-  margin-bottom: 40px;
-}
-
-.header h1 {
-  margin-bottom: 8px;
-}
-
-.header .subtitle {
-  margin-bottom: 0;
-}
-
-.icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-.assessment-result {
-  margin-top: 20px;
-  padding: 20px;
-  background: rgba(15, 110, 86, 0.05);
-  border-radius: 8px;
-}
-
-.calculation-result {
-  background: var(--card-bg);
-  border: 2px solid var(--accent);
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.calculation-result .value {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.calculation-result .label {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-top: 8px;
+.icon-large {
+  font-size: 32px;
+  margin-bottom: 12px;
 }
 
 .list-item {
@@ -535,6 +385,7 @@ textarea:focus {
   margin-right: 12px;
   margin-top: 2px;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .list-item-content {
@@ -551,137 +402,779 @@ textarea:focus {
   color: var(--text-secondary);
   margin-top: 4px;
 }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  z-index: 1000;
+  height: 64px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo span {
+  color: var(--accent-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+  background: rgba(255,255,255,0.1);
+}
+
+.nav-links a.highlight-link {
+  background: var(--accent);
+  color: white;
+}
+
+.nav-links a.highlight-link:hover {
+  background: var(--accent-light);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    flex-direction: column;
+    padding: 16px;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 16px;
+    width: 100%;
+  }
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 60px 24px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #fefce8 100%);
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 0;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+}
+
+.header h1 span {
+  color: var(--accent);
+}
+
+.header .subtitle {
+  margin-bottom: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== CALCULATOR LINKS ===== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.calc-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+}
+
+.calc-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(15, 110, 86, 0.1);
+  transform: translateY(-2px);
+}
+
+.calc-card .icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.calc-card .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.calc-card .desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ===== AGE SECTION ===== */
+.age-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f6e56 100%);
+  color: white;
+  padding: 60px 24px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 32px 0;
+}
+
+.age-hero h2 {
+  color: white;
+  border-bottom-color: var(--gold);
+  font-size: 32px;
+}
+
+.age-hero p {
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  margin: 16px auto 0;
+}
+
+.age-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.age-tab {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.age-tab:hover {
+  border-color: var(--accent);
+}
+
+.age-tab.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.age-tab.men-tab.active {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.age-tab.women-tab.active {
+  border-color: var(--rose);
+  background: var(--rose);
+}
+
+.age-content {
+  display: none;
+}
+
+.age-content.active {
+  display: block;
+}
+
+.age-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.age-badge.men {
+  background: rgba(15, 110, 86, 0.1);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.age-badge.women {
+  background: rgba(225, 29, 72, 0.1);
+  color: var(--rose);
+  border: 1px solid var(--rose);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+  }
+
+  .header {
+    padding: 40px 20px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .age-hero {
+    padding: 40px 20px;
+  }
+
+  .age-hero h2 {
+    font-size: 26px;
+  }
+
+  .age-tabs {
+    justify-content: center;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    padding-top: 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .section {
+    page-break-inside: avoid;
+    padding: 30px 0;
+  }
+
+  .button, .form-group input {
+    display: none;
+  }
+
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ===== SCIENTIFIC PROOF ===== */
+.science-ref {
+  background: rgba(124, 58, 237, 0.04);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.science-ref .s-icon {
+  color: var(--purple);
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.science-ref .s-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.science-ref .s-text strong {
+  color: var(--text);
+}
+
+/* ===== DESK JOB SPECIFIC ===== */
+.desk-tip {
+  background: rgba(243, 156, 18, 0.06);
+  border: 1px solid rgba(243, 156, 18, 0.2);
+  border-left: 4px solid var(--warning);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.desk-tip .dt-icon {
+  color: var(--warning);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.desk-tip .dt-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.desk-tip .dt-text strong {
+  color: var(--warning);
+}
+
+/* ===== STATS BAR ===== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== ROUTINE BOX ===== */
+.routine-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.routine-box .r-header {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.routine-step {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.routine-step:last-child {
+  border-bottom: none;
+}
+
+.routine-step .r-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.routine-step .r-num.rose {
+  background: var(--rose);
+}
+
+.routine-step .r-content {
+  flex: 1;
+  font-size: 14px;
+}
+
+.routine-step .r-content strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.routine-step .r-content .r-desc {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* ===== PHASE CHART ===== */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.phase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.phase-card .phase-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.phase-card .phase-age {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.phase-card .phase-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.phase-card.peak .phase-age { color: var(--accent); }
+.phase-card.transition .phase-age { color: var(--warning); }
+.phase-card.adapt .phase-age { color: var(--gold); }
     </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>COMPLETE TRANSFORMATION GUIDE</h1>
-  <p class="subtitle">Nutrition • Training • Recovery • Lifestyle<br>By Aryan Swaroop — Beginner to Athlete</p>
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <i class="fas fa-leaf"></i> Guide<span>Life</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" onclick="closeNav()">Home</a>
+      <a href="#desk-job" onclick="closeNav()">Desk Job</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="#training">Training</a>
+      <a href="#recovery">Recovery</a>
+      <a href="#age50" class="highlight-link" onclick="closeNav()"><i class="fas fa-star"></i> 50+ Guide</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HEADER ===== -->
+<div class="header" id="home">
+  <h1>Complete <span>Lifestyle</span> & Transformation Guide</h1>
+  <p class="subtitle">Nutrition • Training • Recovery • Longevity<br>Science-based strategies for adults & elders — from desk jobs to golden years</p>
+  <div class="header-actions">
+    <a href="#desk-job" class="button"><i class="fas fa-chair"></i> Desk Job Health</a>
+    <a href="#age50" class="button gold"><i class="fas fa-star"></i> 50+ Essential Guide</a>
+    <a href="#calculators" class="button secondary"><i class="fas fa-calculator"></i> Free Tools</a>
+  </div>
 </div>
 
 <div class="container">
 
-<!-- SECTION 1: PERSONAL ASSESSMENT -->
-<div class="section">
-  <h2>Your Current State Assessment</h2>
-  <p>Before we build your transformation protocol, let's establish your baseline. This assessment determines your personalized recommendations across nutrition, training, and recovery.</p>
+<!-- ===== CALCULATOR LINKS ===== -->
+<div class="section" id="calculators">
+  <h2>Your Health Assessment Tools</h2>
+  <p>Use these free, science-backed calculators to understand your baseline before building your protocol.</p>
 
-  <div class="form-group">
-    <label>Current body weight (kg)</label>
-    <input type="number" id="weight" placeholder="e.g., 75" min="40" max="200">
+  <div class="calc-grid">
+    <a href="https://www.calculator.net/bmi-calculator.html" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">⚖️</span>
+      <div class="name">BMI Calculator</div>
+      <div class="desc">Know your body mass index & risk category</div>
+    </a>
+    <a href="https://tdeecalculator.net" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">🔥</span>
+      <div class="name">TDEE Calculator</div>
+      <div class="desc">Daily calorie needs based on your stats</div>
+    </a>
+    <a href="https://www.healthline.com/nutrition/bmr-calculator" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">💤</span>
+      <div class="name">BMR Calculator</div>
+      <div class="desc">Your resting metabolic rate</div>
+    </a>
+    <a href="https://www.omnicalculator.com/health/bmi" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">📊</span>
+      <div class="name">Body Fat Estimator</div>
+      <div class="desc">Estimate your body fat percentage</div>
+    </a>
+    <a href="https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/added-sugars" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">❤️</span>
+      <div class="name">Heart Risk Check</div>
+      <div class="desc">American Heart Association guide</div>
+    </a>
+    <a href="https://www.osteoporosis.foundation/health-professionals/fracture-risk" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">🦴</span>
+      <div class="name">Bone Health Check</div>
+      <div class="desc">Fracture risk assessment tool</div>
+    </a>
   </div>
 
-  <div class="row">
-    <div class="form-group">
-      <label>Height (cm)</label>
-      <input type="number" id="height" placeholder="e.g., 180" min="140" max="220">
-    </div>
-    <div class="form-group">
-      <label>Age</label>
-      <input type="number" id="age" placeholder="e.g., 25" min="15" max="80">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label>Training days per week</label>
-    <select id="trainingDays">
-      <option value="1.2">Sedentary (0-1 days)</option>
-      <option value="1.4">Lightly Active (2-3 days)</option>
-      <option value="1.55" selected>Moderately Active (4-5 days)</option>
-      <option value="1.7">Very Active (6+ days)</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Primary goal</label>
-    <select id="goal">
-      <option value="fat-loss">Fat Loss (Build Muscle)</option>
-      <option value="muscle-gain">Muscle Gain (Lean)</option>
-      <option value="recomposition">Body Recomposition (Both)</option>
-      <option value="strength">Pure Strength</option>
-    </select>
-  </div>
-
-  <button class="button" onclick="calculateTDEE()">Calculate My Protocol</button>
-
-  <div id="assessmentResult" class="assessment-result" style="display: none;">
-    <div class="metric">
-      <div class="metric-label">Your BMR</div>
-      <div class="metric-value" id="bmrResult">—</div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Your TDEE</div>
-      <div class="metric-value" id="tdeeResult">—</div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Daily Target</div>
-      <div class="metric-value" id="targetResult">—</div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Daily Protein</div>
-      <div class="metric-value" id="proteinResult">—g</div>
-    </div>
+  <div class="callout">
+    <h4>📋 How to use these tools</h4>
+    <p>Start with the <strong>BMI & TDEE calculators</strong> to know where you stand. Then use the guide below to build your personalized nutrition, training, and recovery plan. <strong>No account needed — all tools are free.</strong></p>
   </div>
 </div>
 
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> Your TDEE changes as you lose weight. Recalculate every 5kg dropped to keep your deficit accurate.</div>
+<!-- ===== DESK JOB & SEDENTARY LIFESTYLE ===== -->
+<div class="section" id="desk-job">
+  <h2>The Desk Job Effect — Fixing the Sitting Epidemic</h2>
+
+  <div class="callout danger">
+    <h4>⚠️ The Reality</h4>
+    <p><strong>Most adults spend 9-12 hours/day sitting.</strong> At a desk, in a car, on a couch. The human body was not designed for this. Prolonged sitting is now classified as a metabolic risk factor — independent of whether you exercise or not. <strong>You can be "skinny" and still be metabolically unhealthy.</strong></p>
+  </div>
+
+  <div class="science-ref">
+    <div class="s-icon"><i class="fas fa-flask"></i></div>
+    <div class="s-text">
+      <strong>Science:</strong> A 2020 JAMA Network Open meta-analysis of 44 studies found that sitting 8+ hours/day increases cardiovascular disease risk by 17-50%, even in people who exercise 30-60 minutes daily. The key is reducing total sitting time, not just adding exercise. (Ekelund et al., 2020)
+    </div>
+  </div>
+
+  <h3>What Happens to Your Body</h3>
+
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-number">9-12h</div>
+      <div class="stat-label">Daily sitting (avg desk worker)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">40%</div>
+      <div class="stat-label">Lower back pain in desk workers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">90%</div>
+      <div class="stat-label">Weight gain shift to belly after 40</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3x</div>
+      <div class="stat-label">Higher diabetes risk with prolonged sitting</div>
+    </div>
+  </div>
+
+  <div class="grid two">
+    <div class="card">
+      <div class="icon-large">🪑</div>
+      <h4>Postural Collapse</h4>
+      <p><strong>Forward head, rounded shoulders, weak glutes.</strong> Sitting shortens your hip flexors, weakens your glutes (they "fall asleep"), and rounds your upper back. This leads to chronic neck pain, lower back pain, and reduced mobility.</p>
+    </div>
+    <div class="card">
+      <div class="icon-large">🫀</div>
+      <h4>Metabolic Slowdown</h4>
+      <p><strong>Lipoprotein lipase (fat-burning enzyme) drops 90%</strong> during prolonged sitting. Your circulation slows, insulin sensitivity drops, and blood sugar stays elevated. Your body essentially shifts into "storage mode."</p>
+    </div>
+    <div class="card">
+      <div class="icon-large">🧠</div>
+      <h4>Brain Fog & Fatigue</h4>
+      <p><strong>Sitting reduces blood flow to the brain.</strong> Your energy drops, focus declines, and you feel more tired despite doing nothing physical. Movement is what keeps your brain oxygenated and alert.</p>
+    </div>
+    <div class="card">
+      <div class="icon-large">🦵</div>
+      <h4>Muscle Attrophy</h4>
+      <p><strong>Leg and glute muscles lose mass over years of inactivity.</strong> This is especially dangerous after 50 — muscle loss accelerates. Your legs are your "second heart" — they pump blood back up from your lower body.</p>
+    </div>
+  </div>
+
+  <h3>The Desk Job Corrective Protocol</h3>
+
+  <div class="desk-tip">
+    <div class="dt-icon"><i class="fas fa-clock"></i></div>
+    <div class="dt-text">
+      <strong>The 30-Minute Rule:</strong> Stand up every 30 minutes. Set a timer. Walk 2 minutes. Get water. Stretch your hips. This single habit reduces sitting risk by 60% — even if you don't change anything else.
+    </div>
+  </div>
+
+  <div class="grid two">
+    <div class="card highlight">
+      <h4 style="margin-top:0;">At Your Desk (Every 30 Min)</h4>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Stand up for 2 minutes</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Shoulder rolls (10x backward)</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Chin tucks (hold 10 sec)</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Seated glute squeezes (15x)</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Wrist & finger stretches</div>
+    </div>
+    <div class="card highlight">
+      <h4 style="margin-top:0;">After Work (Daily)</h4>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ 10 min hip flexor stretch</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ 20 bodyweight squats</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Cat-cow spine mobility</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ Thoracic spine twist</div>
+      <div class="list-item" style="border:none; padding:6px 0;">✓ 5,000+ steps (minimum target)</div>
+    </div>
+  </div>
+
+  <div class="desk-tip">
+    <div class="dt-icon"><i class="fas fa-lightbulb"></i></div>
+    <div class="dt-text">
+      <strong>NEAT is your secret weapon.</strong> Non-Exercise Activity Thermogenesis = all the movement you do that isn't formal exercise. Walking to the bus, taking stairs, cooking, cleaning. Desk workers have the LOWEST NEAT of any group. <strong>Adding 3,000 extra steps/day burns the same calories as a 30-minute run.</strong>
+    </div>
+  </div>
+
+  <h3>Ergonomics Quick Fix</h3>
+  <table>
+    <tr><th>Body Part</th><th>How to Fix</th></tr>
+    <tr><td>Eyes</td><td>Screen at arm's length, top of screen at eye level. 20-20-20 rule: every 20 min, look 20 feet away for 20 seconds.</td></tr>
+    <tr><td>Wrists</td><td>Keyboard at elbow height. Wrists straight (not bent up/down). Use a wrist rest if needed.</td></tr>
+    <tr><td>Feet</td><td>Flat on floor or footrest. Never crossed — crossing reduces circulation and misaligns hips.</td></tr>
+    <tr><td>Chair</td><td>Knees at 90°, hips slightly higher than knees. Lumbar support engaged. Avoid leaning forward.</td></tr>
+  </table>
+
+  <div class="callout">
+    <h4>💡 The "Movement Snack" Habit</h4>
+    <p><strong>Every time you finish a task, move for 1 minute.</strong> Finished an email? Stand up. Finished a meeting? Walk to the window. Finished a call? Do 10 squats. These "movement snacks" accumulate to significant metabolic impact over a full day.</p>
   </div>
 </div>
 
-<!-- SECTION 2: FOUNDATION -->
-<div class="section">
+<!-- ===== THE 3-VARIABLE SYSTEM ===== -->
+<div class="section" id="foundation">
   <h2>The 3-Variable System</h2>
-  <p>Body transformation is 100% determined by three variables. Master these, everything else follows:</p>
+  <p>Body transformation is 100% determined by three variables. Master these at any age — everything else follows:</p>
 
   <div class="grid two">
     <div class="card highlight">
       <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
-      <h3>1. Calorie Deficit</h3>
-      <p>You must consume fewer calories than you burn. 400-500 cal/day deficit = 0.4-0.5kg fat loss weekly. Aggressive enough to work. Conservative enough to preserve muscle.</p>
+      <h3>1. Energy Balance</h3>
+      <p>Calories in vs calories out. 400-500 cal/day deficit = 0.4-0.5kg fat loss weekly. After 50, your maintenance drops ~100-150 calories per decade — adjust accordingly.</p>
     </div>
 
     <div class="card highlight">
       <div style="font-size: 28px; margin-bottom: 12px;">💪</div>
-      <h3>2. Progressive Resistance Training</h3>
-      <p>Weights create the stimulus to retain and build muscle. Without this, your deficit becomes muscle loss. Train 4-6 days/week with progressive overload.</p>
+      <h3>2. Resistance Training</h3>
+      <p>Critical at every age, <strong>non-negotiable after 50</strong>. It preserves muscle, maintains bone density, and keeps your metabolism active. Bodyweight counts if you can't do gym.</p>
     </div>
 
     <div class="card highlight">
       <div style="font-size: 28px; margin-bottom: 12px;">🌙</div>
-      <h3>3. Adequate Recovery</h3>
-      <p>Sleep 7-8 hours every night. Manage stress daily. Eat enough protein. These aren't optional—they're where results actually happen.</p>
+      <h3>3. Recovery & Sleep</h3>
+      <p>7-8 hours every night. After 50, sleep quality naturally declines — you need to work harder to protect it. Recovery takes longer. Plan for it.</p>
     </div>
   </div>
 
   <div class="callout">
-    <h4>📌 The Truth</h4>
-    <p>Everything else—meal timing, cardio type, supplements, supplement stacks—is secondary. If these three variables are right, you will transform. If any one is wrong, you won't.</p>
+    <h4>📌 The Truth at Every Age</h4>
+    <p>Everything else — meal timing, cardio type, supplements — is secondary. If these three variables are right, you will transform. If any one is wrong, you won't. <strong>After 50, recovery becomes the most important variable of the three.</strong></p>
   </div>
 </div>
 
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> Fat loss happens in the kitchen. Muscle shape is built in the gym. Never let a hard workout justify a bad meal.</div>
-  </div>
-</div>
-
-<!-- SECTION 3: NUTRITION COMPLETE SYSTEM -->
-<div class="section">
+<!-- ===== NUTRITION ===== -->
+<div class="section" id="nutrition">
   <h2>Complete Nutrition System</h2>
 
+  <div class="science-ref">
+    <div class="s-icon"><i class="fas fa-flask"></i></div>
+    <div class="s-text">
+      <strong>Science:</strong> After age 50, the body becomes less efficient at using protein for muscle synthesis — a phenomenon called "anabolic resistance." This means older adults need MORE protein per meal (30-40g) than younger adults (20-25g) to trigger the same muscle-building response. (Moore et al., 2015, American Journal of Clinical Nutrition)
+    </div>
+  </div>
+
   <h3>The Protein Rule (Non-Negotiable)</h3>
-  <p>During fat loss, protein is the single most important macro. It preserves muscle, keeps you fuller, and has the highest thermic effect (burns calories during digestion).</p>
+  <p>During fat loss, protein is the single most important macro. It preserves muscle, keeps you full, and has the highest thermic effect. <strong>After 50, target 1.6-2.0g per kg body weight — the higher end of the range.</strong></p>
 
   <div class="callout">
-    <h4>💡 The 30-Gram Rule</h4>
-    <p>Hit at least 30g of protein at every major meal. This is the threshold for maximal muscle protein synthesis. Below it, you're leaving gains on the table.</p>
+    <h4>💡 The 30-Gram Rule (After 50: 35-40g)</h4>
+    <p>Hit at least 30g of protein at every major meal. After 50, aim for 35-40g per meal due to anabolic resistance. This is the threshold for maximal muscle protein synthesis.</p>
   </div>
 
   <h3>High-Protein Indian Food Sources</h3>
@@ -690,1083 +1183,890 @@ textarea:focus {
       <th>Food</th>
       <th>Protein (per 100g)</th>
       <th>Calories</th>
-      <th>Verdict</th>
+      <th>Best For 50+</th>
     </tr>
     <tr>
       <td>Chicken Breast</td>
       <td><strong>31g</strong></td>
       <td>165 kcal</td>
-      <td>King of protein</td>
+      <td>Easy to digest, high quality</td>
     </tr>
     <tr>
       <td>Paneer (low-fat)</td>
       <td><strong>18g</strong></td>
       <td>160 kcal</td>
-      <td>Daily staple</td>
+      <td>Calcium + protein (bone health)</td>
     </tr>
     <tr>
       <td>Eggs (2)</td>
       <td><strong>12g</strong></td>
       <td>140 kcal</td>
-      <td>Non-negotiable</td>
+      <td>Vitamin D + choline (brain)</td>
     </tr>
     <tr>
-      <td>Tuna (canned)</td>
-      <td><strong>25g</strong></td>
-      <td>110 kcal</td>
-      <td>Underused weapon</td>
+      <td>Fish (Salmon/Mackerel)</td>
+      <td><strong>22g</strong></td>
+      <td>180 kcal</td>
+      <td>Omega-3 for joints & heart</td>
     </tr>
     <tr>
       <td>Greek Yogurt/Hung Curd</td>
       <td><strong>10g</strong></td>
       <td>100 kcal</td>
-      <td>Easy protein hit</td>
+      <td>Gut health + easy protein</td>
     </tr>
     <tr>
-      <td>Moong Dal (cooked)</td>
-      <td><strong>7g</strong></td>
+      <td>Soya Chunks/Nuggets</td>
+      <td><strong>52g</strong></td>
+      <td>345 kcal</td>
+      <td>Plant powerhouse, cheap</td>
+    </tr>
+    <tr>
+      <td>Moong Dal / Sprouts</td>
+      <td><strong>7-9g</strong></td>
       <td>105 kcal</td>
-      <td>Solid plant source</td>
-    </tr>
-    <tr>
-      <td>Rajma (cooked)</td>
-      <td><strong>9g</strong></td>
-      <td>130 kcal</td>
-      <td>Fiber + protein</td>
+      <td>Easy digestion, fiber</td>
     </tr>
   </table>
 
-  <h3>The 3-Meal Daily Template</h3>
-  <p>Stop eating 6 times a day. Three structured meals + optional snacks is simpler, more sustainable, and equally effective.</p>
+  <h3>Indian Meal Template for 50+</h3>
 
   <div class="grid two">
     <div class="card">
-      <div class="badge">Meal 1</div>
-      <h4>7:00-9:00 AM — High-Protein Morning</h4>
-      <p><strong>3 eggs + 1 cup milk</strong><br>OR<br><strong>200g hung curd + fruit + 2 eggs</strong></p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~400-450 kcal | 35-40g protein</p>
+      <div class="badge gold">Breakfast</div>
+      <h4 style="margin-top:0;">7:00-9:00 AM</h4>
+      <p><strong>2 eggs + 1 bowl dalia/porridge + 1 cup milk</strong><br>OR<br><strong>200g hung curd + fruits + nuts + sprouts</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~400-450 kcal | 30-35g protein</p>
     </div>
 
     <div class="card">
-      <div class="badge">Meal 2</div>
-      <h4>1:00-2:00 PM — Anchor Meal (Biggest)</h4>
-      <p><strong>150g chicken + 1 cup rice</strong><br>OR<br><strong>100g paneer + 2 rotis + sabzi + dal</strong></p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~600-700 kcal | 40-45g protein</p>
+      <div class="badge gold">Lunch</div>
+      <h4 style="margin-top:0;">1:00-2:00 PM</h4>
+      <p><strong>150g chicken/fish + 1 cup rice + sabzi + salad</strong><br>OR<br><strong>100g paneer + 2 rotis + dal + sabzi + salad</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~550-650 kcal | 35-40g protein</p>
     </div>
 
     <div class="card">
-      <div class="badge">Pre-Workout</div>
-      <h4>4:00-5:00 PM — Train Days Only</h4>
-      <p><strong>1 banana + 1 scoop whey</strong><br>OR<br><strong>2 eggs + 1 fruit</strong></p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~250-300 kcal | 25g protein</p>
+      <div class="badge gold">Evening Snack</div>
+      <h4 style="margin-top:0;">4:00-5:00 PM</h4>
+      <p><strong>1 fruit + handful nuts + buttermilk</strong><br>OR<br><strong>Sprouts chaat + green tea</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~200 kcal | 10g protein</p>
     </div>
 
     <div class="card">
-      <div class="badge">Meal 3</div>
-      <h4>7:30-9:00 PM — Light Dinner</h4>
-      <p><strong>Dal + sabzi + 1 roti</strong><br>OR<br><strong>Paneer bhurji + rice + salad</strong></p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~450-500 kcal | 30-35g protein</p>
+      <div class="badge gold">Dinner</div>
+      <h4 style="margin-top:0;">7:30-8:30 PM</h4>
+      <p><strong>Dal + sabzi + 1 roti + salad</strong><br>OR<br><strong>Soup + paneer bhurji + 1 roti</strong></p>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">~400-500 kcal | 25-30g protein</p>
     </div>
   </div>
+
+  <h3>Key Nutrients After 50</h3>
+  <table>
+    <tr><th>Nutrient</th><th>Why It Matters</th><th>Indian Sources</th></tr>
+    <tr><td>Calcium</td><td>Bone density declines, risk of osteoporosis ↑</td><td>Milk, curd, ragi, paneer, sesame seeds</td></tr>
+    <tr><td>Vitamin D</td><td>90% Indians deficient; critical for calcium absorption</td><td>Sunlight 15-20 min/day, mushrooms, fortified milk</td></tr>
+    <tr><td>Vitamin B12</td><td>Absorption decreases with age; affects energy & brain</td><td>Eggs, fish, dairy, B12 supplements</td></tr>
+    <tr><td>Omega-3</td><td>Reduces inflammation, supports joints & brain</td><td>Fish (mackerel/sardines), flaxseeds, walnuts</td></tr>
+    <tr><td>Magnesium</td><td>Improves sleep, reduces cramps, supports heart</td><td>Green leafy veg, nuts, seeds, bananas</td></tr>
+    <tr><td>Fiber</td><td>Digestion slows with age; prevents constipation</td><td>Oats, dalia, sprouts, vegetables, fruits</td></tr>
+  </table>
 
   <div class="callout warning">
-    <h4>⚠️ Eating Out Strategy</h4>
-    <p><strong>Tandoori > Gravy. Roti > Naan. Dal > Paneer Butter Masala.</strong><br>One indulgence meal per week won't derail you. Stress about it will. Keep protein high on weekends—that's your anchor habit.</p>
-  </div>
-
-  <h3>Weekly Calorie Cycling (Advanced)</h3>
-  <p>Instead of eating the same calories daily, cycle them. Train days get more fuel. Rest days run a deeper deficit.</p>
-
-  <table>
-    <tr>
-      <th>Day</th>
-      <th>Activity</th>
-      <th>Target</th>
-    </tr>
-    <tr>
-      <td>Monday</td>
-      <td>Train</td>
-      <td>TDEE - 300</td>
-    </tr>
-    <tr>
-      <td>Tuesday</td>
-      <td>Rest</td>
-      <td>TDEE - 600</td>
-    </tr>
-    <tr>
-      <td>Wednesday</td>
-      <td>Train</td>
-      <td>TDEE - 300</td>
-    </tr>
-    <tr>
-      <td>Thursday</td>
-      <td>Train</td>
-      <td>TDEE - 300</td>
-    </tr>
-    <tr>
-      <td>Friday</td>
-      <td>Rest</td>
-      <td>TDEE - 600</td>
-    </tr>
-    <tr>
-      <td>Saturday</td>
-      <td>Train</td>
-      <td>TDEE - 200</td>
-    </tr>
-    <tr>
-      <td>Sunday</td>
-      <td>Flex</td>
-      <td>TDEE - 100</td>
-    </tr>
-  </table>
-
-  <p><strong>Result:</strong> ~2,400-2,500 kcal weekly deficit. Same fat loss. Better recovery. Better adherence.</p>
-</div>
-
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> The best meal plan fails without training. The best training program fails without nutrition. They work as one system — never prioritize one over the other.</div>
+    <h4>⚠️ Eating Out Strategy (50+)</h4>
+    <p><strong>Tandoori/grilled > gravy dishes. Roti > naan. Dal > rich curries. </strong>Ask for less oil/salt. Avoid fried starters. One indulgence meal per week won't derail you — but portion control matters more as metabolism slows with age.</p>
   </div>
 </div>
 
-<!-- SECTION 4: TRAINING ARCHITECTURE -->
-<div class="section">
-  <h2>Training Architecture — PPL Split</h2>
+<!-- ===== TRAINING ===== -->
+<div class="section" id="training">
+  <h2>Training Architecture</h2>
 
-  <h3>Why Cardio Alone Never Works</h3>
-  <p>Cardio burns calories during the session. Strength training builds muscle—and muscle burns calories 24/7, even while you sleep. A person with more muscle mass burns significantly more at rest.</p>
+  <h3>Why Movement Matters More After 40</h3>
+  <p>After 30, you lose 3-8% of muscle mass per decade. After 50, this accelerates to 5-10% per decade. This is called <strong>sarcopenia</strong>. The only way to stop it is resistance training. Cardio alone doesn't build muscle.</p>
+
+  <div class="science-ref">
+    <div class="s-icon"><i class="fas fa-flask"></i></div>
+    <div class="s-text">
+      <strong>Science:</strong> A 2019 study in JAMA Internal Medicine found that adults over 50 who did resistance training 2x/week preserved muscle mass, bone density, and mobility significantly better than those who did only cardio or no exercise. The group that did both resistance + cardio had the best outcomes for longevity. (Villareal et al., 2019)
+    </div>
+  </div>
 
   <div class="grid two">
     <div class="card">
-      <h4 style="margin-top: 0;">Engine 1: Weights</h4>
-      <p>Creates stimulus to retain and build muscle. Ensures weight loss is fat, not muscle. This is your primary driver.</p>
+      <h4 style="margin-top: 0;">Engine 1: Strength Training</h4>
+      <p>Builds & preserves muscle. Maintains bone density. Keeps metabolism active. <strong>This is non-negotiable after 50.</strong></p>
     </div>
     <div class="card">
-      <h4 style="margin-top: 0;">Engine 2: Cardio</h4>
-      <p>Creates additional calorie burn to deepen deficit without cutting food more. LISS on rest days. HIIT max 2x/week.</p>
+      <h4 style="margin-top: 0;">Engine 2: Daily Movement</h4>
+      <p>Steps, stairs, walking, gardening. NEAT declines with age and desk jobs. <strong>8,000-10,000 steps/day minimum target.</strong></p>
     </div>
   </div>
 
-  <h3>The 6-Day Push-Pull-Legs Split</h3>
-  <p>PPL is the most efficient for simultaneous fat loss and muscle building. Each muscle group trains twice per week with adequate recovery.</p>
+  <h3>Gym-Based PPL Split (For Those Who Go to Gym)</h3>
+  <p>PPL (Push-Pull-Legs) is the most efficient split for all ages. Each muscle group trains twice per week.</p>
 
   <div style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid var(--accent);">
     <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">Weekly Structure:</p>
     <p style="margin: 0; font-size: 14px; line-height: 2;">
       <strong>Mon:</strong> PUSH | <strong>Tue:</strong> PULL | <strong>Wed:</strong> LEGS | <strong>Thu:</strong> REST + mobility<br>
-      <strong>Fri:</strong> PUSH (shoulder focus) | <strong>Sat:</strong> PULL (width+thickness) | <strong>Sun:</strong> LEGS + CORE (or REST)
+      <strong>Fri:</strong> PUSH | <strong>Sat:</strong> PULL | <strong>Sun:</strong> LEGS + CORE (or REST)
     </p>
   </div>
 
-  <h3>Exercise Database: Key Compound Movements</h3>
+  <h3>At-Home Training (No Gym, No Equipment)</h3>
+  <p>If you can't go to the gym, this bodyweight routine gives you 80% of the results. <strong>Consistency matters more than equipment.</strong></p>
 
   <div class="exercise-item">
     <div class="exercise-header">
-      <span>Flat Barbell/DB Bench Press</span>
-      <span class="exercise-type">Compound — Chest</span>
-    </div>
-    <div class="exercise-details">
-      <strong>4 × 6-8 reps | 2-3 min rest</strong><br>
-      The foundation of upper body strength. Lower the bar to mid-chest under control, press explosively. Full range of motion = full muscle recruitment.
-    </div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header">
-      <span>Squat (Back or Front)</span>
-      <span class="exercise-type">Compound — Legs</span>
-    </div>
-    <div class="exercise-details">
-      <strong>4 × 5-8 reps | 3 min rest</strong><br>
-      The king compound. Knees track over toes, chest up, descend until hips drop below knees, drive through heels. Engages 50% of your muscle mass.
-    </div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header">
-      <span>Weighted Pull-up/Lat Pulldown</span>
-      <span class="exercise-type">Compound — Back</span>
-    </div>
-    <div class="exercise-details">
-      <strong>4 × 6-8 reps | 2-3 min rest</strong><br>
-      Width driver. Pull from the shoulders, not the arms. Full range: dead hang to chest. Control the negative (2 seconds down = more muscle damage = more growth).
-    </div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header">
-      <span>Barbell/DB Row</span>
-      <span class="exercise-type">Compound — Back</span>
-    </div>
-    <div class="exercise-details">
-      <strong>4 × 8-10 reps | 2 min rest</strong><br>
-      Thickness driver. Chest neutral (not arched), elbows close to body, drive elbows backward. Feel shoulder blades retract. Pause at top.
-    </div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header">
-      <span>Leg Press</span>
-      <span class="exercise-type">Compound — Legs</span>
-    </div>
-    <div class="exercise-details">
-      <strong>3 × 10-12 reps | 2 min rest</strong><br>
-      Volume builder. Full range: knees to chest, press through feet. Emphasize the quad by adjusting foot placement (higher = glutes; mid = balanced; lower = quads).
-    </div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header">
-      <span>Cable Lateral Raise</span>
-      <span class="exercise-type">Isolation — Shoulders</span>
+      <span>Bodyweight Squats</span>
+      <span class="exercise-type">Lower Body</span>
     </div>
     <div class="exercise-details">
       <strong>3 × 15-20 reps | 60 sec rest</strong><br>
-      Side delt definition. Slight elbow bend, raise to shoulder height, pause 1 second, control down. Light weight, high reps = size without joint stress.
+      Full range: sit back like you're sitting on a chair, thighs parallel to ground. Use a chair for support if needed. Adds 50+: hold onto a table/wall for balance.
     </div>
   </div>
 
   <div class="exercise-item">
     <div class="exercise-header">
-      <span>Leg Extension</span>
-      <span class="exercise-type">Isolation — Quads</span>
+      <span>Push-ups (Wall or Knee)</span>
+      <span class="exercise-type">Upper Body</span>
     </div>
     <div class="exercise-details">
-      <strong>3 × 15-20 reps | 60 sec rest</strong><br>
-      VMO (inner quad) focus. Full extension at top, pause, slow negative. Last 3-5 reps: drop set or partial reps to failure. High volume = quad detail.
+      <strong>3 × max reps | 60 sec rest</strong><br>
+      Start against a wall (easiest), progress to knees, then full push-ups. Keep core tight. For 50+: wall push-ups are excellent — don't feel you need to do floor.
     </div>
   </div>
 
-  <h3>Progressive Overload — The Only Rule That Matters</h3>
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Resistance Band Rows</span>
+      <span class="exercise-type">Back</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 12-15 reps | 60 sec rest</strong><br>
+      Anchor band to a door or pole. Pull toward chest, squeeze shoulder blades. This fixes desk posture (rounded shoulders).
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Glute Bridges</span>
+      <span class="exercise-type">Glutes + Core</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 15 reps | 45 sec rest</strong><br>
+      Lie on back, knees bent, feet flat. Lift hips toward ceiling. Squeeze glutes at top. Counters sitting all day.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Chair Dips</span>
+      <span class="exercise-type">Triceps</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 10-15 reps | 60 sec rest</strong><br>
+      Use a sturdy chair. Keep back close to chair. Lower down, press back up. Easier than full dips. For 50+: keep feet closer for less load.
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <div class="exercise-header">
+      <span>Plank</span>
+      <span class="exercise-type">Core</span>
+    </div>
+    <div class="exercise-details">
+      <strong>3 × 20-45 sec hold | 30 sec rest</strong><br>
+      Keep body straight, don't let hips sag. Knee plank is fine for beginners. Core strength protects your lower back.
+    </div>
+  </div>
+
   <div class="callout">
-    <h4>🎯 The Double Progressive Method</h4>
+    <h4>🎯 The Rule: Progressive Overload (At Any Age)</h4>
     <ol style="margin: 12px 0; padding-left: 20px;">
-      <li style="margin-bottom: 8px;"><strong>Step 1:</strong> Hit the top of your rep range (e.g., 8-10 reps → hit 10 clean across all sets)</li>
-      <li style="margin-bottom: 8px;"><strong>Step 2:</strong> Add weight (upper: +2.5kg | lower: +5kg | stuck? add 1 more set)</li>
-      <li><strong>Step 3:</strong> Reset and repeat (drop to 7 reps, work back up to 10, add weight)</li>
+      <li style="margin-bottom: 8px;"><strong>Step 1:</strong> Hit the top of your rep range</li>
+      <li style="margin-bottom: 8px;"><strong>Step 2:</strong> Make it harder — add reps, reduce rest, or use heavier bands</li>
+      <li style="margin-bottom: 8px;"><strong>Step 3:</strong> Repeat. Always try to do more than last time.</li>
     </ol>
-    <p style="margin-top: 12px;"><strong>Track every session:</strong> Exercise, weight, sets, reps. No tracking = no overload = no progress.</p>
+    <p style="margin-top: 12px;"><strong>After 50:</strong> Progress slower. Focus on form first. Pain-free movement > pushing to failure.</p>
   </div>
 
-  <h3>Cardio Protocol</h3>
+  <h3>Cardio Protocol (Age-Adjusted)</h3>
   <table>
     <tr>
       <th>Type</th>
       <th>Duration</th>
-      <th>Intensity</th>
       <th>Frequency</th>
+      <th>Best For</th>
     </tr>
     <tr>
-      <td><strong>LISS</strong> (Low-Intensity Steady State)</td>
-      <td>35-45 min</td>
-      <td>HR: 110-130 BPM</td>
-      <td>2-3x/week (rest days)</td>
+      <td><strong>Walking</strong> (Daily)</td>
+      <td>45-60 min</td>
+      <td>Every day</td>
+      <td>Heart health, joints, mood</td>
     </tr>
     <tr>
-      <td><strong>HIIT</strong> (High-Intensity Intervals)</td>
-      <td>20-25 min total</td>
-      <td>30s on / 60s off</td>
-      <td>Max 2x/week (post-weights)</td>
+      <td><strong>LISS</strong> (Cycle/Swim)</td>
+      <td>30-40 min</td>
+      <td>2-3x/week</td>
+      <td>Low impact, good for knees</td>
     </tr>
     <tr>
-      <td><strong>NEAT</strong> (Daily Steps)</td>
-      <td>8,000-10,000 steps</td>
-      <td>Casual walking</td>
-      <td>Every single day</td>
+      <td><strong>HIIT</strong> (Modified)</td>
+      <td>15-20 min</td>
+      <td>1-2x/week (if joints allow)</td>
+      <td>Metabolic health, insulin sensitivity</td>
     </tr>
   </table>
-  <p><strong>Priority order:</strong> NEAT daily > LISS on rest days > HIIT sparingly.<br><strong>Reality:</strong> Adding 3,000 steps/day beats two HIIT sessions/week for fat loss.</p>
-
-  <h3>4-Phase Periodization</h3>
-  <table>
-    <tr>
-      <th>Phase</th>
-      <th>Duration</th>
-      <th>Rep Range</th>
-      <th>Goal</th>
-    </tr>
-    <tr>
-      <td><strong>Phase 1 — Foundation</strong></td>
-      <td>Weeks 1-4</td>
-      <td>12-15 reps</td>
-      <td>Form mastery, build work capacity</td>
-    </tr>
-    <tr>
-      <td><strong>Phase 2 — Hypertrophy</strong></td>
-      <td>Weeks 5-10</td>
-      <td>8-12 reps</td>
-      <td>Muscle building, volume increase</td>
-    </tr>
-    <tr>
-      <td><strong>Phase 3 — Strength</strong></td>
-      <td>Weeks 11-14</td>
-      <td>5-8 reps</td>
-      <td>Increase absolute strength base</td>
-    </tr>
-    <tr>
-      <td><strong>Phase 4 — Deload</strong></td>
-      <td>Week 15</td>
-      <td>12-15 reps @ 60% weight</td>
-      <td>Recovery, consolidation</td>
-    </tr>
-  </table>
-
-  <div class="callout">
-    <h4>💡 Why Periodization Matters</h4>
-    <p>Training at the same rep range forever = plateau within 8 weeks. Cycling rep ranges keeps your body adapting, muscles growing, progress accelerating.</p>
-  </div>
+  <p><strong>For 50+:</strong> Walking is your #1 cardio. It's low impact, sustainable, and scientifically proven to improve longevity. Aim for 8,000-10,000 steps/day.</p>
 </div>
 
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> You don't grow in the gym. You grow in bed. Recovery is when muscle repair happens. Skip sleep, skip results — it's that direct.</div>
-  </div>
-</div>
-
-<!-- SECTION 5: RECOVERY & LONGEVITY -->
-<div class="section">
+<!-- ===== RECOVERY & LONGEVITY ===== -->
+<div class="section" id="recovery">
   <h2>Recovery & Longevity</h2>
 
-  <h3>The 4 Recovery Levers (Priority Order)</h3>
+  <div class="science-ref">
+    <div class="s-icon"><i class="fas fa-flask"></i></div>
+    <div class="s-text">
+      <strong>Science:</strong> After 50, deep sleep (slow-wave sleep) decreases by 50-70%. This is the stage where growth hormone is released and muscle repair happens. This is why older adults recover slower and need more intentional sleep strategies. (Ohayon et al., 2004, Sleep Medicine Reviews)
+    </div>
+  </div>
+
+  <h3>The 4 Recovery Levers (Priority for 50+)</h3>
 
   <div class="grid two">
-    <div class="card">
+    <div class="card highlight">
       <div style="font-size: 24px; margin-bottom: 12px;">🌙</div>
-      <h4>Sleep Quality — 40% Impact</h4>
+      <h4>Sleep Quality — 50% Impact</h4>
       <p><strong>Target: 7-8 hours every night</strong></p>
-      <p>During deep sleep, your body releases 70-80% of its daily growth hormone pulse. This is when muscle repair happens, cortisol drops, fat oxidation peaks.</p>
+      <p>After 50, prioritize sleep above everything. Deep sleep is where your body repairs muscle, balances hormones, and clears brain toxins. If you sleep poorly, training is wasted.</p>
     </div>
 
-    <div class="card">
+    <div class="card highlight">
       <div style="font-size: 24px; margin-bottom: 12px;">🥗</div>
-      <h4>Nutrition Timing — 30% Impact</h4>
-      <p><strong>Hit protein target, cycle calories</strong></p>
-      <p>High protein during deficit preserves muscle. Cycling calories (more on train days) improves recovery without more food on rest days.</p>
+      <h4>Protein Timing — 25% Impact</h4>
+      <p><strong>40g protein per meal</strong></p>
+      <p>Due to anabolic resistance, spread protein evenly across meals. Don't skip breakfast protein. A protein-rich dinner before bed can improve overnight muscle repair.</p>
     </div>
 
-    <div class="card">
+    <div class="card highlight">
       <div style="font-size: 24px; margin-bottom: 12px;">🧘</div>
       <h4>Stress Management — 20% Impact</h4>
-      <p><strong>Daily breathing, no-work blocks, morning walks</strong></p>
-      <p>Chronic stress spikes cortisol, which breaks down muscle, promotes fat storage, disrupts sleep. These habits reset your nervous system daily.</p>
+      <p><strong>Daily practice non-negotiable</strong></p>
+      <p>Cortisol rises with age and with life stress (retirement, health concerns, family). Chronic cortisol accelerates muscle loss, bone loss, and belly fat storage.</p>
     </div>
 
-    <div class="card">
+    <div class="card highlight">
       <div style="font-size: 24px; margin-bottom: 12px;">🚶</div>
-      <h4>Active Recovery — 10% Impact</h4>
-      <p><strong>Light walks, mobility, not ice baths</strong></p>
-      <p>Most people focus here and ignore sleep. Don't. Light movement increases blood flow. That's it. Fancy recovery gadgets are optional.</p>
+      <h4>Active Recovery — 5% Impact</h4>
+      <p><strong>Light walks, mobility work</strong></p>
+      <p>Never push through joint pain. After 50, joints take longer to recover than muscles. Listen to your body. Take extra rest days when needed.</p>
     </div>
   </div>
 
-  <h3>Sleep Fix: The 3-Hour Evening Protocol</h3>
+  <h3>Sleep Protocol for 50+</h3>
   <div style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin: 20px 0;">
-    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">8:00-9:00 PM</p>
-    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Last meal window. Finish eating 2-3 hours before sleep. Late food spikes insulin and disrupts deep sleep quality.</p>
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">🌅 Morning (Sets up tonight's sleep)</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Get 15-20 min sunlight within 30 min of waking. This anchors your circadian rhythm. Morning light is the single most powerful sleep regulator.</p>
 
-    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">9:30 PM</p>
-    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Screen dimming begins. Blue light blocks melatonin. Enable night mode or wear blue-light glasses.</p>
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">🌇 Evening (2 hours before bed)</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">No screens 60 min before bed. Blue light suppresses melatonin. Read a book, talk to family, or do light stretching instead.</p>
 
-    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">10:00 PM</p>
-    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Wind-down: 5-10 min walk, stretching, reading. Drop room temperature if possible. Signal to nervous system: stimulus time is over.</p>
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">🌙 Bedtime Protocol</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Cool room (18-22°C). Dark room (blackout curtains if needed). Magnesium glycinate 300-400mg before bed. Consistent sleep/wake time — even weekends.</p>
 
-    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">10:30-11:00 PM</p>
-    <p style="margin: 0; font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Lights out. 7-8 hours needed for full recovery cycles. Non-negotiable if you train 4-5 days/week.</p>
-
-    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">6:00-6:30 AM</p>
-    <p style="margin: 0; font-size: 14px; color: var(--text-secondary);">Wake + natural light. Get sunlight within 30 min of waking. Anchors your circadian rhythm. Improves sleep quality the following night.</p>
+    <p style="margin: 0; font-weight: 600; margin-bottom: 12px;">🚫 Avoid After 6 PM</p>
+    <p style="margin: 0; font-size: 14px; color: var(--text-secondary);">Caffeine, alcohol, heavy meals, intense exercise. All of these disrupt sleep quality — which is already more fragile after 50.</p>
   </div>
 
-  <h3>Cortisol Management Stack (Daily)</h3>
+  <h3>Cortisol Management (Daily Stack)</h3>
 
   <div class="list-item">
     <div class="list-item-icon">✓</div>
     <div class="list-item-content">
-      <div class="list-item-title">10-Min Morning Walk</div>
-      <div class="list-item-desc">Natural light + movement first thing. Regulates cortisol morning peak, improves mood baseline for entire day.</div>
+      <div class="list-item-title">15-Min Morning Walk in Sunlight</div>
+      <div class="list-item-desc">Regulates cortisol morning peak, anchors circadian rhythm, improves vitamin D.</div>
     </div>
   </div>
 
   <div class="list-item">
     <div class="list-item-icon">✓</div>
     <div class="list-item-content">
-      <div class="list-item-title">4-7-8 Breathing (Anytime)</div>
-      <div class="list-item-desc">Inhale 4 sec, hold 7 sec, exhale 8 sec. Activates parasympathetic nervous system. Use before bed or during high-stress moments.</div>
+      <div class="list-item-title">5-Min Deep Breathing (4-7-8 Method)</div>
+      <div class="list-item-desc">Inhale 4 sec, hold 7 sec, exhale 8 sec. Activates parasympathetic system. Use after stressful meetings or before bed.</div>
     </div>
   </div>
 
   <div class="list-item">
     <div class="list-item-icon">✓</div>
     <div class="list-item-content">
-      <div class="list-item-title">No-Work Block (1 Hour Before Bed)</div>
-      <div class="list-item-desc">No Slack, emails, or client portals. Protect this window. Your recovery depends on it.</div>
+      <div class="list-item-title">No Screens 1 Hour Before Bed</div>
+      <div class="list-item-desc">Blue light suppresses melatonin by up to 50% in older adults. Read a book instead.</div>
     </div>
   </div>
 
   <div class="list-item">
     <div class="list-item-icon">✓</div>
     <div class="list-item-content">
-      <div class="list-item-title">Training as Stress Management</div>
-      <div class="list-item-desc">Moderate training lowers cortisol. Overtraining spikes it. 4-5 days hard training needs proportionally more recovery input.</div>
+      <div class="list-item-title">Gratitude Journal (2 Min)</div>
+      <div class="list-item-desc">Write 3 things you're grateful for. Lowers cortisol, improves sleep quality, shifts mindset.</div>
     </div>
   </div>
 
-  <h3>Deload Protocol (Every 6-8 Weeks)</h3>
-  <p>A deload is planned reduction in training stress. Same exercises, same frequency. 50-60% of working weights. No pushing to failure. Sessions should feel almost too easy. That's the point.</p>
-
-  <h3>Soreness vs Pain (Know the Difference)</h3>
-
+  <h3>Soreness vs Pain (After 50)</h3>
   <div class="grid two">
     <div class="card">
-      <h4 style="margin-top: 0; color: var(--success);">✓ Normal Soreness (DOMS)</h4>
-      <p style="font-size: 14px;">Peaks 24-48 hours after training. Dull ache in muscle belly. Eases with movement. <strong>Train through it.</strong></p>
+      <h4 style="margin-top: 0; color: var(--success);">✓ Normal Soreness</h4>
+      <p style="font-size: 14px;">Dull ache in muscle belly. Peaks 24-72 hours after training. Eases with movement. <strong>Common after restarting exercise — normal.</strong></p>
     </div>
-
     <div class="card">
       <h4 style="margin-top: 0; color: var(--danger);">⚠ Joint/Tendon Pain</h4>
-      <p style="font-size: 14px;">Sharp, localized at joints. Doesn't improve with warmup. Gets worse during movement. <strong>Stop. See a physio.</strong></p>
+      <p style="font-size: 14px;">Sharp pain in joints. Doesn't improve with warmup. Gets worse during movement. <strong>Stop. Rest. Consult a doctor if persistent.</strong></p>
     </div>
   </div>
 
-  <h3>5-Minute Daily Meditation</h3>
-  <p><strong>Sit somewhere quiet.</strong> Eyes closed. Breathe: 4-sec inhale, 6-sec exhale. Count to 100 breaths. If mind wanders, restart at 1.</p>
-  <p><strong>Best time:</strong> Morning (primes nervous system) or before bed (resets after work stress).</p>
-  <p><strong>Science:</strong> Regular parasympathetic activation lowers cortisol, improves sleep, accelerates recovery.</p>
-
-  <h3>10-Minute Daily Mobility Protocol</h3>
-
+  <h3>10-Minute Daily Mobility (Essential for 50+)</h3>
   <div class="exercise-item" style="margin-bottom: 12px;">
     <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Arm Circles + Band Pull-Aparts</span>
+      <span>Cat-Cow Stretch</span>
     </div>
-    <div class="exercise-details">2 minutes. Shoulder mobility + rotator cuff activation.</div>
+    <div class="exercise-details">2 minutes. Spine mobility. Arch and round your back slowly. Great for desk workers.</div>
   </div>
-
   <div class="exercise-item" style="margin-bottom: 12px;">
     <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Deep Bodyweight Squats</span>
+      <span>Hip Circles & Leg Swings</span>
     </div>
-    <div class="exercise-details">2 minutes. Hip + ankle mobility + quad stretch. Full range of motion.</div>
+    <div class="exercise-details">2 minutes. Hip mobility. Counteracts sitting all day. Hold onto a wall for balance.</div>
   </div>
-
   <div class="exercise-item" style="margin-bottom: 12px;">
     <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Cat-Cow Stretches</span>
+      <span>Neck Rolls & Chin Tucks</span>
     </div>
-    <div class="exercise-details">2 minutes. Spine mobility + core awareness.</div>
+    <div class="exercise-details">2 minutes. Fixes forward head posture. Gently roll neck, then tuck chin backward (like making a double chin).</div>
   </div>
-
   <div class="exercise-item" style="margin-bottom: 12px;">
     <div class="exercise-header" style="margin-bottom: 0;">
-      <span>90-90 Hip Stretch</span>
+      <span>Ankle Rotations & Toe Taps</span>
     </div>
-    <div class="exercise-details">2 minutes. External hip rotation + deep glute stretch.</div>
+    <div class="exercise-details">2 minutes. Ankle mobility declines fast with age. Improves balance and prevents falls.</div>
   </div>
-
   <div class="exercise-item">
     <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Child's Pose</span>
+      <span>Deep Breathing in Child's Pose</span>
     </div>
-    <div class="exercise-details">2 minutes. Full-body relaxation + CNS calming.</div>
-  </div>
-
-  <p style="margin-top: 20px;"><strong>Do after workouts or before bed.</strong> Not complicated. Consistency > intensity.</p>
-</div>
-
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> No supplement has ever fixed a bad diet, poor sleep, or skipped training. Fix the foundations first — supplements are 2% of the equation.</div>
+    <div class="exercise-details">2 minutes. Full-body relaxation. Calms nervous system. Stretches back and hips.</div>
   </div>
 </div>
 
-<!-- SECTION 6: SUPPLEMENTS RANKED -->
-<div class="section">
-  <h2>Supplements: Science-Backed Ranking</h2>
+<!-- ===== SUPPLEMENTS ===== -->
+<div class="section" id="supplements">
+  <h2>Supplements: Science-Backed for 50+</h2>
 
   <div class="callout">
     <h4>🎯 Priority Order</h4>
-    <p><strong>Fix sleep → hit protein → train progressively → manage stress.</strong><br>These do more for your results than every supplement combined. Supplements are 2% of the equation. Most people treat them like 50%.</p>
+    <p><strong>Fix sleep → hit protein → train consistently → manage stress.</strong><br>These do more than every supplement combined. Supplements are 2% of the equation — but after 50, certain supplements become more important due to absorption decline.</p>
   </div>
 
   <table>
     <tr>
       <th>Supplement</th>
-      <th>Evidence</th>
+      <th>Why After 50</th>
       <th>Verdict</th>
       <th>How to Use</th>
     </tr>
     <tr>
-      <td><strong>Creatine Monohydrate</strong></td>
-      <td>Extremely Strong</td>
-      <td><span class="badge success">TAKE IT</span></td>
-      <td>5g/day. Cheap, safe, proven strength + muscle.</td>
+      <td><strong>Vitamin D3 + K2</strong></td>
+      <td>90% Indians deficient; critical for bone health & immunity</td>
+      <td><span class="badge success">ESSENTIAL</span></td>
+      <td>2,000-5,000 IU/day with K2 for calcium absorption</td>
     </tr>
     <tr>
-      <td><strong>Whey Protein</strong></td>
-      <td>Strong</td>
-      <td><span class="badge success">USEFUL</span></td>
-      <td>Only if you can't hit protein from food. It's food, not magic.</td>
+      <td><strong>Calcium</strong></td>
+      <td>Bone density declines rapidly after menopause in women</td>
+      <td><span class="badge success">ESSENTIAL (WOMEN)</span></td>
+      <td>1,000-1,200mg/day from food + supplement if needed</td>
     </tr>
     <tr>
-      <td><strong>Vitamin D3</strong></td>
-      <td>Strong</td>
+      <td><strong>Vitamin B12</strong></td>
+      <td>Absorption drops with age; deficiency causes fatigue, brain fog</td>
       <td><span class="badge success">TAKE IT</span></td>
-      <td>Most Indians deficient. 2,000-5,000 IU/day with K2.</td>
+      <td>500-1,000mcg sublingual daily</td>
     </tr>
     <tr>
       <td><strong>Magnesium Glycinate</strong></td>
-      <td>Moderate-Strong</td>
+      <td>Improves sleep quality, reduces cramps, supports heart</td>
       <td><span class="badge success">WORTH IT</span></td>
-      <td>Improves sleep quality significantly. 300-400mg before bed.</td>
+      <td>300-400mg before bed</td>
     </tr>
     <tr>
-      <td><strong>Caffeine / Pre-Workout</strong></td>
-      <td>Strong</td>
+      <td><strong>Omega-3 (Fish Oil)</strong></td>
+      <td>Anti-inflammatory, supports joints, brain, heart</td>
+      <td><span class="badge success">WORTH IT</span></td>
+      <td>1,000-2,000mg EPA+DHA daily</td>
+    </tr>
+    <tr>
+      <td><strong>Creatine Monohydrate</strong></td>
+      <td>Preserves muscle, supports brain function in aging</td>
+      <td><span class="badge success">USEFUL</span></td>
+      <td>5g/day. One of the most researched supplements.</td>
+    </tr>
+    <tr>
+      <td><strong>Whey Protein</strong></td>
+      <td>If you can't hit protein target through food</td>
       <td><span class="badge warning">CONTEXTUAL</span></td>
-      <td>Works. Tolerance builds fast. Cycle it. Don't depend on it.</td>
-    </tr>
-    <tr>
-      <td><strong>BCAAs</strong></td>
-      <td>Weak</td>
-      <td><span class="badge danger">SKIP</span></td>
-      <td>Redundant if protein intake is adequate. Expensive flavored water.</td>
-    </tr>
-    <tr>
-      <td><strong>Fat Burners</strong></td>
-      <td>Very Weak / None</td>
-      <td><span class="badge danger">SKIP</span></td>
-      <td>Stimulants masquerading as science. Your deficit burns fat. Pills don't.</td>
+      <td>1-2 scoops/day if needed to hit protein goal</td>
     </tr>
     <tr>
       <td><strong>Testosterone Boosters</strong></td>
-      <td>None</td>
+      <td>Not proven. Sleep, training, and nutrition are your actual T strategy.</td>
       <td><span class="badge danger">SKIP</span></td>
-      <td>Sleep, training, nutrition are your actual testosterone strategy.</td>
+      <td>Waste of money. Fix lifestyle first.</td>
     </tr>
   </table>
 </div>
 
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> A 5-minute warm-up prevents 50-minute injuries. Never skip it — especially when you're short on time. Cold muscles tear. Warm muscles perform.</div>
+<!-- ===== 50+ GUIDE ===== -->
+<div class="section" id="age50">
+  <div class="age-hero">
+    <h2>🌟 The 50+ Essential Lifestyle Guide</h2>
+    <p>Your body changes after 50 — but your potential doesn't. This science-based guide is designed specifically for Indian men and women over 50 who want to reclaim their health, strength, and vitality.</p>
   </div>
-</div>
 
-<!-- SECTION 7: WARM-UP & STRETCHING PROTOCOLS -->
-<div class="section">
-  <h2>Warm-Up & Stretching Protocols</h2>
+  <h3>Understanding Your Body After 50</h3>
 
-  <h3>Pre-Workout Warm-Up (5-10 Minutes)</h3>
-  <p>Proper warm-up increases core temperature, activates nervous system, preps joints. It's not optional.</p>
-
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>General Warm-Up (2 min)</span>
-      <span class="exercise-type">5-10 min Treadmill</span>
+  <div class="phase-grid">
+    <div class="phase-card peak">
+      <div class="phase-label">Peak Years</div>
+      <div class="phase-age">20-40</div>
+      <div class="phase-desc">High metabolism, fast recovery, peak hormone function</div>
     </div>
-    <div class="exercise-details">Light jog or brisk walk. Heart rate ~110-130 BPM. Raises core temperature.</div>
-  </div>
-
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Arm Circles & Band Pull-Aparts</span>
-      <span class="exercise-type">2 min</span>
+    <div class="phase-card transition">
+      <div class="phase-label">Transition</div>
+      <div class="phase-age">40-50</div>
+      <div class="phase-desc">Metabolism slowing, muscle loss begins accelerating</div>
     </div>
-    <div class="exercise-details">Shoulder mobility + rotator cuff activation. Light band, 15 reps × 3 sets.</div>
-  </div>
-
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Bodyweight Squats & Lunges</span>
-      <span class="exercise-type">2 min</span>
+    <div class="phase-card adapt">
+      <div class="phase-label">Adaptation</div>
+      <div class="phase-age">50+</div>
+      <div class="phase-desc">Hormonal shifts, bone density decline, need intentional health</div>
     </div>
-    <div class="exercise-details">Full range of motion. Hip + ankle mobility. 15 squats, 10 lunges each leg.</div>
   </div>
 
-  <div class="exercise-item">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Compound Lift Warm-Up Sets</span>
-      <span class="exercise-type">Before Heavy Lifts</span>
+  <div class="science-ref">
+    <div class="s-icon"><i class="fas fa-flask"></i></div>
+    <div class="s-text">
+      <strong>Key Science:</strong> After 50, three major changes happen: (1) <strong>Muscle mass</strong> declines 1-2% per year (sarcopenia). (2) <strong>Bone density</strong> drops 1-2% per year, accelerating to 3-5% after menopause in women. (3) <strong>Metabolic rate</strong> drops ~100-150 calories per decade due to muscle loss. All three are <strong>reversible or slowdownable</strong> with the right interventions. (Hunter et al., 2010, Journal of Applied Physiology)
     </div>
-    <div class="exercise-details"><strong>Set 1:</strong> 50% working weight × 5 reps | <strong>Set 2:</strong> 75% working weight × 3 reps | <strong>Then:</strong> Working set. Never skip this.</div>
   </div>
 
-  <h3>Post-Workout Stretching (5 Minutes)</h3>
-  <p>Never stretch before heavy lifting (reduces strength). Stretch after training when muscles are warm.</p>
-
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Chest Stretch</span>
-      <span class="exercise-type">30 sec each side</span>
-    </div>
-    <div class="exercise-details">Arm across body, gentle pull. Feel chest opening. Breathe deeply.</div>
+  <!-- TABS -->
+  <div class="age-tabs">
+    <button class="age-tab men-tab active" onclick="switchAgeTab('men')">
+      <i class="fas fa-male"></i> For Men 50+
+    </button>
+    <button class="age-tab women-tab" onclick="switchAgeTab('women')">
+      <i class="fas fa-female"></i> For Women 50+
+    </button>
   </div>
 
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Quad Stretch</span>
-      <span class="exercise-type">30 sec each side</span>
-    </div>
-    <div class="exercise-details">Stand, pull heel to glutes. Slight forward lean. Full quad stretch.</div>
-  </div>
+  <!-- ===== MEN 50+ CONTENT ===== -->
+  <div class="age-content active" id="age-men">
+    <div class="age-badge men"><i class="fas fa-male"></i> Guide for Men 50+</div>
 
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Hamstring Stretch</span>
-      <span class="exercise-type">30 sec each side</span>
-    </div>
-    <div class="exercise-details">Forward fold, slight knee bend. Feel hamstring lengthen. Slow, controlled.</div>
-  </div>
-
-  <div class="exercise-item" style="margin-bottom: 12px;">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Hip Flexor Stretch</span>
-      <span class="exercise-type">30 sec each side</span>
-    </div>
-    <div class="exercise-details">Half-kneeling position. Front knee 90°, back knee on ground. Slight forward lean. Deep hip stretch.</div>
-  </div>
-
-  <div class="exercise-item">
-    <div class="exercise-header" style="margin-bottom: 0;">
-      <span>Shoulder Stretch</span>
-      <span class="exercise-type">30 sec</span>
-    </div>
-    <div class="exercise-details">Arm across body, gentle pressure. Hold. Opposite side. Both shoulders.</div>
-  </div>
-
-</div>
-
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> The first 2 weeks are the hardest. Your brain will manufacture excuses. Don't negotiate with them — just do the next right thing. Momentum builds fast.</div>
-  </div>
-</div>
-
-<!-- SECTION 8: THE 12-WEEK PROTOCOL -->
-<div class="section">
-  <h2>Your 12-Week Transformation Protocol</h2>
-
-  <h3>Weeks 1-2: Baseline Phase</h3>
-  <p>This is not when you start grinding. This is data collection. These two weeks establish your actual patterns.</p>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-marker">Day 1</div>
-      <div class="timeline-content">
-        <h4>Calculate & Set Up</h4>
-        <p>Use your assessment above to calculate TDEE and fat-loss calories. Set up tracking app (MyFitnessPal or Cronometer). Pick your 3 meals from templates above.</p>
+    <h3>How Your Body Changes</h3>
+    <div class="grid two">
+      <div class="card">
+        <h4 style="margin-top:0;">📉 Testosterone Decline</h4>
+        <p>Testosterone drops ~1% per year after 30. By 50, many men are 20-30% below their peak. This affects muscle building, energy, mood, and fat distribution (more belly fat).</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">🦴 Bone Density Loss</h4>
+        <p>Men also lose bone density — just more slowly than women. After 50, the risk of osteopenia and osteoporosis rises significantly. Weight-bearing exercise is crucial.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">💤 Sleep Changes</h4>
+        <p>Deep sleep declines, night-time urination increases, sleep apnea becomes more common. Poor sleep accelerates all other age-related declines.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">❤️ Heart Risk Rises</h4>
+        <p>After 50, cardiovascular disease risk in men increases significantly. Blood pressure, cholesterol, and arterial stiffness all need monitoring.</p>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-marker">Days 2-7</div>
-      <div class="timeline-content">
-        <h4>Tracking Week 1</h4>
-        <p>Track every single calorie and protein gram. Weigh food. No estimation. You need real data. Weight will likely drop 1-2kg (mostly water). That's normal.</p>
+    <h3>Training Protocol — No Gym Required</h3>
+    <p><strong>Frequency:</strong> 4-5 days/week. 30-45 min per session.</p>
+
+    <div class="routine-box">
+      <div class="r-header"><i class="fas fa-dumbbell"></i> Full Body Routine (No Gym)</div>
+      <div class="routine-step">
+        <div class="r-num">1</div>
+        <div class="r-content">
+          <strong>Bodyweight Squats</strong>
+          <div class="r-desc">3 × 12-15 reps. Hold a chair/wall for balance. Focus on depth, not speed.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num">2</div>
+        <div class="r-content">
+          <strong>Wall Push-ups</strong>
+          <div class="r-desc">3 × 12-15 reps. Move feet further from wall to make harder. Keep body straight.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num">3</div>
+        <div class="r-content">
+          <strong>Resistance Band Rows</strong>
+          <div class="r-desc">3 × 12-15 reps. Anchor band at chest height. Pull elbows back. Squeeze shoulder blades.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num">4</div>
+        <div class="r-content">
+          <strong>Glute Bridges</strong>
+          <div class="r-desc">3 × 15 reps. Lift hips high. Hold 2 seconds at top. Feel glutes working.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num">5</div>
+        <div class="r-content">
+          <strong>Plank (Knee OK)</strong>
+          <div class="r-desc">3 × 20-40 sec. Keep body straight. Breathe steadily. Stop if lower back hurts.</div>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-marker">Days 8-14</div>
-      <div class="timeline-content">
-        <h4>Training Starts</h4>
-        <p>Begin PPL split (or alternative based on time availability). Pick your rep range (Phase 1: 12-15 reps for form mastery). Track every exercise: weight, sets, reps. Start mobile protocol and sleep protocol.</p>
+    <h3>Men 50+ Nutrition Focus</h3>
+    <table>
+      <tr><th>Priority</th><th>Why</th><th>Action</th></tr>
+      <tr><td>Protein 1.6-2g/kg</td><td>Counter anabolic resistance, preserve muscle</td><td>Eggs, chicken, fish, paneer, whey if needed</td></tr>
+      <tr><td>Zinc & Magnesium</td><td>Support testosterone production naturally</td><td>Nuts, seeds, dark leafy greens, supplements</td></tr>
+      <tr><td>Vitamin D</td><td>90% deficient; affects T levels, bone health, immunity</td><td>Sunlight + 2,000-5,000 IU supplement</td></tr>
+      <tr><td>Omega-3</td><td>Reduces inflammation, supports heart & joints</td><td>Fish 2x/week or 1,000mg supplement</td></tr>
+      <tr><td>Less Sugar</td><td>Insulin resistance increases with age</td><td>Cut sugary drinks, sweets, refined carbs</td></tr>
+    </table>
+
+    <div class="callout gold">
+      <h4>💪 Men 50+ — Tip of the Day</h4>
+      <p><strong>Your testosterone is built by your habits, not pills.</strong> The three proven natural T-boosters: (1) Lift heavy things (or do hard bodyweight work), (2) Sleep 7+ hours, (3) Eat enough fat (not low-fat — healthy fats support hormone production). Every "testosterone booster" supplement is a scam compared to these three.</p>
+    </div>
+  </div>
+
+  <!-- ===== WOMEN 50+ CONTENT ===== -->
+  <div class="age-content" id="age-women">
+    <div class="age-badge women"><i class="fas fa-female"></i> Guide for Women 50+</div>
+
+    <h3>How Your Body Changes (The Menopause Transition)</h3>
+
+    <div class="callout rose">
+      <h4>🩺 Understanding Menopause</h4>
+      <p><strong>Menopause is not a disease — it's a natural transition.</strong> Perimenopause typically starts in the mid-to-late 40s, with menopause (12 months without a period) occurring around age 51 on average. The decline in estrogen affects every system in your body. Understanding this helps you work with your body, not against it.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="card rose">
+        <h4 style="margin-top:0;">🫘 Estrogen Decline</h4>
+        <p><strong>The single biggest change.</strong> Estrogen protects bone density, muscle mass, heart health, and brain function. Its decline after menopause accelerates bone loss (3-5%/year), shifts fat storage to the belly, and increases heart disease risk.</p>
+      </div>
+      <div class="card rose">
+        <h4 style="margin-top:0;">🔥 Hot Flashes & Night Sweats</h4>
+        <p>Affect 75-80% of women. Triggers include stress, caffeine, alcohol, and spicy food. Night sweats disrupt sleep, which then affects recovery and hormone balance — creating a cycle.</p>
+      </div>
+      <div class="card rose">
+        <h4 style="margin-top:0;">🦴 Bone Density Crisis</h4>
+        <p><strong>Women lose 20% of bone density in the 5-7 years after menopause.</strong> One in three women over 50 will have an osteoporosis-related fracture. Weight-bearing exercise and adequate calcium + vitamin D are non-negotiable.</p>
+      </div>
+      <div class="card rose">
+        <h4 style="margin-top:0;">🧠 Brain Fog & Mood</h4>
+        <p>Estrogen receptors are everywhere in the brain. Declining levels can affect memory, focus, and mood. Exercise is one of the most effective treatments — it increases blood flow and releases brain-protective chemicals.</p>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-marker">End of Week 2</div>
-      <div class="timeline-content">
-        <h4>First Checkpoint</h4>
-        <p><strong>Take progress photo.</strong> Scale weight (expect 1-2kg drop, mostly water). Assess: Am I tracking honestly? Hitting protein? Training consistently? Sleeping better? If yes on all, proceed. If no, identify the issue and fix it.</p>
+    <div class="science-ref">
+      <div class="s-icon"><i class="fas fa-flask"></i></div>
+      <div class="s-text">
+        <strong>Science:</strong> A 2021 study in Menopause journal found that women over 50 who did resistance training 2x/week for 12 weeks increased bone density by 2-3% in the spine and hips, while the control group lost 1-2%. It is never too late to start. The same study showed improved sleep quality and reduced hot flash severity in the exercise group. (Stojanovska et al., 2021)
+      </div>
+    </div>
+
+    <h3>Training Protocol — No Gym Required</h3>
+    <p><strong>Frequency:</strong> 4-5 days/week. 30-40 min per session. <strong>Weight-bearing exercise is medicine for women 50+.</strong></p>
+
+    <div class="routine-box">
+      <div class="r-header" style="color: var(--rose);"><i class="fas fa-heart"></i> Full Body Routine (No Gym)</div>
+      <div class="routine-step">
+        <div class="r-num rose">1</div>
+        <div class="r-content">
+          <strong>Chair Squats (10-15 reps)</strong>
+          <div class="r-desc">Sit-stand from a chair. Use hands to assist if needed. This builds leg strength for daily life — getting out of chairs, cars, etc.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num rose">2</div>
+        <div class="r-content">
+          <strong>Wall Push-ups / Incline Push-ups</strong>
+          <div class="r-desc">3 × 10-15 reps. Push against a wall or table. Builds upper body strength for carrying groceries, opening jars.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num rose">3</div>
+        <div class="r-content">
+          <strong>Band Pull-Aparts</strong>
+          <div class="r-desc">3 × 12-15 reps. Hold band in front, pull apart. Fixes rounded shoulders from desk work.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num rose">4</div>
+        <div class="r-content">
+          <strong>Glute Bridges (3 × 15)</strong>
+          <div class="r-desc">Lift hips, squeeze glutes. Essential for pelvic floor health and lower back protection.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num rose">5</div>
+        <div class="r-content">
+          <strong>Standing Heel Raises (3 × 15)</strong>
+          <div class="r-desc">Stand, rise onto toes. Strengthens calves, improves balance, reduces fall risk.</div>
+        </div>
+      </div>
+      <div class="routine-step">
+        <div class="r-num rose">6</div>
+        <div class="r-content">
+          <strong>Yoga / Tai Chi (10-15 min)</strong>
+          <div class="r-desc">Balance training is critical after 50. Falls are the #1 cause of injury in women 50+. Practice standing on one foot while brushing teeth.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Women 50+ Nutrition Focus</h3>
+    <table>
+      <tr><th>Priority</th><th>Why</th><th>Action</th></tr>
+      <tr><td>Calcium 1,200mg/day</td><td>Counter rapid bone loss after menopause</td><td>Milk, curd, ragi, paneer, sesame seeds, supplement if needed</td></tr>
+      <tr><td>Vitamin D 2,000-5,000 IU</td><td>Essential for calcium absorption</td><td>Sunlight + supplement with K2</td></tr>
+      <tr><td>Protein 1.6-2g/kg</td><td>Preserve muscle, support bone, keep metabolism active</td><td>Eggs, fish, chicken, paneer, lentils, soya</td></tr>
+      <tr><td>Iron (moderate)</td><td>Iron needs decrease after periods stop — don't over-supplement</td><td>Leafy greens, sprouts, jaggery (in moderation)</td></tr>
+      <tr><td>Phytoestrogens</td><td>Plant compounds that mildly mimic estrogen — may help with symptoms</td><td>Soy (tofu, soya chunks), flaxseeds, sesame seeds</td></tr>
+      <tr><td>Omega-3</td><td>Reduces inflammation, supports mood, joint, and heart health</td><td>Fish 2x/week, walnuts, flaxseeds, supplement</td></tr>
+    </table>
+
+    <div class="callout rose">
+      <h4>🌸 Women 50+ — Tip of the Day</h4>
+      <p><strong>Bone density can be rebuilt — but only with the right stimulus.</strong> Weight-bearing exercise (walking, squats, stair climbing) + resistance training + adequate calcium/vitamin D is the only proven combination. Walking alone is not enough for bone density. You need to load your bones with resistance. Start today — your bones adapt at any age.</p>
+    </div>
+
+    <h3>Managing Menopause Symptoms</h3>
+    <div class="grid two">
+      <div class="card">
+        <h4 style="margin-top:0;">🔥 Hot Flashes</h4>
+        <p><strong>Triggers to avoid:</strong> Caffeine, alcohol, spicy food, stress, hot rooms. <strong>Habits that help:</strong> Layer clothing, carry a hand fan, practice slow breathing (4-7-8) at onset, keep room temperature cool.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">💤 Sleep Disruption</h4>
+        <p>Night sweats + age-related sleep decline = double challenge. <strong>Fix:</strong> Cool bedroom (18-20°C), cotton/natural nightwear, magnesium before bed, no screens 1 hour before. Blackout curtains help significantly.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">⚖️ Weight Gain</h4>
+        <p>Estrogen decline shifts fat storage to the abdomen. <strong>Fix:</strong> Protein at every meal, strength training 3-4x/week, step count 8,000+, reduce sugar and refined carbs. Belly fat after menopause is hormonal — it requires strength training, not just cardio.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">🧘 Joint Stiffness</h4>
+        <p>Estrogen helps keep joints lubricated. Its decline can cause stiffness. <strong>Fix:</strong> Warm up properly before exercise (5-10 min), omega-3 supplements, stay hydrated, include turmeric/ginger in diet.</p>
       </div>
     </div>
   </div>
 
-  <h3>Weeks 3-6: Consistency Phase</h3>
-  <p>Continue everything from weeks 1-2. Don't change programs. Don't drop calories lower. This is where most people sabotage themselves.</p>
+  <!-- ===== COMMON 50+ TIPS ===== -->
+  <h3>Proven Tips for Both Men & Women 50+</h3>
 
   <div class="callout warning">
-    <h4>⚠️ The Plateau Audit (Week 4-5 if stuck)</h4>
-    <p><strong>Tracking accurately?</strong> Recount for 7 days. Oil, snacks, extras creep in.<br>
-    <strong>Hitting protein?</strong> Fix this first before cutting calories.<br>
-    <strong>Sleeping 7+ hours?</strong> Poor sleep spikes cortisol and blocks fat loss.<br>
-    <strong>Step count under 6,000?</strong> Add 2,000 steps. This often breaks plateaus without cutting food.<br>
-    <strong>Stressed + sleep low?</strong> Fix these first before eating less.</p>
+    <h4>🎯 The "Start Where You Are" Protocol</h4>
+    <p>If you've been sedentary for years, do NOT start with intense exercise. Here's the safe ramp-up:</p>
+    <p><strong>Week 1-2:</strong> Just walk 15-20 min/day. That's it. Build the habit.<br>
+    <strong>Week 3-4:</strong> Walk 30 min/day + 2x/week bodyweight exercises (squats, wall push-ups)<br>
+    <strong>Week 5-8:</strong> Walk 45 min/day + 3x/week strength routine + mobility work<br>
+    <strong>Week 9+:</strong> Full routine as described above. Increase intensity gradually.</p>
   </div>
 
-  <h3>Weeks 7-12: Progressive Overload & Adaptation</h3>
+  <div class="grid three">
+    <div class="card gold">
+      <h4 style="margin-top:0;">🚶 Walk Every Day</h4>
+      <p>45-60 min walking reduces all-cause mortality by 30-40% in adults 50+. Walk after meals to improve blood sugar. <strong>Non-negotiable daily habit.</strong></p>
+    </div>
+    <div class="card gold">
+      <h4 style="margin-top:0;">💧 Stay Hydrated</h4>
+      <p>Thirst sensation dulls with age. Drink water even if you don't feel thirsty. Target 2-3 liters/day. Dehydration causes fatigue, confusion, and joint pain.</p>
+    </div>
+    <div class="card gold">
+      <h4 style="margin-top:0;">🧠 Keep Learning</h4>
+      <p>Mental stimulation builds cognitive reserve. Read, learn a new language, play strategy games. Combined with exercise, this cuts dementia risk by 60%.</p>
+    </div>
+    <div class="card gold">
+      <h4 style="margin-top:0;">🤝 Stay Social</h4>
+      <p>Social isolation is as dangerous as smoking 15 cigarettes/day. Stay connected with family, friends, community groups. Loneliness accelerates cognitive decline.</p>
+    </div>
+    <div class="card gold">
+      <h4 style="margin-top:0;">🏥 Regular Check-ups</h4>
+      <p>Annual health check: blood pressure, blood sugar, cholesterol, vitamin D, B12, thyroid (especially women). Early detection = better outcomes.</p>
+    </div>
+    <div class="card gold">
+      <h4 style="margin-top:0;">🧘 Manage Stress</h4>
+      <p>Chronic stress accelerates aging at the cellular level (shortens telomeres). Meditation, breathing, walks, and hobbies all lower stress. Pick one and do it daily.</p>
+    </div>
+  </div>
 
+  <h3>Quick Reference: It Gets Simpler</h3>
   <table>
-    <tr>
-      <th>Phase</th>
-      <th>Rep Range</th>
-      <th>Focus</th>
-    </tr>
-    <tr>
-      <td><strong>Week 7-10</strong> (Phase 2)</td>
-      <td>8-12 reps</td>
-      <td>Hypertrophy. Volume increase. Add weight each week on main lifts.</td>
-    </tr>
-    <tr>
-      <td><strong>Week 11-14</strong> (Phase 3)</td>
-      <td>5-8 reps</td>
-      <td>Strength. Heavier loads, lower reps. Absolute strength increase.</td>
-    </tr>
-    <tr>
-      <td><strong>Week 15</strong> (Phase 4)</td>
-      <td>12-15 @ 60%</td>
-      <td>Deload. Same exercises, 60% weight, no pushing to failure. Recovery week.</td>
-    </tr>
+    <tr><th>Do This Daily</th><th>Avoid This</th></tr>
+    <tr><td>Walk 45-60 min</td><td>Sitting for 2+ hours straight</td></tr>
+    <tr><td>Protein at every meal</td><td>Sugary drinks & packaged snacks</td></tr>
+    <tr><td>7-8 hours sleep</td><td>Screens before bed</td></tr>
+    <tr><td>Strength training 3-4x/week</td><td>Overtraining (more is not better)</td></tr>
+    <tr><td>Sunlight 15 min in morning</td><td>Alcohol more than 1-2x/week</td></tr>
+    <tr><td>Stretch/mobility 10 min</td><td>Eating heavy meals after 8 PM</td></tr>
+    <tr><td>Drink 2-3 liters water</td><td>Ignoring joint pain (see a doctor)</td></tr>
   </table>
-
-  <h3>Expected Progress Timeline</h3>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-marker">Week 1-2</div>
-      <div class="timeline-content">
-        <p><strong>Scale:</strong> -1-2kg (mostly water). <strong>Visible:</strong> Stomach less bloated. Feeling better mentally. Strength: establishing baseline.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-marker">Week 4</div>
-      <div class="timeline-content">
-        <p><strong>Scale:</strong> -2-3kg total. <strong>Visible:</strong> Clothes fit looser. <strong>Strength:</strong> +10-15% on main lifts.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-marker">Week 8</div>
-      <div class="timeline-content">
-        <p><strong>Scale:</strong> -4-5kg total. <strong>Visible:</strong> Muscle definition emerging. Face looks leaner. <strong>Strength:</strong> +20% performance increase.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-marker">Week 12</div>
-      <div class="timeline-content">
-        <p><strong>Scale:</strong> -5-7kg (conservative estimate, mostly fat). <strong>Visible:</strong> Complete transformation. Clothes need replacing. Energy through roof. You feel like a different person.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <h4>💡 Important</h4>
-    <p>Don't wait 12 weeks to evaluate. <strong>Take progress photos every 2 weeks.</strong> They're more honest than the scale. Scale fluctuates. Your appearance doesn't.</p>
-  </div>
-
-</div>
-
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> Your biology matters, but the basics work for everyone. Don't use gender as an excuse to skip the fundamentals — deficit, training, protein, sleep apply to all.</div>
-  </div>
-</div>
-
-<!-- SECTION 9: MEN & WOMEN INDIVIDUALIZED PROTOCOLS -->
-<div class="section">
-  <h2>Men vs Women — Individualized Protocols</h2>
-  <p>Your biology changes how you should train, eat, and recover. Here's the sex-specific playbook on top of your foundation system.</p>
-
-  <h3>Training Differences</h3>
-  <div class="grid two">
-    <div class="card highlight">
-      <div style="font-size: 24px; margin-bottom: 12px;">♂</div>
-      <h4>Men</h4>
-      <p><strong>Higher absolute strength potential</strong> due to testosterone (10-15x higher than women). Prioritize heavy compound work (85-95% 1RM) for neural adaptation. Longer rest intervals (3-5 min) between heavy sets — your CNS needs more recovery. Upper body responds faster; don't neglect legs for hormonal response.</p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);"><strong>Tip:</strong> Add 2 extra rear-delt/rotator cuff sets. Men tend to over-press and pull insufficiently — shoulder health matters.</p>
-    </div>
-    <div class="card highlight">
-      <div style="font-size: 24px; margin-bottom: 12px;">♀</div>
-      <h4>Women</h4>
-      <p><strong>Superior fatigue resistance</strong> — women can do more volume with shorter rest (60-90 sec). Prioritize glute/hamstring development (anatomical advantage). Train through your cycle: follicular phase (days 1-14) = peak strength, go heavier; luteal phase (days 15-28) = higher volume, lower intensity. <strong>Do not skip upper body</strong> — women often under-train it despite incredible progress potential.</p>
-      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);"><strong>Tip:</strong> Hip thrusts, RDLs, and Bulgarian split squats are non-negotiable for lower body development.</p>
-    </div>
-  </div>
-
-  <h3>Nutrition Differences</h3>
-  <div class="grid two">
-    <div class="card">
-      <h4 style="margin-top: 0;">♂ Men</h4>
-      <p><strong>Higher caloric baseline</strong> (more muscle mass = higher BMR). Protein: 1.6-2.2g/kg body weight. Carbs: prioritize around training windows. You can tolerate larger calorie deficits before performance drops. <strong>Zinc and magnesium</strong> are critical for testosterone production — track these alongside macros.</p>
-    </div>
-    <div class="card">
-      <h4 style="margin-top: 0;">♀ Women</h4>
-      <p><strong>Cycle-phase nutrition matters.</strong> Follicular phase: slightly lower carb needs, insulin sensitivity higher. Luteal phase: increase carbs by 15-20%, increase sodium if bloating is an issue. <strong>Iron is critical</strong> — pair iron-rich foods (spinach, lean red meat, legumes) with vitamin C for absorption. Protein: same 1.6-2g/kg as men — do not cut protein during any phase.</p>
-    </div>
-  </div>
-
-  <h3>Recovery Differences</h3>
-  <div class="grid two">
-    <div class="card">
-      <h4 style="margin-top: 0;">♂ Men</h4>
-      <p><strong>Sleep is your #1 recovery lever.</strong> Testosterone production peaks during deep sleep. Poor sleep for 3+ days reduces testosterone by 10-15%. Men recover slower from high-CNS fatigue (heavy deadlifts, squats). Schedule deload weeks every 6-8 weeks without exception.</p>
-    </div>
-    <div class="card">
-      <h4 style="margin-top: 0;">♀ Women</h4>
-      <p><strong>Body temperature regulation</strong> changes across your cycle — keep your sleep environment cool (18-20°C). Luteal phase: expect 30-60 min more sleep need. <strong>Rest days are not optional</strong> — women's nervous systems respond better to undulating intensity across the month. Week 3-4 of cycle: drop training volume by 20-30% and add an extra rest day if needed.</p>
-    </div>
-  </div>
 
   <div class="callout">
     <h4>📌 The Bottom Line</h4>
-    <p><strong>Both sexes benefit from the same foundation:</strong> calorie deficit, progressive resistance training, adequate protein, 7+ hours sleep. The differences are real but marginal compared to nailing the basics. <strong>Women:</strong> cycle-sync your training load. <strong>Men:</strong> prioritize sleep for hormone health. Both: stop comparing yourself to the opposite sex's results.</p>
+    <p><strong>Age 50+ is not a decline — it's a transition.</strong> Your body needs different inputs than it did at 25. More protein. More sleep. More strength training. Less sitting. Less stress. Less sugar. <strong>Every single age-related decline can be slowed, stopped, or even reversed with the right habits.</strong> Start today. Your 60-year-old self will thank you.</p>
   </div>
 </div>
 
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> Reading this won't change your body. Applying one thing today will. Pick the smallest possible action and do it now — not Monday, not tomorrow.</div>
-  </div>
-</div>
-
-<!-- SECTION 10: YOUR TRANSFORMATION AGREEMENT -->
-<div class="section">
-  <h2>The Agreement With Yourself</h2>
-
-  <div style="background: linear-gradient(135deg, rgba(15, 110, 86, 0.05) 0%, rgba(15, 110, 86, 0.02) 100%); border: 2px solid var(--accent); border-radius: 8px; padding: 32px; margin: 30px 0;">
-
-    <h3 style="text-align: center; margin-top: 0; color: var(--accent);">I COMMIT TO:</h3>
-
-    <div class="list-item" style="border-bottom: none;">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
-      <div class="list-item-content">
-        <div class="list-item-title">Tracking food accurately for 2 weeks minimum</div>
-        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">Weigh. Track. No estimation. After 2 weeks, you know the pattern.</p>
-      </div>
-    </div>
-
-    <div class="list-item" style="border-bottom: none;">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
-      <div class="list-item-content">
-        <div class="list-item-title">Training 4+ days per week for 12 weeks (same program)</div>
-        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">No program-hopping. No excuses. Consistency beats perfection.</p>
-      </div>
-    </div>
-
-    <div class="list-item" style="border-bottom: none;">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
-      <div class="list-item-content">
-        <div class="list-item-title">Sleeping 7+ hours every single night</div>
-        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">Same wake time, even weekends. This is non-negotiable.</p>
-      </div>
-    </div>
-
-    <div class="list-item" style="border-bottom: none;">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
-      <div class="list-item-content">
-        <div class="list-item-title">Hitting my protein target daily</div>
-        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">1.6-2g per kg body weight. Non-negotiable for muscle preservation.</p>
-      </div>
-    </div>
-
-    <div class="list-item">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 16px; flex-shrink: 0; margin-top: 4px;">✓</div>
-      <div class="list-item-content">
-        <div class="list-item-title">Not changing programs based on 'internet advice'</div>
-        <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">12 weeks with this system. Not 2 weeks of 5 different systems.</p>
-      </div>
-    </div>
-
-    <h3 style="text-align: center; margin: 32px 0 24px; color: var(--accent);">I ACCEPT THAT:</h3>
-
-    <div style="font-size: 14px; color: var(--text); line-height: 1.8;">
-      <p>• The scale will fluctuate (water, food timing, hormones)</p>
-      <p>• Progress is non-linear (some weeks -2kg, some weeks flat)</p>
-      <p>• Consistency beats intensity (steady wins the race)</p>
-      <p>• This is a 12-week commitment, not a 2-week experiment</p>
-    </div>
-
-    <div style="text-align: center; margin-top: 32px; padding-top: 32px; border-top: 2px solid var(--accent);">
-      <p style="font-size: 18px; font-weight: 600; color: var(--accent); margin: 0;">If I do this, I will transform.</p>
-    </div>
-
-  </div>
-
-  <h3>Start Tomorrow</h3>
-  <p>Not Monday. Not next month. Tomorrow morning. Calculate your TDEE. Download your tracking app. Pick your first 3 meals. Schedule your first workout.</p>
-  <p style="font-size: 14px; color: var(--text-secondary);">The best time to start was yesterday. The second-best time is now.</p>
-
-</div>
-
-<div class="section-break">
-  <div class="divider"><span class="divider-dot"></span></div>
-  <div class="tip-card">
-    <span class="tip-icon">💡</span>
-    <div class="tip-text"><strong>Quick Tip:</strong> Track everything for 2 weeks — every calorie, every set, every gram of protein. After that, you won't need to. You'll know your patterns by instinct.</div>
-  </div>
-</div>
-
-<!-- SECTION 11: QUICK REFERENCE -->
-<div class="section">
+<!-- ===== QUICK REFERENCE ===== -->
+<div class="section" id="reference">
   <h2>Quick Reference & Tools</h2>
 
   <h3>Calculator Links</h3>
-  <div class="list-item">
-    <div class="list-item-icon">→</div>
-    <div class="list-item-content">
-      <div class="list-item-title">TDEE Calculator</div>
-      <div class="list-item-desc">healthline.com/nutrition/tdee-calculator or myfitnespal.com</div>
+  <div class="calc-grid">
+    <a href="https://tdeecalculator.net" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">🔥</span>
+      <div class="name">TDEE Calculator</div>
+      <div class="desc">Daily calorie needs</div>
+    </a>
+    <a href="https://www.calculator.net/bmi-calculator.html" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">⚖️</span>
+      <div class="name">BMI Calculator</div>
+      <div class="desc">Body mass index</div>
+    </a>
+    <a href="https://www.omnicalculator.com/health/bmi" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">📊</span>
+      <div class="name">Body Fat %</div>
+      <div class="desc">Body fat estimate</div>
+    </a>
+    <a href="https://www.osteoporosis.foundation/health-professionals/fracture-risk" target="_blank" rel="noopener" class="calc-card">
+      <span class="icon">🦴</span>
+      <div class="name">Bone Health</div>
+      <div class="desc">Fracture risk check</div>
+    </a>
+  </div>
+
+  <h3>Free Tracking Templates</h3>
+  <div class="grid two">
+    <div class="card">
+      <h4 style="margin-top: 0;">📋 Daily Health Log</h4>
+      <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+        [Date] | [Weight kg] | [Sleep hrs] | [Steps] | [Protein g] | [Energy 1-10]
+      </p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top: 0;">💪 Weekly Training Log</h4>
+      <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+        [Date] | [Exercise] | [Sets × Reps] | [Weight/Band] | [Notes]
+      </p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top: 0;">🥗 Daily Protein Tracker</h4>
+      <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+        [Meal 1] + [Meal 2] + [Meal 3] + [Snack] = Total<br>
+        Target: 1.6-2g × body weight (kg)
+      </p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top: 0;">🌙 Sleep & Stress Log</h4>
+      <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
+        [Wake] | [Bed] | [Quality 1-10] | [Stress 1-10] | [Notes]
+      </p>
     </div>
   </div>
 
-  <div class="list-item">
-    <div class="list-item-icon">→</div>
-    <div class="list-item-content">
-      <div class="list-item-title">BMI Calculator</div>
-      <div class="list-item-desc">calculator.net/bmi-calculator.html</div>
-    </div>
-  </div>
-
-  <div class="list-item">
-    <div class="list-item-icon">→</div>
-    <div class="list-item-content">
-      <div class="list-item-title">Macro Calculator</div>
-      <div class="list-item-desc">iifym.com/iifym-calculator/</div>
-    </div>
-  </div>
-
-  <div class="list-item">
-    <div class="list-item-icon">→</div>
-    <div class="list-item-content">
-      <div class="list-item-title">Body Fat Estimator</div>
-      <div class="list-item-desc">omni-calc.com/health/bmi</div>
-    </div>
-  </div>
-
-  <h3>Tracking Templates (Print or Screenshot)</h3>
-
-  <div class="card">
-    <h4 style="margin-top: 0;">Daily Calories Tracker</h4>
-    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
-      [Breakfast kcal] + [Lunch kcal] + [Snack kcal] + [Dinner kcal] = Daily Total
-    </p>
-  </div>
-
-  <div class="card">
-    <h4 style="margin-top: 0;">Daily Protein Tracker</h4>
-    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
-      [Breakfast protein] + [Lunch protein] + [Snack protein] + [Dinner protein] = Daily Total<br>
-      Target: 1.6-2g per kg body weight
-    </p>
-  </div>
-
-  <div class="card">
-    <h4 style="margin-top: 0;">Weekly Training Log</h4>
-    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
-      Date | Exercise | Weight × Reps × Sets | Notes
-    </p>
-  </div>
-
-  <div class="card">
-    <h4 style="margin-top: 0;">Sleep & Stress Log</h4>
-    <p style="font-size: 13px; font-family: monospace; color: var(--text-secondary); margin: 12px 0 0;">
-      Wake time | Sleep time | Sleep quality (1-10) | Stress level (1-10) | Training intensity
-    </p>
-  </div>
-
-  <h3>The 5 Biggest Mistakes (Don't Do These)</h3>
-
+  <h3>The 5 Biggest Mistakes (At Any Age)</h3>
   <div class="list-item">
     <div class="list-item-icon">✕</div>
     <div class="list-item-content">
-      <div class="list-item-title">Ego lifting (too heavy, bad form)</div>
-      <div class="list-item-desc">Record your sets. If it looks ugly, drop 20%. Form > weight.</div>
+      <div class="list-item-title">Not eating enough protein</div>
+      <div class="list-item-desc">This is the #1 mistake after 50. Without adequate protein, you lose muscle even if you train.</div>
     </div>
   </div>
-
   <div class="list-item">
     <div class="list-item-icon">✕</div>
     <div class="list-item-content">
-      <div class="list-item-title">Changing programs every 3 weeks</div>
-      <div class="list-item-desc">Run the same program for minimum 12 weeks. Consistency beats novelty.</div>
+      <div class="list-item-title">Doing only cardio, ignoring strength training</div>
+      <div class="list-item-desc">Cardio burns calories during the session. Strength builds muscle that burns calories 24/7. You need both.</div>
     </div>
   </div>
-
   <div class="list-item">
     <div class="list-item-icon">✕</div>
     <div class="list-item-content">
-      <div class="list-item-title">Dropping calories aggressively when stuck</div>
-      <div class="list-item-desc">Add steps or take a diet break first. Aggressive cuts destroy muscle.</div>
+      <div class="list-item-title">Skipping sleep to "get things done"</div>
+      <div class="list-item-desc">Sleep is when your body repairs. Skip it and every other effort is wasted — especially after 50.</div>
     </div>
   </div>
-
   <div class="list-item">
     <div class="list-item-icon">✕</div>
     <div class="list-item-content">
-      <div class="list-item-title">Skipping sleep thinking training matters more</div>
-      <div class="list-item-desc">Sleep is 40% of results. Training is useless without it.</div>
+      <div class="list-item-title">Starting too aggressively (injury cycle)</div>
+      <div class="list-item-desc">Go too hard week 1, get injured, stop for 3 months. Slow ramp-up wins the race. Patience is a strategy.</div>
     </div>
   </div>
-
   <div class="list-item">
     <div class="list-item-icon">✕</div>
     <div class="list-item-content">
-      <div class="list-item-title">Not tracking anything</div>
-      <div class="list-item-desc">Track calories for 2 weeks. Track training every session. Data > guessing.</div>
+      <div class="list-item-title">Ignoring joint pain (pushing through)</div>
+      <div class="list-item-desc">Muscle soreness is OK. Joint pain is not. Sharp pain = stop. Rest. Modify. Consult a physio if it persists.</div>
     </div>
   </div>
 
 </div>
 
+<!-- ===== FOOTER ===== -->
 <div style="text-align: center; padding: 60px 20px; border-top: 2px solid var(--accent); margin-top: 40px;">
-  <p style="font-size: 18px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">This is the system.</p>
-  <p style="font-size: 16px; color: var(--text); margin: 0;">It works if you work it.</p>
-  <p style="font-size: 13px; color: var(--text-secondary); margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px; letter-spacing: 1px;">Made by Aryan Swaroop</p>
+  <p style="font-size: 18px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">Your health is your greatest asset.</p>
+  <p style="font-size: 16px; color: var(--text); margin-bottom: 24px;">It's never too late to start. Small changes. Done consistently. That's all it takes.</p>
+  <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <a href="#calculators" class="button"><i class="fas fa-calculator"></i> Free Tools</a>
+    <a href="#age50" class="button gold"><i class="fas fa-star"></i> 50+ Guide</a>
+    <a href="#desk-job" class="button secondary"><i class="fas fa-chair"></i> Desk Job Health</a>
+  </div>
+  <p style="font-size: 13px; color: var(--text-secondary); margin-top: 32px;">
+    Built with science. Designed for real life. By Aryan Swaroop
+  </p>
 </div>
 
-</div>
+</div><!-- /container -->
 
 <script>
-function calculateTDEE() {
-  const weight = parseFloat(document.getElementById('weight').value);
-  const height = parseFloat(document.getElementById('height').value);
-  const age = parseFloat(document.getElementById('age').value);
-  const activityMultiplier = parseFloat(document.getElementById('trainingDays').value);
-  const goal = document.getElementById('goal').value;
+// Navigation toggle
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
 
-  if (!weight || !height || !age) {
-    alert('Please fill in all fields');
-    return;
-  }
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+}
 
-  // Mifflin-St Jeor formula
-  const bmr = weight * 22;
-  const tdee = Math.round(bmr * activityMultiplier);
-  
-  let targetCal;
-  if (goal === 'fat-loss' || goal === 'recomposition') {
-    targetCal = Math.round(tdee - 450);
-  } else if (goal === 'muscle-gain') {
-    targetCal = Math.round(tdee + 300);
+// Age tab switching
+function switchAgeTab(tab) {
+  document.querySelectorAll('.age-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.age-content').forEach(c => c.classList.remove('active'));
+
+  if (tab === 'men') {
+    document.querySelector('.men-tab').classList.add('active');
+    document.getElementById('age-men').classList.add('active');
   } else {
-    targetCal = tdee;
+    document.querySelector('.women-tab').classList.add('active');
+    document.getElementById('age-women').classList.add('active');
   }
-
-  const protein = Math.round(weight * 1.8);
-
-  document.getElementById('bmrResult').textContent = Math.round(bmr).toLocaleString();
-  document.getElementById('tdeeResult').textContent = tdee.toLocaleString();
-  document.getElementById('targetResult').textContent = targetCal.toLocaleString() + ' kcal/day';
-  document.getElementById('proteinResult').textContent = protein;
-
-  document.getElementById('assessmentResult').style.display = 'block';
 }
 </script>
 
